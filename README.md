@@ -9,10 +9,12 @@ Foundations dependencies used by the paper.
 ## Paper
 
 - **Six Birds Foundations V: Endogenous Closure — A Catalog of Structural
-  Laws for Living, Cognitive, and Social Systems**, Preprint v2.0,
+  Laws for Living, Cognitive, and Social Systems**, Preprint v3.0,
   6 October 2026: `paper/main.pdf` with its supplement `paper/supplement.pdf`.
-  DOI (v2.0): [10.5281/zenodo.23186908](https://doi.org/10.5281/zenodo.23186908);
+  DOI (v3.0): [10.5281/zenodo.23187089](https://doi.org/10.5281/zenodo.23187089);
   DOI (all versions): [10.5281/zenodo.22248766](https://doi.org/10.5281/zenodo.22248766);
+  v2.0 (6 October 2026; same text, main paper and supplement in one file):
+  [10.5281/zenodo.23186908](https://doi.org/10.5281/zenodo.23186908);
   v1.0 (2 September 2026): [10.5281/zenodo.22248767](https://doi.org/10.5281/zenodo.22248767)
 
 The paper develops an emergence calculus that moves the Six Birds closure
