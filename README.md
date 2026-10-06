@@ -11,7 +11,7 @@ Foundations dependencies used by the paper.
 - **Six Birds Foundations V: Endogenous Closure — A Catalog of Structural
   Laws for Living, Cognitive, and Social Systems**, Preprint v2.0,
   6 October 2026: `paper/main.pdf` with its supplement `paper/supplement.pdf`.
-  DOI (v2.0): [10.5281/zenodo.23186908](https://doi.org/10.5281/zenodo.23186908);
+  DOI (v2.0): [10.5281/zenodo.23187543](https://doi.org/10.5281/zenodo.23187543);
   DOI (all versions): [10.5281/zenodo.22248766](https://doi.org/10.5281/zenodo.22248766);
   v1.0 (2 September 2026): [10.5281/zenodo.22248767](https://doi.org/10.5281/zenodo.22248767)
 
