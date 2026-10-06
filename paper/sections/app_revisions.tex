@@ -1,0 +1,57 @@
+\section{Revision notes}\label{app:revisions}
+
+This appendix lists the changes from the first version of the paper. The main text states the
+results as they now stand and does not refer to the earlier version.
+
+\begin{proposition}[the version-1 capacity measure is vacuous]\label{prop:e2-v1-vacuous}
+Version~1 measured an audit tower by a record universe with $|U(z)| = \capc(z)$ and, for every
+occurring level $\ell$, a record set $R(\ell) \subseteq U(z)$ containing exactly $\ell$'s counted
+records, with $R(\ell) \cap R(\ell') = \varnothing$ whenever $\ell$ and $\ell'$ occur and have
+different indices. No E-system with an occurring level admits such a measure.
+\end{proposition}
+
+\begin{proof}
+Let $\ell$ occur with index $k$, and let $\ell'$ be $\ell$ with index $k + 1$ and an empty target
+list. Then $\ell'$ occurs, and the tag of the common own record lies in $R(\ell)$ and in $R(\ell')$,
+contradicting disjointness.
+\end{proof}
+
+\begin{proposition}[the version-1 forcing certificate is uninhabited]\label{prop:e1-v1-vacuous}
+Version~1 derived infinitely many strict self-extensions from a finite-forcing certificate that
+asserts the conclusion for every repair family, every novelty predicate and every strictness
+predicate whenever the challenge is new at every time. No system with inhabited state types admits
+such a certificate.
+\end{proposition}
+
+\begin{proof}
+Take the novelty predicate that always holds and the empty family. The certificate asserts that the
+empty family has an entry beyond every bound, and it has none.
+\end{proof}
+
+\begin{enumerate}
+  \item \emph{E1.} By \Cref{prop:e1-v1-vacuous}, the strict-self-extension statement of version~1
+    had no instance. The actual-family certificate of \Cref{def:e1-forcing} replaces it, with the
+    clocked instance of \Cref{thm:e1-clocked}; E1 is now a law.
+  \item \emph{E2.} By \Cref{prop:e2-v1-vacuous}, the capacity bound of version~1 held only for
+    systems without an occurring instrument level. The same measure was a hypothesis of forced
+    stratification, of the level classification, of the regress stop of E3 and of the meta-audit bound
+    of E8.1; none of these applies to a system with an occurring level. The declared measure of
+    \Cref{def:declared-measure} replaces it, with the instance of \Cref{thm:e2-tower}. The version-1
+    declarations remain in the library.
+  \item \emph{E3.} The reinstatement condition of version~1 names a challenge history but does not
+    use it, so it holds with an empty history. The history-linked form of \Cref{def:episode-linked}
+    replaces it, and the device now executes its repair along its declared trajectory.
+  \item \emph{E6.} Version~1 called the witnessed allocation ``certified optimal''. The multiplier
+    witness yields the consequences of \Cref{thm:e6-kkt}, not optimality; optimality holds under the
+    hypotheses of \Cref{prop:e6-sufficient}, and is checked in Lean for capped linear objectives
+    (\Cref{thm:e6-caps}).
+  \item \emph{E12 and E13.} In version~1 both were templates whose certificates had budget,
+    viability and completeness fields that no concrete model could establish. They are now laws with
+    the semantic definitions of \Cref{def:e12-setting,def:e13-transport}; the version-1 Templates are
+    kept as the full classifications.
+  \item \emph{E15.} The budget-reallocation identity was a field of the allocation record in
+    version~1; it is now derived from the exhaustion equations.
+  \item \emph{Presentation.} The paper leads with the laws and their instances, gives the
+    certificate specifications afterwards, and moves the concordance, field lists and registers to
+    the supplement.
+\end{enumerate}

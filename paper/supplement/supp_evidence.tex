@@ -1,0 +1,164 @@
+\section{Finite computations}
+\label{supp:evidence}
+
+\subsection{The finite carriers}
+
+Repair-World is a family of finite controlled Markov carriers whose states have the form
+\[
+  z = (y, q, L, r, \Lambda, A),
+\]
+with a public state $y$, a carried quotient table $q$, an active probe family $L$, a record ledger
+$r$, a budget vector $\Lambda$ and one or more carried audit levels $A$. The environment supplies a
+finite challenge process with controllable recurrence, drift, novelty and viability coupling. The
+common kernel implements the carrier, source, quotient, probe, ledger and audit interfaces; E4, E14,
+E15 and E16 use their own finite checkers over the same vocabulary, on rings of 18, 20 and 30 states,
+a probe shop and a memory wheel. The computations use exact rational arithmetic. For each entry the
+expected outputs --- statuses, counts, rational values and the controls that must be rejected --- were
+fixed before the checker was run, and a comparison passes only on equality with the fixed value.
+
+The computations show that the hypotheses of each certificate can be met on a finite carrier, that
+every status of each classification has a constructed case, and that the constructed false positives
+are rejected. They do not show that any catalog of probes or rescues is empirically complete, that
+any domain reading is an instance, or that the frequencies of statuses generalize.
+
+{\small
+\begin{longtable}{@{}lr>{\raggedright\arraybackslash}p{10.6cm}@{}}
+\caption{Finite comparisons by entry; all pass.}\label{tab:census}\\
+\toprule
+\textbf{Entry} & \textbf{Comparisons} & \textbf{What is compared} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Entry} & \textbf{Comparisons} & \textbf{What is compared} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+E1 & 15 & repair source, generator ablation, five statuses, subsidy, saturation, schedule, audit
+omission \\
+E2 & 13 & tower extension, capacity, saturation, linkage, status, loss optimum \\
+E3 & 17 & two-level closure, regress stop, ablation curves, source and audit defects \\
+E4 & 16 & compilation, gate and operator variants, brittleness, decompilation, drift, blocked
+candidates \\
+E5 & 20 & seven statuses, four rescue types, subsidy, withdrawal, reachability, inventory, budget \\
+E6, E9 & 14 & multipliers, slack, finite differences, saturation, acquisition, arbitration, proxy,
+salience \\
+E7 & 12 & excess, latency, preemption, survival, lawful discount, false and missed alarms, linkage \\
+E8 & 21 & component, field and summary statuses, slack, proxy, lineage, capture, capacity \\
+E10 & 26 & eight cognitive, five intention and four goal statuses, linkage and timing controls \\
+E11 & 20 & support and closure rewrite, conditioning, washout, channel block, constitutive record,
+scoping \\
+E12 & 19 & six statuses, three closures, boundary sufficiency, coarsestness, maximality, overlap \\
+E13 & 19 & communication, teaching, coercion null, symbolic repair, scaffolding, class, role, bridge \\
+E14 & 21 & nine statuses, retrieval trigger, three outcomes, collision, provenance, context,
+coarsening \\
+E15 & 46 & eight statuses, debt sources, budget geometry, duty cycle, cascade, inventory, gating,
+priority, timing \\
+E16 & 69 & eight statuses, route distributions, control inventories, reconciliation with E15,
+probabilities, perturbations \\
+\midrule
+Total & 348 & \\
+\end{longtable}
+}
+
+The capacities and footprints in the E2, E3 and E8 computations are record counts computed
+directly on the finite carriers. They are not instances of either Lean capacity measure.
+
+\subsection{Values by entry}
+
+\paragraph{E1.} The challenge is at baseline at times $0$--$1$ and splits at $2$--$4$. The initial
+obstruction has one pair and the installed join removes it. The carrier with its repair generator
+spends $2$ units of a budget of $3$ and is endogenously repairing at times $2$--$4$. With the
+generator removed the statuses are stressed, stressed, collapsing, with residuals $1, 2, 3$. External
+subsidy and a schedule trap both remove the obstruction but leave one endogeny defect and are
+classified externally subsidized; a same-family relabel leaves the obstruction and is stressed.
+
+\paragraph{E2.} On a carrier of capacity $8$, towers of depth $0$--$4$ have footprints
+$0, 2, 5, 8, 10$, so depths up to $3$ fit. Triggered audit rotates depth $1 \to 2 \to 3$; the
+saturated trigger stays at $3$. The fresh levels have tags $20$ and $30$ and targets $\{0\}$ and
+$\{0, 1\}$; a level with the wrong next index is rejected. With loss equal to audit cost plus repair
+error, the losses at depths $0$--$3$ are $18/24, 14/24, 13/24, 14/24$, so depth $2$ is optimal for
+this loss.
+
+\paragraph{E3.} Without challenge the apparatus distance is $1/8$ under tolerance $1/4$. After the
+maintenance channel is cut, the apparatus distance is $0, 1/8, 3/8, 1/2, 5/8, 3/4$ and the object
+distance $0, 1/16, 1/16, 1/8, 3/16, 5/16$; they separate first at time $2$, while the maintained
+reference stays at $1/8$. A crystal-grade control never separates. Absent-record, fallback,
+off-kernel, out-of-scope, uncarried and audit-omission controls each make the maintenance
+obstruction nonempty.
+
+\paragraph{E4.} Two candidates, an operator rewrite and a support gate, pass all gates and are
+compiled. Adding an out-of-class witness makes one mis-compiled; adding a decompilation event makes
+one decompiled. A blocked channel, a rejected promotion, a memory-only reproduction, same-family
+saturation and unverified descent each give compiling. A one-invocation window and a P6 compiled
+sort are rejected at construction. A window that reduces the obstruction while its payload drifts
+fails stability, and one that is stable without reducing the obstruction fails reduction.
+
+\paragraph{E5.} An $18$-state ring realizes all seven statuses; repair, boundary update, acquisition
+and apparatus reclosure each supply a separate viable rescue. External rescue gives subsidized while
+the internal inventory is still collapsed. A carrier with an active kernel and no rescue move is
+collapsed-recoverable. An over-budget descending move is rejected as a falsifier. After withdrawal of
+a subsidy the scenario is classified viable once absence of active subsidy is checked.
+
+\paragraph{E6 and E9.} In the probe shop the exact optima at budgets $1, 2, 3$ are $(4/5, 1/5)$,
+$(7/5, 3/5)$ and $(2, 1)$ with equal selected-probe ratios $25/9$, $25/16$ and $1$; budget $4$ is
+slack at $(2, 1)$ with price zero. Discharge rises $14/3 \to 27/4 \to 8 \to 8$. A proxy allocation
+discharges $2$ at every budget and at budget $3$ leaves residual trace $45/4$ against $21/4$. The
+largest excess direction is probe A with magnitude $3$ and moves to probe B with magnitude $8$ after
+the declared change of factor. Finite differences at perturbation $1/20$ give selected ratios
+$100/37, 8/3$ at budget $1$, $75/49, 50/33$ at $2$ and $60/59, 40/39$ at $3$, with spreads that shrink
+along perturbations $1/5, 1/10, 1/20$. Strict candidates C, AC and BC each discharge $1/4$, with
+ratios $1/4, 1/8, 1/16$; same-family candidates discharge nothing. Joint arbitration spends budgets
+$1$--$3$ on allocation and acquires C only at budget $4$, raising total discharge from $8$ to $33/4$.
+
+\paragraph{E7.} Residual and excess are $0, 1, 4, 9$ for hazard levels $0$--$3$. Monitoring budgets
+$1, 2, 3$ give detection latencies $2, 1, 0$, and budget $0$ never currentizes. In three hazards,
+preemption selects the alarm action and survives three times, while the old ratio ranks the ordinary
+action at $1$ above the alarm action at $1/2$ and fails three times. Protocol artifacts at thresholds
+$0$ and $1$ are discounted. Boundary nonclosure and alarm fatigue are not exercised.
+
+\paragraph{E8.} The binding component spends its unit budget with multiplier $3/2$; a slack
+component spends $1/2$ with multiplier $0$; a slack signal of $1/4$ is obstructed. A proxy with
+multiplier $4/5$, signal $9/10$ and drift $1/5 > 1/20$ fails alignment and stability. Genuine discharge
+lowers the residual from $5$ to $2$; the capture case raises the budget from $10$ to $15$ with a
+positive original-lineage blind spot and a healthy report; a rise from $10$ to $20$ with the residual
+falling from $9$ to $4$ is not capture.
+
+\paragraph{E10.} All eight cognitive, five intention and four goal statuses are realized. Controls
+reject a support comparison linked to the wrong intervention, a repair credited to the wrong class, a
+post-outcome restriction, an approximate support shift, an incoherent future probe, a reward-only
+explanation, an omitted route evaluation, and uncarried intention or goal records.
+
+\paragraph{E11.} A support rewrite and a closure-only rewrite are realized, with all four statuses.
+A weight change from $10^{-3}$ to $10^{-2}$ is conditioning. A support difference with a blocked
+channel is inert. The constitutive status appears only with the compiled-rewrite record.
+
+\paragraph{E12.} On a $30$-state ring: integrated candidates; a subsidiary with closure signature
+(repair, budget, record) $= (T, F, T)$; a platform-dependent candidate $(T, T, T)$ whose boundary is
+not self-maintained; a shadow $(T, T, F)$; federated fragments and overlapping maximal candidates. A
+candidate with all three closures and no sufficient boundary is non-individuated, and a smaller
+closing candidate is rejected when a declared larger one closes. A two-class boundary is sufficient
+and coarsest; a three-class one is sufficient but not coarsest.
+
+\paragraph{E13.} Clean communication, teaching with the source absent, coercion null, stable symbolic
+reactivation, scaffolding, priming and different-class influence are realized. Eight failure
+controls --- unpaid bridge, uncarried receiver repair, role change, context instability, role drift,
+saturation relabel, a parameter-only channel, a flow crossing with no bridge --- are transport
+rejected.
+
+\paragraph{E14.} Under a loose memory budget the outcome counts (repair, coarsen, unresolved) are
+$(6, 1, 1)$; under a tight one $(1, 6, 1)$. This interaction with the budget is observed, not derived.
+One source record is repaired for one retrieval claim and unresolved for another. A duplicate context
+or two transports for one context reject the setup; wrong-direction and non-strict coarsening fail.
+
+\paragraph{E15.} A lawful alternation has observed and predicted duty cycle $1/4$; a mismatch has
+$1/3$ against $1/4$, a gap of $1/12 > 1/24$. The debt from three sources sums to $20$; the budget
+identity is $6 = 4 + 2$, and fitted gains $11/2$ and $13/2$ are rejected. At accrual rates $7/2$ and
+$4$ the claim is online-sufficient, and at $5$ alternation is required.
+
+\paragraph{E16.} In the memory-wheel carrier the two endpoints are current-event equivalent and
+$p_\gamma = 3/4$, $p_\eta = 1/4$ for the repair challenge. The current loop action is trivial and the
+predictive action is not; $256$ continuations are enumerated. One case of each of flat, artifact,
+flattenable, currentizable, dissipative and coherent is realized. A perturbation of $3/4$ lies outside
+the declared bound $1/2$; an in-bound perturbation of $1/4$ destroys coherence and gives rejection.
+Stored probabilities that disagree with the counted ratio are rejected.

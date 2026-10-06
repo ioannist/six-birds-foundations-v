@@ -1,0 +1,47 @@
+\section{Source concordance}
+\label{supp:concordance}
+
+\Cref{tab:concordance} lists every numbered item of the main paper with its entry, its role, the
+line of the theorem catalog of the development at which that entry begins, and its Lean declarations
+with their kind, file and line. Declaration names omit the common prefix of the library; names
+beginning with \path{Instances.} belong to the instance modules. Items argued on paper only are
+marked as such.
+
+{\scriptsize
+\begin{longtable}{@{}l>{\raggedright\arraybackslash}p{2.8cm}>{\raggedright\arraybackslash}p{10.2cm}@{}}
+\caption{Source concordance.}\label{tab:concordance}\\
+\toprule
+\textbf{Item} & \textbf{Entry and role} & \textbf{Lean declarations} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Item} & \textbf{Entry and role} & \textbf{Lean declarations} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\input{supplement/concordance_rows}
+\end{longtable}
+}
+
+\Cref{tab:catalog-index} gives, for each definition and entry, its name in the theorem catalog and the
+status under which the main paper states it. The catalog states every entry E1--E16 as a theorem
+about arbitrary systems; that form is not a proof grade. Where the catalog and the main paper differ, the main paper's status is the one
+supported by the Lean statements.
+
+{\small
+\begin{longtable}{@{}l>{\raggedright\arraybackslash}p{5.6cm}>{\raggedright\arraybackslash}p{5.6cm}r@{}}
+\caption{Catalog name and status in the main paper.}\label{tab:catalog-index}\\
+\toprule
+\textbf{Entry} & \textbf{Catalog name} & \textbf{Main paper} & \textbf{Line} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Entry} & \textbf{Catalog name} & \textbf{Main paper} & \textbf{Line} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\input{supplement/catalog_rows}
+\end{longtable}
+}

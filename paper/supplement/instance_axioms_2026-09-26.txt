@@ -1,0 +1,78 @@
+'SixBirdsFoundationsV.Instances.E12Semantic.healthyOnly_closure_loadBearing' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E12Semantic.integrated_disjoint_or_equal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SixBirdsFoundationsV.Instances.E12Semantic.repairClosed_inter' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E12Semantic.repairPart_integrated' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E12Semantic.repairedIndividualWitness' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E12Semantic.secondLeft_maximal' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E12Semantic.secondRight_maximal' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E12Semantic.second_no_integrated' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E12_singleton_maximal_from_tests' depends on axioms: [propext]
+'SixBirdsFoundationsV.Instances.E13Semantic.chain_length_bound' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E13Semantic.chain_obstruction_bound' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E13Semantic.compose_payment' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E13Semantic.concrete_composite_payment' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E13Semantic.concrete_composite_reduces' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E13Semantic.cross_context_one_to_zero' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E13Semantic.cross_context_two_step_bound' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E13Semantic.cross_context_zero_to_one' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E13Semantic.roleOnly_mapsRepair' does not depend on any axioms
+'SixBirdsFoundationsV.Instances.E13Semantic.roleOnly_no_reduction' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.E13_two_contexts_distinct' does not depend on any axioms
+'SixBirdsFoundationsV.Instances.E13_two_contexts_members' depends on axioms: [propext]
+'SixBirdsFoundationsV.Instances.E1_StrictSelfExtension_noCertificate' depends on axioms: [Classical.choice]
+'SixBirdsFoundationsV.Instances.actualFamilyStrictExtensions' does not depend on any axioms
+'SixBirdsFoundationsV.Instances.capExampleGloballyOptimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SixBirdsFoundationsV.Instances.capExampleSlopeZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SixBirdsFoundationsV.Instances.capMultiplierKKT_sufficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SixBirdsFoundationsV.Instances.clockedEvenPerturbation' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.clockedFamilyEveryEntryInstalled' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.clockedOddRepair' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.clockedStrictExtensions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SixBirdsFoundationsV.Instances.clockedUnbounded' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.copiedRecordReindexNotDeclared' does not depend on any axioms
+'SixBirdsFoundationsV.Instances.declaredCapacityBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SixBirdsFoundationsV.Instances.declaredRecordList_length' depends on axioms: [propext]
+'SixBirdsFoundationsV.Instances.declaredRecordList_nodup' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.declaredRecordList_subset' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.declaredTowerCapacityBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventAt' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventCarried' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventCheckedCapacityBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventCheckedConcreteCapacity' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventCheckedExecutedRepair' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventCheckedLevelsDisjoint' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventCheckedStatusSaturated' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventCheckedSystemRepair' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventCheckedTowerAuditsLowerStack' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventE3Reinstatement' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventExecutedReinstatement' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventFullyHistoryLinked' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventHistoryAgrees' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventLowerInspectionPasses' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventRepair' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventTrajectory' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.eventTransition' does not depend on any axioms
+'SixBirdsFoundationsV.Instances.eventUpperRecordedCheck' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.finiteForcingNoPerpetualNovelty' does not depend on any axioms
+'SixBirdsFoundationsV.Instances.finiteForcingUninhabited' depends on axioms: [Classical.choice]
+'SixBirdsFoundationsV.Instances.geometryCapacityFromExhaustion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SixBirdsFoundationsV.Instances.noE2WithOccurringLevel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SixBirdsFoundationsV.Instances.noEpisodeLinkedWithEmptyHistory' depends on axioms: [propext]
+'SixBirdsFoundationsV.Instances.offlineCapacityFromExhaustion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SixBirdsFoundationsV.Instances.periodicNovel' depends on axioms: [propext, Quot.sound]
+'SixBirdsFoundationsV.Instances.periodicRefinementsDistinct' depends on axioms: [propext]
+'SixBirdsFoundationsV.Instances.periodicStrictAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SixBirdsFoundationsV.Instances.spikeNoE2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SixBirdsFoundationsV.Instances.spikeSelfMaintained' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SixBirdsFoundationsV.Instances.unitCapExampleGloballyOptimal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SixBirdsFoundationsV.Instances.weightedSaturatedSupportingPlane' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

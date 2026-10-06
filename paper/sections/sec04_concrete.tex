@@ -1,0 +1,543 @@
+\section{The laws and their instances}\label{sec:concrete}
+
+This section states the five entries that are laws and proves their instances, together with the
+general theorems of E6 and a numerical instance of them. \Cref{sec:device}
+defines the repair device. \Cref{sec:episode} treats E3 and \Cref{sec:capacity} E2, both on the
+device; \Cref{sec:allocation} treats E6, \Cref{sec:e1-forcing} E1, \Cref{sec:e12-semantic} E12 and
+\Cref{sec:e13-semantic} E13.
+
+\subsection{The repair device}\label{sec:device}
+
+\begin{definition}[repair device]\label{def:device}
+The \emph{repair device} is the E-system with carrier $Z = \{0, 1\}$, kernel support
+$\supp K = \{(z, 1) : z \in Z\}$ and declared trajectory $\tau(0) = 0$, $\tau(n) = 1$ for $n \ge 1$.
+Defect, move, audit and ledger records each have a single value, and each is read off the state by
+a constant coordinate map with source tag \emph{committed state} and both flags true. The instrument
+detects a defect at $z$ exactly when $z = 0$, allows a repair exactly when $z = 0$, and re-audits
+$z'$ exactly when $z' = 1$. The ledger has one line. The generator sends the defect to a move of
+sort P1 charged to that line, and a move is admissible at $z$ exactly when $z = 0$. The package is
+declared formed, and the instrument and ledger inventories are declared complete.
+\end{definition}
+
+In Lean the states $0$ and $1$ are the Booleans \texttt{false} and \texttt{true}.
+
+\begin{proposition}[a lawful repair step]\label{prop:device-step}
+In the repair device, $0 \to 1$ is a lawful repair step (\Cref{def:d4-step}).
+\end{proposition}
+
+\begin{proof}
+The defect and audit records are carried: each is the value of a declared constant coordinate at a
+state of the declared trajectory, which starts legitimately and whose steps lie in $\supp K$, and
+each has an allowed source tag with both flags true. At $z = 0$ the instrument detects the defect,
+the gate allows the generated P1 move, and the move is admissible; its budget line is the single
+ledger entry; $(0, 1) \in \supp K$; and the re-audit at $1$ passes.
+\end{proof}
+
+The declared formedness and inventory completeness are propositions set to true, and the record
+sorts have one element each; this is why the instances on the device are graded weak.
+
+\subsection{E3: self-maintaining reclosure}\label{sec:episode}
+
+E3 separates two conditions on a running package $\mathcal T_t$ with apparatus $\App_t$:
+\[
+  \underbrace{E_t^2 \simeq E_t}_{\text{object closure}}
+  \qquad\text{and}\qquad
+  \underbrace{\App_{t+1} = \mathfrak m(z_t)\ \text{with a carried, history-linked reinstatement}}
+  _{\text{apparatus reinstatement}} .
+\]
+Object closure says that the formed object is a fixed point of its completion. Reinstatement
+concerns the \emph{apparatus} --- the gates, thresholds, boundary and audit data that keep the object
+viable. A \emph{maintenance operator} $\mathfrak m$ maps a state to an apparatus. A
+\emph{reinstatement record} names a time $t$, a source and a target state, the operator, the
+apparatus records before and after, the output record and a ledger entry. The \emph{reinstatement
+condition} requires that $\App_t$, $\App_{t+1}$ and the operator be carried records, and that the
+reinstatement record be carried and consistent: its operator, apparatus and output fields match,
+$\App_{t+1} = \mathfrak m(\text{source})$, its ledger entry lies in $\Lambda_S$, and
+$(\text{source}, \text{target}) \in \supp K$.
+
+\begin{definition}[history-linked reinstatement]\label{def:episode-linked}
+A reinstatement record $\rho$ at time $t$ is \emph{history-linked} in a challenge history $H$ if it
+satisfies the reinstatement condition and there are an episode $e$ of $H$, a defect record $d$, an
+audit record $a$ and one entry class such that
+\begin{enumerate}
+  \item $e$ is dated $t$ and its obstruction witness is $d$;
+  \item the defect entry $d$, the move entry $\mathfrak R_S(d)$ and the audit entry $a$ all belong
+    to $H$, are all attached to $e$, and are all carried; and
+  \item $\text{source}(\rho) \to \text{target}(\rho)$ is a lawful repair step with defect $d$ and
+    audit $a$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[E3: an executed, history-linked reinstatement]\label{thm:e3-episode}
+Give the repair device the declared trajectory $\tau(0) = 0$ and $\tau(n) = 1$ for $n \ge 1$. Let
+$H$ be the history with one episode at time $0$, whose obstruction witness is the defect, and three
+entries --- the defect, the move and the audit --- attached to it, each read at time $1$ with source
+tag committed state. Let $\mathfrak m$ return the apparatus of time $1$, and let $\rho$ be the
+reinstatement record at time $0$ from state $0$ to state $1$. Then:
+\begin{enumerate}
+  \item the step $\tau(0) = 0 \to \tau(1) = 1$ of the trajectory lies in $\supp K$ and is a lawful
+    repair step;
+  \item $\rho$ is history-linked in $H$, with all three entries present, attached to the episode and
+    carried;
+  \item the episode is dated at the time of $\rho$, and the source and target of $\rho$ are
+    $\tau(0)$ and $\tau(1)$.
+\end{enumerate}
+Conversely, in a history with no episodes no reinstatement record is history-linked.
+\end{theorem}
+
+\begin{proof}
+Each part is checked against the definitions: the repair step as in \Cref{prop:device-step}, the reinstatement condition field by field, and the dates directly.
+(1) $\tau(0) = 0$, $\tau(1) = 1$ and $(0, 1) \in \supp K$; the repair step is checked as in
+\Cref{prop:device-step}, with the records carried at time $1$ of the trajectory, which starts
+legitimately and whose only earlier step is $(0, 1)$. (2) The reinstatement condition is checked
+field by field from the definitions of the apparatus, the operator and the record; the episode and
+the three entries are listed in $H$ and attached to the episode, and each entry is carried at time
+$1$. (3) The episode time, the time of $\rho$ and the entry time minus one are all $0$. The converse
+holds because condition (1) of \Cref{def:episode-linked} requires an episode of $H$.
+\end{proof}
+
+
+This is the instance that makes E3 a law: the repair is a step of the device's own trajectory, and
+the reinstatement record is linked to the episode of that step, which an empty history cannot
+supply. The full classification of maintained closure is a certificate specification
+(\Cref{tmpl:e3}).
+
+\subsection{E2: bounded reflexivity}\label{sec:capacity}
+
+E2 limits what a tower of carried instruments can certify and how many records it occupies. A
+\emph{carried instrument level} is an instrument together with a level index, its own instrument
+record, a target list of lower levels it audits, and the ledger entries and audit records it uses.
+The level \emph{occurs} if its records are carried, its ledger entries lie in $\Lambda_S$, and every
+index in its target list is below its own index.
+
+The first half of E2 is imported. The \emph{audit classifier} of \FoundIII{} assigns to a claim
+about an instrument one of the verdicts accepted, undefined as circular, or outside scope.
+
+\begin{proposition}[E2: no same-level self-certification]\label{prop:e2-self}
+A carried self-audit claim whose subject and accepting instrument are the same level, and which has
+no bridge to a different level, is not accepted by the audit classifier.
+\end{proposition}
+
+The second half counts records.
+
+\begin{definition}[declared capacity measure]\label{def:declared-measure}
+A \emph{declared capacity measure} for an E-system consists of
+\begin{enumerate}
+  \item a depth $n$ and a duplicate-free list of slots containing every $k < n$, with an occurring
+    level $\ell_k$ of index $k$ at each slot;
+  \item injective tags for instrument, ledger and audit records with pairwise disjoint ranges;
+  \item for each state $z$, a finite record universe $U(z)$ with $|U(z)| = \capc(z)$;
+  \item for each slot, a finite set $R_k$ that contains exactly the tags of $\ell_k$'s own
+    record, its visibility, threshold and check-rule records, and its used ledger entries and audit
+    records; with $R_k \subseteq U(z)$ for every $z$, $R_j \cap R_k = \varnothing$ for $j \ne k$, and
+    $|R_k| > 0$.
+\end{enumerate}
+A level is \emph{declared} if it equals some $\ell_k$. The \emph{footprint} is
+$\sum_{k<n} |R_k|$.
+\end{definition}
+
+\begin{theorem}[E2: capacity bound over a declared inventory]\label{thm:e2-declared}
+For every declared capacity measure and every state $z$,
+\[
+  \sum_{k<n} |R_k| \le \capc(z).
+\]
+If a level $\ell$ has the same own record as a declared level $\ell_k$ but an index different
+from $k$, then $\ell$ is not declared.
+\end{theorem}
+
+\begin{proof}
+Concatenate the lists $R_k$ over the slots. The result has no duplicates, because each $R_k$ has
+none and distinct slots are disjoint, and it is contained in $U(z)$. A duplicate-free list inside a
+finite set has length at most the size of the set, and its length is the footprint. For the second
+claim, suppose $\ell = \ell_j$. Then $j \ne k$ because the indices differ, and the tag of the shared
+record lies in both $R_k$ and $R_j$, contradicting disjointness.
+\end{proof}
+
+\begin{theorem}[E2: a two-level audited tower]\label{thm:e2-tower}
+Extend the repair device with instrument records $\{0, 1\}$ and audit records $\{\text{yes},
+\text{no}\}$. Level $0$ has own record $0$, which its instrument makes visible, and audits nothing.
+Level $1$ has own record $1$, visible to its instrument; it audits the lower stack $[0]$ by checking
+whether level $0$'s own record is among the records level $0$'s instrument makes visible, and it
+stores the result as the carried audit record it uses. Then:
+\begin{enumerate}
+  \item the check returns \emph{yes}, the stored audit record equals this result, and level $1$
+    audits the whole lower stack of the depth-two tower;
+  \item with $R_0 = \{i_0\}$, $R_1 = \{i_1, a_{\mathrm{yes}}\}$ and
+    $U(z) = \{i_0, i_1, a_{\mathrm{yes}}\}$, these data form a declared capacity measure, and
+    \[
+      |R_0| + |R_1| = 3 \le 3 = \capc(z);
+    \]
+  \item the device with this instrument has the lawful repair step $0 \to 1$ with audit record
+    \emph{yes}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The check is a finite list lookup and evaluates to \emph{yes}. The fields of
+\Cref{def:declared-measure} are verified by cases on the two slots: the sets are disjoint because
+the instrument tags are injective and instrument and audit tags have disjoint ranges. The bound is
+\Cref{thm:e2-declared}, and the repair step is checked as in \Cref{prop:device-step}.
+\end{proof}
+
+\Cref{prop:e2-self,thm:e2-declared} are the general statement of E2, and \Cref{thm:e2-tower} is its
+instance. The record universe is declared to consist of exactly the three counted records, so the
+bound is attained. Over a declared inventory, the levels can be classified by priority --- saturated
+if the footprint equals the capacity, otherwise rotating if an upper level audits, otherwise
+circular-blocked if the same-level claim is blocked, otherwise active --- and this classification is
+exhaustive and exclusive by construction; the audited tower is saturated. That an audited repair
+forces a new audit level is a certificate specification: its Lean form takes the order of the level
+tags and the audit relation of the next level as input.
+
+\subsection{E6: priced exposure allocation}\label{sec:allocation}
+
+Let a probe economy (\Cref{def:d6}) have active support $P$ with weights $w_p \ge 0$, marginal
+discharges $d_p$ and marginal costs $c_p$, and let spend and budget be carried ledger entries. A
+probe is \emph{selected} if $p \in P$ and $w_p > 0$. A \emph{multiplier witness} is a rational
+$\lambda \ge 0$ with $\mu_p \ge 0$ such that
+\begin{equation}\label{eq:kkt}
+  d_p = \lambda c_p - \mu_p \ (p \in P), \qquad
+  \lambda\,(\text{spend} - \text{budget}) = 0, \qquad
+  \mu_p w_p = 0 .
+\end{equation}
+These are the stationarity and complementary-slackness conditions of the problem of maximizing
+discharge subject to the budget \citep{BoydVandenberghe2004}. The witness records supplied
+marginals; it names neither an objective nor a feasible set.
+
+\begin{theorem}[E6: multiplier algebra]\label{thm:e6-kkt}
+Given a multiplier witness with $c_p > 0$ for all $p \in P$:
+\begin{enumerate}
+  \item if some selected probe has $d_p > 0$, then $\lambda > 0$, every selected probe has
+    $d_p / c_p = \lambda$, and every $p \in P$ with $w_p = 0$ has $d_p / c_p \le \lambda$;
+  \item if spend $<$ budget, then $\lambda = 0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+For a selected probe $\mu_p w_p = 0$ gives $\mu_p = 0$, so $d_p = \lambda c_p$; if $d_p > 0$ and
+$c_p > 0$ then $\lambda > 0$. For $w_p = 0$, $d_p/c_p = \lambda - \mu_p/c_p \le \lambda$. If spend
+$<$ budget, the budget slackness equation forces $\lambda = 0$.
+\end{proof}
+
+A binding budget alone does not give $\lambda > 0$: a flat objective can spend the whole budget at
+price zero. The hypothesis that some selected probe has positive marginal discharge is what forces a
+positive price.
+
+\begin{proposition}[E6: when a witness is optimal]\label{prop:e6-sufficient}
+Let a multiplier witness be given at $w^*$, and let
+\[
+  F = \Bigl\{ w \in \mathbb R^P :\ w \ge 0,\ \sum_{p \in P} c_p w_p \le \text{budget} \Bigr\},
+\]
+with $c_p$ the supplied marginal costs. Suppose that:
+\begin{enumerate}
+  \item $D : \mathbb R^P \to \mathbb R$ is concave and differentiable;
+  \item the supplied marginal discharges are its partial derivatives at the allocation,
+    $d_p = \partial_p D(w^*)$ for every $p \in P$;
+  \item $w^* \ge 0$ and $\sum_p c_p w^*_p \le \text{budget}$, so $w^* \in F$; and
+  \item the recorded spend is $\sum_p c_p w^*_p$.
+\end{enumerate}
+Then $D(w) \le D(w^*)$ for every $w \in F$.
+\end{proposition}
+
+\begin{proof}
+Let $w \in F$. Concavity gives $D(w) \le D(w^*) + \sum_p d_p (w_p - w^*_p)$. By stationarity
+$d_p = \lambda c_p - \mu_p$, so the sum equals
+\[
+  \lambda \sum_p c_p w_p - \lambda\,\text{spend} - \sum_p \mu_p w_p + \sum_p \mu_p w^*_p ,
+\]
+using $\text{spend} = \sum_p c_p w^*_p$. Complementary slackness gives $\lambda\,\text{spend} =
+\lambda\,\text{budget}$ and $\mu_p w^*_p = 0$. Hence the sum is
+$\lambda(\sum_p c_p w_p - \text{budget}) - \sum_p \mu_p w_p \le 0$, because $\lambda, \mu_p \ge 0$,
+$w \ge 0$ and $\sum_p c_p w_p \le \text{budget}$. Feasibility of $w^*$ is needed for $w^*$ to be a
+candidate at all: with one probe, $D \equiv 0$, unit cost, $w^* = 2$, spend $2$, budget $1$ and
+$\lambda = \mu = 0$, every other hypothesis holds and $w^* \notin F$. No constraint qualification is
+needed for this direction, and positivity of the costs is not used.
+\end{proof}
+
+\begin{theorem}[E6: sufficiency for capped linear objectives]\label{thm:e6-caps}
+Let $a_0, a_1$ be rational weights, $c_0, c_1$ rational caps and $B$ a rational budget, and let
+\[
+  D(x) = a_0 \min(x_0, c_0) + a_1 \min(x_1, c_1), \qquad
+  F = \{x \in \mathbb Q^2 : x_0, x_1 \ge 0,\ x_0 + x_1 \le B\}.
+\]
+Let $w \in F$ with $w_p \le c_p$, and let $\lambda \ge 0$ and $\mu_0, \mu_1 \ge 0$ satisfy
+\[
+  a_p = \lambda + \mu_p, \qquad \mu_p\,(c_p - w_p) = 0, \qquad \lambda\,(B - w_0 - w_1) = 0
+  \qquad (p = 0, 1).
+\]
+Then $D(x) \le D(w)$ for every $x \in F$.
+\end{theorem}
+
+\begin{proof}
+For each $p$, $a_p \min(x_p, c_p) = \lambda \min(x_p, c_p) + \mu_p \min(x_p, c_p) \le \lambda x_p +
+\mu_p c_p$. Summing and using $x_0 + x_1 \le B$ and $\lambda \ge 0$,
+\[
+  D(x) \le \lambda B + \mu_0 c_0 + \mu_1 c_1 = \lambda (w_0 + w_1) + \mu_0 w_0 + \mu_1 w_1
+  = a_0 w_0 + a_1 w_1 = D(w),
+\]
+where the first equality is the two complementarity conditions and the last uses $w_p \le c_p$.
+\end{proof}
+
+Here $\mu_p$ is the multiplier of the cap $x_p \le c_p$: a coordinate strictly below its cap has
+$\mu_p = 0$ and marginal value $a_p = \lambda$, while a coordinate at its cap may have
+$a_p > \lambda$. At a cap, $0$ is a valid supporting slope of $D$ in coordinate $p$, and with that choice the
+multiplier of the cap, not the budget price alone, carries the difference. The theorem
+states sufficient conditions; a coordinate at zero below its cap is required to satisfy
+$a_p = \lambda$, which is stronger than necessary.
+
+\begin{theorem}[E6: an optimum at a cap]\label{thm:e6-atcap}
+With weights $a = (2, 1)$, caps $c = (1, 5)$ and budget $B = 3$, the allocation $w = (1, 2)$ is
+optimal: $D(x) \le D(w) = 4$ for every $x \in F$. The multipliers $\lambda = 1$, $\mu = (1, 0)$
+satisfy the conditions of \Cref{thm:e6-caps}, the first coordinate sits at its cap with
+$\mu_0 = 1 > 0$, and its supporting slope is $0$. With unit weights, $w = (1, 2)$ is also optimal.
+\end{theorem}
+
+\begin{proof}
+$a_0 = 2 = 1 + 1$, $a_1 = 1 = 1 + 0$, $\mu_0(c_0 - w_0) = 1 \cdot 0$, $\mu_1(c_1 - w_1) = 0 \cdot 3$
+and $\lambda(B - w_0 - w_1) = 1 \cdot 0$; apply \Cref{thm:e6-caps}. With unit weights,
+$\min(x_0, 1) + \min(x_1, 5) \le x_0 + x_1 \le 3 = D(w)$.
+\end{proof}
+
+\Cref{thm:e6-kkt,prop:e6-sufficient,thm:e6-caps} are the general statement of E6, and
+\Cref{thm:e6-atcap} is a numerical instance of \Cref{thm:e6-caps}: its allocation and multipliers are
+rationals, not records carried in the ledger of an E-system. An instance of E6 on a carried probe
+economy is open. The two examples below show that neither concavity nor the link
+between supplied marginals and the objective can be dropped from \Cref{prop:e6-sufficient}.
+
+\begin{example}[multipliers without concavity]\label{ex:e6-nonconcave}
+Maximize $D(x, y) = x^2 + y^2 + x + y$ over $x, y \ge 0$ with $x + y \le 1$, with unit costs. At
+$(1/2, 1/2)$ both marginal discharges equal $2x + 1 = 2$, so $\lambda = 2$, $\mu = 0$ satisfy
+\eqref{eq:kkt} with a binding budget and a selected probe of positive discharge. Yet
+$D(1/2, 1/2) = 3/2 < 2 = D(1, 0)$. This example is argued on paper.
+\end{example}
+
+\begin{remark}[multipliers not linked to the objective]\label{rem:e6-unlinked}
+On the unit simplex take $D(x) = x_0$, supplied marginals $d = (1, 1)$, unit costs and
+$x^* = (0, 1)$ with spend $=$ budget $= 1$. Then $\lambda = 1$ and $\mu = 0$ satisfy \eqref{eq:kkt}
+and probe $1$ is selected with $d_1 > 0$, yet $D(x^*) = 0 < 1 = D(1, 0)$: hypothesis (2) of
+\Cref{prop:e6-sufficient} fails. This remark is argued on paper.
+\end{remark}
+
+The name ``attention'' is operational; the law says nothing about awareness.
+
+\subsection{E1: perpetual self-extension}\label{sec:e1-forcing}
+
+E1 asks when a recurring challenge forces a system to extend itself again and again. A \emph{repair
+family} assigns to some times $t$ a history entry and an installed refinement $R_t : X \to
+\mathcal R$. A \emph{novelty predicate} $N$ says, for a challenge class $\mathcal C$ and the
+system's state of knowledge $\sigma_t$ at time $t$, whether the challenge is new at $t$; a
+\emph{strictness predicate} $P$ says whether a refinement is a strict extension relative to
+$\sigma_t$. The family makes \emph{infinitely many strict self-extensions} if for every $n$ there is
+a time $t \ge n$ with an entry whose refinement satisfies $P(R_t, \sigma_t)$.
+
+\begin{definition}[actual-family forcing]\label{def:e1-forcing}
+An \emph{actual-family forcing certificate} for a repair family consists of
+\begin{enumerate}
+  \item \emph{recurrence}: for every $n$ the family has an entry at some time $t \ge n$; and
+  \item \emph{installation}: at every entry time $t$ at which $N(\mathcal C, \sigma_t)$ holds, the
+    entry's refinement satisfies $P(R_t, \sigma_t)$.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[E1: forced self-extension]\label{prop:e1-forcing}
+If a repair family has an actual-family forcing certificate and the challenge is new at every time,
+then the family makes infinitely many strict self-extensions.
+\end{proposition}
+
+\begin{proof}
+Given $n$, recurrence gives an entry at some $t \ge n$, and installation applied to the novelty at
+$t$ makes its refinement strict.
+\end{proof}
+
+The proposition is a direct combination of the two fields; its content lies in the instance, where
+recurrence and installation are proved about executed repairs.
+
+\begin{theorem}[E1: a clocked device]\label{thm:e1-clocked}
+Let the \emph{clocked device} have carrier $\mathbb N$, kernel $z \to z + 1$ and trajectory
+$\tau(t) = t$. A step from an even to an odd state is a perturbation, and at an odd state $t$ the
+device carries the defect record $t$, its generator produces a move whose payload is $t$, and the
+move is admissible exactly at odd states. Let the family have an entry exactly at the odd times $t$,
+with the move entry read at time $t + 1$ and the refinement $R_t(b) = t + 1$ if $b$ is true and
+$R_t(b) = t$ otherwise. Let $\sigma_t = (t, \{0, \dots, t - 1\})$, let $N$ say that $t \notin \{0,
+\dots, t-1\}$, and let $P(R, \sigma_t)$ say that $R(\text{false}) \notin \{0, \dots, t-1\}$ and
+$R(\text{true}) \ne R(\text{false})$. Then:
+\begin{enumerate}
+  \item at every odd $t$, the step $t \to t + 1$ is a lawful repair step with defect $t$, the move
+    payload $t$ installs $R_t$, and the move entry is carried;
+  \item every entry of the family is of this form, and the family has entries beyond every bound;
+  \item the family has an actual-family forcing certificate, the challenge is new at every time,
+    and so the family makes infinitely many strict self-extensions;
+  \item refinements installed at distinct times are distinct.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Part~(1) checks the repair step at each odd time; parts~(2) and~(3) read recurrence, installation and novelty off the construction and apply \Cref{prop:e1-forcing}; part~(4) compares refinements.
+(1) At odd $t$ the instrument detects the defect $t$, the gate and admissibility hold, the ledger
+line is the single entry, $(t, t + 1)$ is a kernel step and the re-audit passes at the even state
+$t + 1$; the move payload is the defect $t$, and the installation rule sends payload $t$ to $R_t$.
+(2) The family is defined by parity, and $2n + 1 \ge n$ is odd. (3) Recurrence is (2); installation
+holds because $R_t(\text{false}) = t \notin \{0, \dots, t - 1\}$ and $t + 1 \ne t$; novelty is
+$t \notin \{0, \dots, t - 1\}$. \Cref{prop:e1-forcing} gives the conclusion. (4) $R_t(\text{false})
+= t$.
+\end{proof}
+
+The instance is weak in the sense of \Cref{sec:setting-status}: novelty is the fact that a clock
+value has not occurred before, and strictness is a chosen fresh output, so the theorem shows that
+the certificate can be met by executed, carried repairs with pairwise distinct refinements, not that
+a system facing an open-ended challenge must extend itself.
+
+\subsection{E12: individuation}\label{sec:e12-semantic}
+
+E12 asks which parts of a system are individuals: parts that keep their repairs inside themselves,
+maintain their own boundary, and have no rival claim to the same states. We state it for a finite
+system directly.
+
+\begin{definition}[individuation setting]\label{def:e12-setting}
+An \emph{individuation setting} consists of a finite set of states $Z$, a step relation $\to$ on
+$Z$, a closure operator $\mathrm{cl}$ on subsets of $Z$ (extensive, monotone and idempotent), and a
+finite list of \emph{boundary regions} $B_1, \dots, B_m \subseteq Z$. A \emph{part} is a subset
+$P \subseteq Z$. A part is
+\begin{enumerate}
+  \item \emph{repair-closed} if $\mathrm{cl}(P) = P$ and every step from a state of $P$ ends in $P$;
+  \item \emph{self-maintaining} if it is nonempty, lies inside some boundary region, and every state
+    of $P$ has a step to a state of $P$;
+  \item a \emph{candidate} if it is both;
+  \item \emph{maximal} if it is a candidate and no strictly larger part is a candidate;
+  \item an \emph{integrated individual} if it is maximal and every maximal part that overlaps it
+    equals it.
+\end{enumerate}
+\end{definition}
+
+The closure operator says which states belong together; in the instance below it joins each healthy
+state with the damaged state it is perturbed into and repaired from. The boundary regions are the parts whose boundary
+the system can hold; a part outside every region cannot maintain itself, however it behaves.
+
+\begin{proposition}[E12: structure of candidates]\label{prop:e12-structure}
+In every individuation setting:
+\begin{enumerate}
+  \item the intersection of two repair-closed parts is repair-closed;
+  \item two integrated individuals are equal or disjoint.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Part~(1) uses monotonicity and extensivity of the closure, and part~(2) uses the overlap condition that defines an integrated individual.
+(1) Monotonicity gives $\mathrm{cl}(P \cap Q) \subseteq \mathrm{cl}(P) \cap \mathrm{cl}(Q) = P \cap
+Q$, and extensivity gives the reverse inclusion; a step from $P \cap Q$ stays in $P$ and in $Q$.
+(2) If they overlap, each is a maximal part overlapping the other, so they are equal by definition.
+\end{proof}
+
+Part (2) is immediate from the definition; the content of E12 is in the instances.
+
+\begin{theorem}[E12: an individual that contains its own repair]\label{thm:e12-repair}
+Let $Z = \{h, d, o\}$ (healthy, damaged, outside). The steps are the stutters $z \to z$ and the
+repair $d \to h$; a perturbation sends $h$ to $d$ but is not a step of the system. The closure adds
+$d$ to any part containing $h$ and $h$ to any part containing $d$, and fixes $o$. The single boundary
+region is $\{h, d\}$. Then:
+\begin{enumerate}
+  \item $\{h, d\}$ is an integrated individual; it contains the damaged state together with its
+    repair, and it is neither empty nor all of $Z$;
+  \item $\{h\}$ is closed under steps and self-maintaining, but it is not a candidate, because its
+    closure contains $d$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Both parts are checked directly from the closure, the steps and the single boundary region.
+(1) The closure of $\{h, d\}$ is itself, the only non-stutter step $d \to h$ stays inside, the part
+lies in the boundary region, and every state has its stutter. Every candidate lies in the single
+region $\{h, d\}$, so no candidate is strictly larger and every overlapping maximal part is contained
+in, hence equal to, $\{h, d\}$. The state $o$ is outside it. (2) $h$ has only its stutter, and
+$\{h\} \subseteq \{h, d\}$; but $\mathrm{cl}(\{h\}) = \{h, d\} \ne \{h\}$.
+\end{proof}
+
+Part (2) shows that the closure condition does work: the healthy state alone is closed under the
+system's steps and maintains itself, and only the closure, which joins it to the damaged state,
+excludes it.
+
+\begin{proposition}[E12: overlapping maxima leave no individual]\label{prop:e12-overlap}
+Let $Z = \{0, 1, 2\}$, with only stutter steps, the identity closure and boundary regions $\{0, 1\}$
+and $\{1, 2\}$. Both regions are maximal parts, they overlap at $1$, and no integrated individual
+exists.
+\end{proposition}
+
+\begin{proof}
+Each region is a candidate; any candidate lies in one region, so a candidate containing a region is
+that region. An integrated individual would lie in one region, hence equal it by maximality, and
+then the other region would be an overlapping maximal part different from it.
+\end{proof}
+
+The setting models repair closure, boundary maintenance and the exclusion of rivals. It does not
+model the budget and record closure of the full classification (\Cref{tmpl:e12}), and a boundary
+region is a declared set, not a quotient shown to be the coarsest one through which the viability
+probes descend.
+
+\subsection{E13: repair transport}\label{sec:e13-semantic}
+
+E13 asks when a repair in one system becomes a repair in another: when a signal that works for the
+sender also reduces the same kind of difficulty for the receiver.
+
+\begin{definition}[repair system and transport]\label{def:e13-transport}
+A \emph{repair system} has states $S$, contexts $C$, a repair relation $s \to_c t$ in each context,
+an obstruction $\mathrm{ob}_c(s) \in \mathbb N$, a challenge class $\mathrm{cls}(c)$ for each context
+and a role $\mathrm{role}(s)$ for each state. A \emph{paid interface} from $A$ to $B$ consists of
+maps $f$ on states and $g$ on contexts that preserve roles and challenge classes, and a payment
+$\pi > 0$. A \emph{repair transport} is a paid interface such that for every source repair
+$s \to_c t$ in $A$,
+\[
+  f(s) \to_{g(c)} f(t) \ \text{in } B
+  \qquad\text{and}\qquad
+  \mathrm{ob}^B_{g(c)}(f(t)) < \mathrm{ob}^B_{g(c)}(f(s)).
+\]
+\end{definition}
+
+\begin{theorem}[E13: transports compose and bound repair chains]\label{thm:e13-chain}
+\begin{enumerate}
+  \item Repair transports $A \to B$ and $B \to C$ compose to a repair transport $A \to C$ whose
+    payment is the sum of the two payments.
+  \item If $s_0 \to_c s_1 \to_c \cdots \to_c s_k$ is a chain of $k$ repairs in $A$ and $(f, g)$ is a
+    repair transport to $B$, then
+    \[
+      \mathrm{ob}^B_{g(c)}(f(s_k)) + k \le \mathrm{ob}^B_{g(c)}(f(s_0)),
+    \]
+    so no chain of source repairs is longer than the receiver's obstruction at its start.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) Compose the maps; roles, classes, mapped repairs and strict decrease pass through both steps.
+The payment of the composite is defined as the sum. (2) Induction on $k$: each transported repair
+lowers a natural-number obstruction by at least one.
+\end{proof}
+
+\begin{theorem}[E13: transport across contexts]\label{thm:e13-cross}
+Let the source have states $\mathbb N$, contexts $\{0, 1\}$ of class $7$, repairs $s \to_c t$ for
+$t < s$, obstruction $s + c$ and role $s \bmod 2$. Let the receiver have states $\mathbb N \times
+\{\text{true}, \text{false}\}$, the same contexts and class, repairs that lower the first coordinate
+and keep the second, obstruction $s_1 + c$ and role $s_1 \bmod 2$. Let $f(s) = (s, \text{true})$,
+let $g$ exchange the two contexts, and let the payment be $4$. Then $(f, g)$ is a repair transport,
+and the two-step chain $3 \to_0 2 \to_0 1$ lowers the receiver's obstruction in context $1$ by at
+least $2$. Composing the identity transports to the receivers with obstruction $s + c + 1$ and
+$s + c + 2$, with payments $2$ and $3$, gives a transport with payment $5$ that reduces obstruction
+in both contexts.
+\end{theorem}
+
+\begin{proof}
+Direct verification, then \Cref{thm:e13-chain}.
+\end{proof}
+
+\begin{proposition}[E13: a paid, role-preserving map need not transport repair]\label{prop:e13-flat}
+The identity map from the source of \Cref{thm:e13-cross} to a receiver with the same repairs, roles
+and classes but constant obstruction $0$ is a paid interface that carries every source repair to a
+receiver repair, yet reduces no obstruction.
+\end{proposition}
+
+\begin{proof}
+The maps preserve roles and classes, and a source repair $t < s$ is a receiver repair; but the source
+repair $2 \to_0 1$ would need $0 < 0$.
+\end{proof}
+
+The theorems concern paid, role-preserving repair transport, the core of the communication case of
+E13. The full communication certificate, which adds carried evidence and mediation by an interface
+quotient, and the teaching, coercion and symbolic cases (\Cref{tmpl:e13}) remain certificate
+specifications.

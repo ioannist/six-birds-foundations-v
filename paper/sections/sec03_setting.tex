@@ -1,0 +1,277 @@
+\section{Setting}\label{sec:setting}
+
+\subsection{Packages, quotients and residuals}\label{sec:setting-apparatus}
+
+\begin{definition}[Theory package]\label{def:theory-package}
+A \emph{theory package} $\mathcal T = (Z, f, \Sigma_f, E, \mathcal A)$ consists of a carrier $Z$ of
+states; a \emph{lens} $f$, the map that says what an observer of the package reads off a state; its
+\emph{definability structure} $\Sigma_f$, the family of distinctions expressible through $f$; a
+\emph{completion} $E$, a map on descriptions that packages a description into a finished object; and
+an \emph{audit} $\mathcal A$, the checks the package applies to its own records. It comes with a
+transition kernel $K$ on $Z$ whose support $\supp K \subseteq Z \times Z$ lists the allowed one-step
+moves. The package is \emph{formed} when its completion has a declared fixed point with its records
+and audit included in the package \citep{Tsiokos2026FoundI}.
+\end{definition}
+
+The carrier is finite in every application of this paper; in Lean the carrier is an arbitrary type
+and finiteness is imposed only where a statement uses it. Formedness is a proposition supplied with
+the package. None of the results below uses the internal structure of $f$, $\Sigma_f$ or $E$.
+
+\paragraph{Quotients and split pairs.} A \emph{quotient} is a map $q : X \to Q$; it records which
+states an observer can distinguish. Say $q$ \emph{refines} $r$, written $q \preceq r$, when
+$q(x) = q(x')$ implies $r(x) = r(x')$. For an update $F : X \to Y$ and a readout $r : Y \to R$, the
+\emph{split-pair obstruction} is
+\begin{equation}\label{eq:split}
+  \Delta(q, F, r) = \{(x, x') : q(x) = q(x'),\ r(F(x)) \ne r(F(x'))\}.
+\end{equation}
+The readout descends through $q$ exactly when $\Delta(q,F,r) = \varnothing$, and a nonempty
+obstruction is repaired by refining the source or coarsening the target \citep{Tsiokos2026FoundIV}.
+
+\paragraph{Closure deficit and adequacy residual.} On a history carrier, let $X_t$ be the history up to
+time $t$, let $Y^+_{t,\tau}$ be the declared future observables up to horizon $\tau$, and for a quotient
+$\Pi$ of histories let $Y^\Pi_t$ be the class of $X_t$ under $\Pi$. The \emph{closure deficit}
+$\CD_\tau(\Pi) = I(X_t; Y^+_{t,\tau} \mid Y^\Pi_t)$ is the information about the future that the
+history holds beyond what $\Pi$ keeps \citep{Tsiokos2026FoundIII}. It is used for a current quotient
+$Q$ and a predictive quotient $M$ refining it. For a covariance
+operator $C$, a native probe family $L$ and a dissolving family $D$, the \emph{adequacy residual} is
+the Schur complement
+\begin{equation}\label{eq:xi}
+  \Xi_C(D \mid L) = K_{DD} - K_{DL} K_{LL}^{\dagger} K_{LD},
+\end{equation}
+and adjoining a probe $M$ changes it by the chain rule
+\begin{equation}\label{eq:xi-chain}
+  \Xi_C(D \mid [L; M]) = \Xi_C(D \mid L) - K_{DM\mid L}\, K_{MM\mid L}^{\dagger}\, K_{MD\mid L}
+\end{equation}
+\citep{Tsiokos2026Adequacy}. Both identities are imported.
+
+\paragraph{Structural roles.} Repairs are typed by the structural roles of \FoundI{}:
+P1 lower-operator rewrite, P2 support gating, P3 route reconciliation, P4 staging and refinement,
+P5 packaging and completion, and P6 audit and accounting. A \emph{repair sort} is one of P1--P5.
+P6 governs the other moves and is never itself emitted as a repair.
+
+\subsection{Laws, general theorems and certificate specifications}\label{sec:setting-status}
+
+Every entry E1--E16 has a general Lean statement and receives one of four statuses.
+\begin{itemize}
+  \item A \emph{law} is a general statement together with an instance: a concrete system for which
+    Lean proves the hard hypothesis, so that the conclusion is established for that system. An
+    instance is \emph{weak} when some of its data are declared rather than derived --- for example
+    a completeness proposition declared to be true, or a record sort with a single element.
+  \item A \emph{general theorem} has ordinary hypotheses that can be checked system by system, and
+    nothing is left open.
+  \item A \emph{certificate specification}, printed as a Template, is an implication $H \Rightarrow C$
+    in which $H$ is a named certificate that carries the difficult content, and supplying $H$ for a
+    real system is the \emph{open obligation}. A \emph{conditional classification} is a certificate
+    specification whose conclusion is that exactly one of several statuses holds: given a complete
+    status record, which already asserts that one branch is valid and that every record for the same
+    claim has the same status, the statuses are mutually exclusive. The content is the exclusivity of
+    the branch conditions and the fields each branch requires; the existence of a valid branch is
+    part of the certificate.
+  \item A \emph{definition with consistency lemmas} is an entry whose principal statements follow by
+    unfolding a definition or projecting its fields.
+\end{itemize}
+
+Three words recur in the classifications. A \emph{status record} is a carried record that assigns
+one status, or \emph{branch}, of a classification to a claim; it is \emph{branch-valid} when the
+conditions listed for that branch hold for the claim. A residual or defect is \emph{statused} when
+the ledger carries a record that names it and assigns it a status (unresolved, discounted, charged
+to a budget line), rather than leaving it unaccounted for.
+
+\subsection{The definitional layer}\label{sec:setting-defs}
+
+\begin{definition}[D1: repair join]\label{def:d1}
+For quotients $q : X \to A$ and $r : X \to B$ on a common carrier, the \emph{repair join} is
+$(q \vee r)(x) = (q(x), r(x))$. A \emph{source repair} by $r$ replaces $q$ by $q \vee r$.
+\end{definition}
+
+\begin{proposition}[repair-join semilattice]\label{prop:d1}
+For quotients $q, r, s, t$ on $X$:
+\begin{enumerate}
+  \item $q \vee r \preceq q$ and $q \vee r \preceq r$;
+  \item if $t \preceq q$ and $t \preceq r$, then $t \preceq q \vee r$;
+  \item $q \vee q$, $r \vee q$ and $q \vee (r \vee s)$ have the same fibres as $q$, $q \vee r$ and
+    $(q \vee r) \vee s$ respectively;
+  \item replacing $q$ or $r$ by a quotient with the same fibres does not change the fibres of
+    $q \vee r$.
+\end{enumerate}
+Thus, up to equality of fibres, $\vee$ is the greatest lower bound in the refinement order, and it
+is idempotent, commutative and associative.
+\end{proposition}
+
+\begin{proof}
+All four parts come from the fact that the fibre relation of the join is the conjunction of the two fibre relations.
+Projection onto the two coordinates gives (1). If $t$ refines $q$ and $r$, then $t(x) = t(x')$
+gives both $q(x) = q(x')$ and $r(x) = r(x')$, hence $(q \vee r)(x) = (q \vee r)(x')$. The fibre
+relation of $q \vee r$ is the conjunction of the fibre relations of $q$ and $r$, which gives (3)
+and (4).
+\end{proof}
+
+The join supplies a common refinement. It does not show that a repair occurs, that the system
+produced it, or that it reduces an obstruction; those are the obligations of E1.
+
+\begin{definition}[D2: predictive surplus]\label{def:d2}
+For a current quotient $Q$, a predictive baseline $M$ and a horizon $\tau$ with
+$\CD_\tau(M) \le \CD_\tau(Q)$, the \emph{predictive surplus} is
+$S_\tau(Q \Vert M) = \CD_\tau(Q) - \CD_\tau(M)$. In the operator setting the surplus is measured by
+the trace $\tr \Xi_C(D \mid L)$.
+\end{definition}
+
+\begin{proposition}[conditional surplus inequalities]\label{prop:d2}
+\begin{enumerate}
+  \item For rational scores $d_Q, d_M$, the difference $d_Q - d_M$ is nonnegative if and only if
+    $d_M \le d_Q$; it is zero when $d_M = d_Q$, and equals $d_Q$ when $d_M = 0$.
+  \item If $\Xi_C(D \mid L)$ is positive semidefinite, its trace is nonnegative.
+  \item Suppose the residual $\Xi'$ after adjoining $M$ satisfies the chain rule
+    \eqref{eq:xi-chain} and the subtracted term is positive semidefinite. Then
+    $\tr \Xi' \le \tr \Xi_C(D \mid L)$.
+  \item If moreover $M = BL$ for some matrix $B$ and $K_{DM\mid L} = 0$, then
+    $\tr \Xi' = \tr \Xi_C(D \mid L)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) is arithmetic. (2) and (3) use that the trace is nonnegative and monotone on the positive
+semidefinite cone; in (3) the chain rule writes $\Xi'$ as $\Xi_C(D\mid L)$ minus a positive
+semidefinite term. In (4) the subtracted term vanishes because its left factor is zero.
+\end{proof}
+
+The proposition is conditional: the score comparison, the chain-rule identity and positive
+semidefiniteness are hypotheses. Refining a quotient does not by itself make the surplus
+nonnegative, and scores taken at different horizons or against different future families are not
+compared.
+
+The central notion of the paper is a record that the system itself holds. Informally, a record is
+the system's own when it is a coordinate of the system's state, reached along a legitimate trajectory
+of the system's own kernel within scope, tagged as coming from committed state or from audited
+records rather than from an outside source, and flagged as generated by the system within scope.
+
+\begin{definition}[D3: carried record]\label{def:d3}
+Let $\mathcal T$ have carrier $Z$ and kernel support $\supp K$. A record value $\rho$ with source tag
+$\sigma$, generation flag $g$ and scope flag $i$ is \emph{carried} if
+\begin{enumerate}
+  \item $\rho = \rho_{\mathrm{of}}(z)$ for a declared coordinate map $\rho_{\mathrm{of}} : Z \to R$
+    and some state $z$ of a declared trajectory $\tau$;
+  \item $\tau$ starts at a legitimate start and every step up to $z$ is in scope and lies in
+    $\supp K$; and
+  \item $\sigma$ is \emph{committed state} or \emph{audited cell records}, and $g = i = $ true.
+\end{enumerate}
+A \emph{carried instrument} is an instrument whose visibility, threshold and check-rule records are
+all carried and whose record list is declared complete.
+\end{definition}
+
+A value from a fallback, a simulation trace, an ablation record or an independent witness is thus
+not the system's own record, whatever flags it carries (\Cref{lem:d3}).
+
+\begin{definition}[D4: E-system and lawful repair step]\label{def:d4}
+An \emph{E-system} $\mathbb S = (\mathcal T, I_S, \Lambda_S, \mathfrak R_S)$ consists of a formed
+package $\mathcal T$; a carried instrument $I_S$ with predicates \emph{detects}, \emph{gate allows}
+and \emph{re-audits}; a carried ledger $\Lambda_S$, a list of entries declared complete, each
+carried; a repair generator $\mathfrak R_S$ sending each defect record to a repair move of some sort
+in P1--P5 with a carried move record and a budget line; and an admissibility predicate for moves.
+\end{definition}
+
+\begin{definition}[lawful repair step]\label{def:d4-step}
+For states $z, z'$, a defect record $d$ and an audit record $a$, a \emph{lawful repair step}
+$z \to z'$ requires: $d$ is carried; $I_S$ detects $d$ at $z$; the gate allows $\mathfrak R_S(d)$ at
+$z$; the move is admissible at $z$; its budget line is an entry of $\Lambda_S$; $(z, z') \in \supp K$;
+$I_S$ re-audits $z'$ with record $a$; and $a$ is carried.
+\end{definition}
+
+Each of detection, gate permission, kernel transition and re-audit is necessary (\Cref{lem:d4}).
+
+The step is a lawful possible transition with linked records. It does not show that the transition
+takes place along a trajectory, nor recurrence, reduction of an obstruction, feasibility of a family
+of repairs within the budget, or maintenance over time.
+
+\begin{definition}[D5: closed-loop scope]\label{def:d5}
+A \emph{challenge history} lists challenge episodes and repair-typed audit entries (defects, moves,
+audits), each entry associated with an episode, together with a proposition declaring the history
+complete. It is \emph{closed-loop} for $\mathbb S$ when it is declared complete and every
+repair-typed entry in it is carried.
+\end{definition}
+
+
+A single listed entry with source tag fallback, or a listed entry with a false generation or scope
+flag, defeats closed-loop scope (\Cref{lem:d5}). A history with no
+repair entries is closed-loop. This is intended: closed-loop scope rules out
+external repair; it does not assert that any repair took place.
+
+\begin{definition}[D6: probe economy]\label{def:d6}
+A \emph{probe economy} has a finite catalog of probes, a carried active family $L$ with support and
+weights, an exposure budget carried in $\Lambda_S$, and three moves: \emph{allocation}, which
+reweights the current support; \emph{acquisition} of a catalog probe $M$ outside the support; and
+\emph{retirement} of an active probe. An acquisition is \emph{strict} when $M$ is not same-family
+saturated with respect to $L$; in the operator setting, $M = BL$ with $K_{DM\mid L} = 0$ witnesses
+saturation.
+\end{definition}
+
+A lawful allocation keeps the support, and a lawful acquisition is strict (\Cref{lem:d6}).
+
+
+\subsection{The catalog}\label{sec:setting-catalog}
+
+\Cref{tab:catalog} lists the sixteen entries with their status. The third column says what Lean
+proves. The fourth names the instance of a law, or the certificate that is the open obligation of a
+template. The field lists of all certificates are in \Cref{supp:fields}.
+
+{\footnotesize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{2.1cm}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{4.6cm}@{}}
+\caption{The catalog.}\label{tab:catalog}\\
+\toprule
+\textbf{Entry} & \textbf{Status} & \textbf{Proved in Lean} & \textbf{Instance or open obligation} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Entry} & \textbf{Status} & \textbf{Proved in Lean} & \textbf{Instance or open obligation} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+E1 internalization: a discharged recurring challenge has a carried repair source; perpetual
+self-extension & law, weak instance & forced self-extension from recurrence and installation; clocked
+device; five statuses exclusive & \Cref{prop:e1-forcing,thm:e1-clocked}; internalization status
+remains a certificate (\Cref{tmpl:e1}) \\
+E2 bounded reflexivity: audit towers are stratified and capacity-bounded & law, weak instance &
+capacity bound over a declared inventory; two-level audited tower; priority status partition &
+\Cref{thm:e2-declared,thm:e2-tower}; forced stratification remains a certificate \\
+E3 self-maintaining reclosure: object closure and apparatus reinstatement are separate & law, weak
+instance & executed repair with history-linked reinstatement & \Cref{thm:e3-episode};
+maintained-closure status remains a certificate (\Cref{tmpl:e3}) \\
+E4 repair compilation: repeated repair enters lower support & certificate specification &
+compiled status from a full compilation case; brittleness from a split pair & compilation case
+(\Cref{tmpl:e4}) \\
+E5 reclosure collapse: no admissible carried rescue restores viability & definition & falsifier
+refutes collapse; seven statuses exclusive & complete rescue inventory (\Cref{def:e5}) \\
+E6 priced exposure allocation (attention) & general theorem & multiplier algebra; sufficiency for capped linear
+objectives; optimum at a cap & numerical instance \Cref{thm:e6-atcap}; an instance on a carried
+probe economy is open \\
+E7 alarm: a blind spot that threatens viability is brought into current attention, declared an open
+boundary, or discounted & conditional classification & the three dispositions exclusive & a unique
+total disposition package for the specified blind spot and horizon (\Cref{tmpl:e7}) \\
+E8 control price: carried control signals contain shadow-price components & definition & component
+and summary lawfulness unfold definitions; seven statuses exclusive & component-lawful case
+(\Cref{def:e8}) \\
+E9 strict probe acquisition (curiosity) & general theorem & finite argmax; operator saturation gives
+zero discharge & --- (\Cref{thm:e9}) \\
+E10 cognitive demarcation, with intention and goal & conditional classification & statuses
+exclusive for cognition, intention and goal & complete status records (\Cref{tmpl:e10}) \\
+E11 institutional rewrite: a certified rewrite of what a lower layer can do & conditional
+classification & statuses exclusive; a change of probabilities alone, or a label whose effect fades,
+is not a rewrite & rewrite comparison (\Cref{tmpl:e11}) \\
+E12 individuation: maximal jointly closed subcarrier with a sufficient boundary & law, weak instance & repair-closed
+parts closed under intersection; individual containing its repair; overlapping maxima &
+\Cref{thm:e12-repair,prop:e12-overlap}; budget and record closure remain a certificate
+(\Cref{tmpl:e12}) \\
+E13 repair transport: communication, teaching, coercion null, symbolic repair & law (paid transport), weak instance & composition; chain bound; transport across contexts & \Cref{thm:e13-chain,thm:e13-cross};
+teaching, coercion and symbolic repair remain certificates (\Cref{tmpl:e13}) \\
+E14 reconsolidation: a conflict exposed by recall is repaired, coarsened or recorded as unresolved & conditional
+classification & lawful trichotomy and nine statuses exclusive & complete outcome inventory
+(\Cref{tmpl:e14}) \\
+E15 offline reclosure: debt discharge alternates in the deficit regime & conditional
+classification & eight statuses exclusive; reallocation identity & complete status record
+(\Cref{tmpl:e15}); identity in \Cref{prop:e15-identity} \\
+E16 adaptability: routes that agree now but differ in future repair capacity & conditional
+classification & eight statuses exclusive; agreement now and unequal later repair probabilities read
+from the record & complete status record (\Cref{tmpl:e16}) \\
+\end{longtable}
+}

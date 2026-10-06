@@ -1,0 +1,88 @@
+\section{General theorems}\label{sec:theorems}
+
+The results of this section have ordinary hypotheses and nothing open. Together with
+\Cref{prop:d1,prop:d2} of \Cref{sec:setting-defs} and \Cref{prop:e4-brittle} of \Cref{sec:templates},
+they are the general theorems of the catalog.
+
+\subsection{E9: strict probe acquisition}\label{sec:E9}
+
+Allocation reweights probes the system already has; acquisition adds a new one. For an active family
+$L$, a catalog probe $M$ is an \emph{admissible acquisition} if it lies in the catalog and outside the
+support of $L$, the acquisition is strict (\Cref{def:d6}), and a carried budget record makes it
+feasible and within the declared viability-risk bound. Let $\delta(M)$ and $c(M)$ be supplied
+rational discharge and cost functions and write $\delta(M)/c(M)$ for the ratio.
+
+\begin{theorem}[E9: finite argmax]\label{thm:e9}
+Let a finite nonempty list of candidates consist of admissible acquisitions and contain every
+admissible acquisition. Then some listed $M^*$ is admissible and satisfies
+$\delta(M)/c(M) \le \delta(M^*)/c(M^*)$ for every admissible acquisition $M$. The same holds for a
+list of access moves that mixes allocation increments and acquisitions under a common ratio.
+If a policy selects a listed move that maximizes the ratio over the list, that move dominates every
+admissible alternative.
+\end{theorem}
+
+\begin{proof}
+A finite nonempty list of rationals has a maximum; completeness extends the comparison from the
+listed candidates to all admissible ones. The statement about a policy is the same extension applied
+to the selected move.
+\end{proof}
+
+\begin{proposition}[saturated probes discharge nothing]\label{prop:e9-saturation}
+In the operator setting let $\delta(M) = \tr\bigl(K_{DM\mid L}K_{MM\mid L}^{\dagger}K_{MD\mid L}\bigr)$.
+If the chain rule \eqref{eq:xi-chain} holds, $M = BL$ and $K_{DM\mid L} = 0$, then $\delta(M) = 0$.
+\end{proposition}
+
+\begin{proof}
+The trace is of a product whose first factor is zero.
+\end{proof}
+
+With the operator discharge and positive costs, the maximizer of \Cref{thm:e9} has the form
+\[
+  M^* \in \arg\max_M \frac{\tr\bigl(K_{DM\mid L}\,K_{MM\mid L}^{\dagger}\,K_{MD\mid L}\bigr)}{c(M)}
+\]
+over admissible acquisitions. The theorem maximizes whatever ratio is supplied; identifying the
+discharge with the operator contraction is a specialization made by the application. Ties are
+allowed, and the name ``curiosity'' is operational.
+
+\subsection{E15: the budget-reallocation identity}\label{sec:E15-identity}
+
+E15 concerns systems that alternate between an online phase, in which part of a shared budget is
+spent on external exchange, and an offline phase, in which exchange is gated off and the freed
+budget is used for internal discharge of closure debt.
+
+\begin{proposition}[offline capacity is the freed allocation]\label{prop:e15-identity}
+Let a carried allocation record assign, in the online phase, an external share $e$ and an internal
+share $\kappa_{\mathrm{on}} \ge 0$, and in the offline phase an external share $0$ and an internal
+share $\kappa_{\mathrm{off}}$. Suppose the shared budget $B$ is binding and exhausted in both phases:
+$e + \kappa_{\mathrm{on}} = B = 0 + \kappa_{\mathrm{off}}$. Then
+\[
+  \kappa_{\mathrm{off}} = \kappa_{\mathrm{on}} + e ,
+\]
+and $\kappa_{\mathrm{on}} < \kappa_{\mathrm{off}}$ if $e > 0$.
+\end{proposition}
+
+\begin{proof}
+Subtract the two budget equations.
+\end{proof}
+
+The identity says where the offline capacity comes from; whether an offline phase is needed at all
+is the subject of \Cref{tmpl:e15}.
+
+\subsection{E4: brittleness of compiled repair}\label{sec:E4-brittle}
+
+A repair that has been compiled into lower support is tuned to the class it was trained on.
+
+\begin{proposition}[E4: brittleness]\label{prop:e4-brittle}
+Let a compiled repair induce a quotient $q$ on the trained challenge class $C$, let
+$q^\flat$ be the minimal quotient generated from $q$ for the readout on $C$, and let $C' \ne C$. If
+$(x, x')$ is a split pair for the update $F_{C'}$ through $q^\flat$, then the readout of $F_{C'}$
+does not descend through $q^\flat$.
+\end{proposition}
+
+\begin{proof}
+Descent is equivalent to the absence of split pairs \citep{Tsiokos2026FoundIV}.
+\end{proof}
+
+The mis-compiled status of \Cref{tmpl:e4} uses its own out-of-class obstruction witness; it is not
+formally linked to the split pair of \Cref{prop:e4-brittle}.
+

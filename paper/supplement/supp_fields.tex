@@ -1,0 +1,221 @@
+\section{Field lists}
+\label{supp:fields}
+
+This section lists, entry by entry, the fields of the records that the main paper names: the
+certificates of the Templates, the status branches of each conditional classification, and the data
+of the definitions. A field is a hypothesis of the corresponding Lean statement; nothing listed here
+is derived from the type of an E-system. Throughout, a \emph{claim} is the full tuple that a status
+record is about (system, challenge class, horizon, and the records the entry names), and every field
+is scoped to that claim: evidence for one claim cannot be used for another.
+
+\subsection{The definitional layer}
+
+\paragraph{Carried record (D3).} A declared coordinate map $\rho_{\mathrm{of}} : Z \to R$; a
+declared trajectory $\tau$ with a legitimate start; an index $n_0 \ge n_{\mathrm{start}}$ such that
+every step from $n_{\mathrm{start}}$ to $n_0$ is in scope and lies in $\supp K$; the value
+$\rho = \rho_{\mathrm{of}}(\tau(n_0))$; a source tag among committed state and audited cell records;
+generation and scope flags equal to true. The source tags are committed state, audited cell records,
+independent-pair witness, simulation trace, ablation record, fallback, unknown and contradictory.
+
+\paragraph{Carried instrument (D3).} An instrument of the audit calculus of \FoundIII{}; a predicate
+saying which instrument records are carried; lists of visibility, threshold and check-rule records,
+each carried; and a proposition declaring the lists complete.
+
+\paragraph{E-system (D4).} A theory package with carrier, kernel support, legitimate-start predicate,
+declared trajectory, scope predicate, lens, definability structure, completion, audit, and a
+formedness proposition with its proof; carried-record policies for defect, move and audit records; an
+active carried instrument with the predicates \emph{detects}, \emph{gate allows} and
+\emph{re-audits}; a carried ledger (a policy, a list of entries, a completeness proposition with its
+proof, carriedness of every entry); a repair generator sending each defect to a move with a sort in
+P1--P5, a payload, a carried move record and a budget line; and an admissibility predicate.
+
+\paragraph{Lawful repair step (D4).} Defect carried; detected at $z$; gate allows the generated move
+at $z$; move admissible at $z$; budget line in the ledger; $(z, z') \in \supp K$; re-audit at $z'$
+with the audit record; audit record carried.
+
+\paragraph{Challenge history and closed-loop scope (D5).} Episodes, each with a time, a challenge
+class, a source quotient, a declared family, a target readout and an optional obstruction witness;
+repair-typed entries (defect, move or audit), each with an entry class carrying an identifier, a
+source tag and generation and scope flags; an association of entries to episodes, declared for every
+listed entry; a completeness proposition. Closed-loop scope is completeness together with
+carriedness of every listed entry.
+
+\paragraph{Probe economy (D6).} A finite catalog; a carried active family with a support list, a
+weight function and an optional operator family; a carried exposure budget and spend in the ledger;
+a saturation predicate; allocation, acquisition and retirement moves, each with pre- and post-family
+carriedness records, and for acquisition strictness, catalog membership, budget admissibility and
+absence from the prior support.
+
+\subsection{Endogeny}
+
+\paragraph{E1.} The endogenous branch contains, for each challenged episode: the defect record and
+its generated move; pre- and post-states; the audit record; the repair payload and the installed
+refinement with $Q_{t+1} = Q_t \vee R_t$; a strict challenged-fibre reduction of the split-pair
+obstruction; a committed-state source; kernel realization; gate passage; and re-audit. The other
+branches are: slack (the challenge is not binding); externally subsidized (a discharging entry
+that is not endogenous and no valid endogenous family); stressed (viability preserved while a
+statused residual accrues); collapsing (a viability probe fails). The certified inputs are
+no-free-distinction, finite-forcing strictness, promotion soundness, the bridge from measured
+discharge to absence of residual accrual, and family-level budget feasibility.
+
+\paragraph{E2 (first version).} A carried instrument level has a level index, a tag, an instrument,
+its own instrument record, an audit predicate on lists of lower indices, a lower-stack target, and the
+ledger entries and audit records it uses. It occurs if its own record is carried by its instrument and
+by the system instrument, its instrument is carried, its ledger entries are in the ledger, its audit
+records are carried, and every target index is below its own. The first-version measure has injective,
+disjoint tags for the three record sorts; a record universe per state with size equal to the capacity;
+for every occurring level a record set of exactly its counted records, inside every universe, with
+positive size; and disjointness between occurring levels of different index.
+
+\paragraph{E2 (declared measure).} As in \Cref{def:declared-measure} of the main paper: depth, a
+duplicate-free slot list covering every index below the depth, a level at each slot with matching
+index and a proof that the level occurs, the tag data, the universes and capacities, the slot record sets with
+the counting, inclusion, disjointness and positivity fields. A declared tower lists the level of each
+slot at its index.
+
+\paragraph{E2 (forced stratification).} An audited-repair trigger; the audit-stack record of
+\FoundIII{} with finite records and an admissible lower stack; a bridge from the tower to that stack;
+non-saturation; and a fresh-level bridge requiring every carried level at the target index to carry a
+tag above every tag below it and to audit exactly the lower stack.
+
+\paragraph{E3.} Apparatus records at $t$ and $t+1$ with their carried records (time, gate instrument,
+threshold records, boundary, audit data, apparatus record, used ledger entries and audit records); a
+maintenance operator with its record, its action on states, and its ledger entries and audit records;
+a reinstatement record (time, source and target states, operator, pre-, post- and output apparatus
+records, ledger entry) that is carried with an allowed source, whose fields match, whose post
+apparatus is the operator applied to the source, whose ledger entry is in the ledger and whose source
+and target are joined by a kernel move. The maintained branch adds an object fixed point, object
+record coherence, a maintained step (distance at most $\varepsilon$ without challenge; a linked E1
+repair with defect, move, join installation, kernel transition and re-audit under challenge), an empty
+maintenance obstruction, no subsidy, and regress-stop evidence. The maintenance obstruction is
+nonempty if a required component (instrument, gates, thresholds, boundary, audit data) is absent,
+has a forbidden source, fails generation or scope, is off-kernel, or has a valid reinstatement omitted
+from the audit.
+
+\paragraph{E4.} A candidate window of at least two carried invocations of the same attributed
+repair; an obstruction-reduction predicate and an idempotence-stability predicate, independent of
+each other; a compiled operator record of sort P1 or P2, indexed by the challenge class and the repair
+refinement; the lawfulness gates (certified top-down channel, accepted promotion record, failed
+memory-only comparator, non-saturation, annotation record); verified in-class descent; silence of the
+higher invocation. Statuses in priority order: decompiled (a linked decompilation event),
+mis-compiled (the compiled core with an unstatused out-of-class obstruction), compiled, compiling
+(an attributed candidate missing a gate, descent or silence), exposed (no attributed candidate).
+
+\paragraph{E5.} Rescue candidates of four types (repair, boundary update, apparatus reclosure, probe
+acquisition), each with a move record, a budget witness, a kernel transition and a descent
+certificate for the declared viability probes; a list containing every candidate. Irreversibility
+inputs: unreachable repair generator and empty apparatus-level viability kernel, coherently scoped.
+Statuses in priority order: revived (a prior subsidized or collapsed status, a later carried rescue, a
+new apparatus lineage), subsidized (an active external carrier with its own scope, budget and
+descending move, and no internal falsifier), suspended (intact apparatus, operations gated off),
+viable, stressed (additionally, scoped residual accrual), collapsed-irreversible and
+collapsed-recoverable (the latter with its own recoverability evidence).
+
+\subsection{Priced access and control}
+
+\paragraph{E6.} A budget record: spend, budget, their ledger entries (in the ledger and certified by
+the economy) and budget admissibility of the move. A multiplier witness: $\lambda \ge 0$, $\mu_p \ge
+0$, the two slackness equations and stationarity on the support. A binding budget is spend $=$
+budget with spend $\le$ budget; a slack budget is spend $<$ budget.
+
+\paragraph{E7.} Currentization: a carried constraint rewrite linking old and new constraint sets, a
+forced-exposure ledger entry naming the witness, the new set different from the old and admitting
+the witness, and passing no-overread and null-mode checks. Boundary nonclosure: a failed viability
+descent and a carried status. Lawful discount: a carried reason among protocol artifact,
+currentizable residue, out of horizon, dissolved coupling. The package requires one branch-valid
+carried record and the same kind for every carried record at the witness and horizon.
+
+\paragraph{E8.} A certified signal readout; a declared constraint record; a ledger-alignment
+comparator; held-out prediction data; a dual-stability record under declared budget perturbations;
+a linked multiplier witness. A binding component: the constraint binds, the multiplier is the declared
+dual price, alignment, held-out prediction and stability pass. A slack component: multiplier and
+price component vanish, or a carried residual explains the deviation. Capture evidence: a linked budget
+rise by the classified move, a positive blind spot against the original accepted lineage, and a healthy
+ledger report; the audit statuses are capture-claim-rejected, capture-detected,
+residual-discharge-verified, meta-audit-capacity-blocked and meta-audit-missing.
+
+\paragraph{E9.} An admissible acquisition: catalog membership, absence from the support, strictness,
+a budget record for the acquisition move with spend at most budget, and the viability-risk predicate.
+A complete candidate list contains every admissible acquisition. An access move is an allocation
+increment on the current support or a strict acquisition, priced by a common ratio.
+
+\paragraph{E10.} Repair descent: a nonempty obstruction before, a quotient installed by the package,
+and a strict reduction after. Gate: two distinct carried interventions, matched controls, a channel
+record linked to that comparison, accepted gate status, and different induced kernel supports.
+Provenance: carried formation and invocation records, the invocation linked to the class.
+Statuses in priority order: schedule trap (an exogenous schedule explains the support change and a
+complete gate inventory has no accepted gate), scaffolding (no carried package provenance),
+structural path only (a lower-support difference and a structural path with the channel blocked),
+decodable correlate, repair without gate, gate without repair, cognitive, non-cognitive. Intention:
+provenance, a top-down restriction strictly before the outcome, strict inclusion of the restricted
+action support, and coherence under every member of a nonempty carried list of future probes;
+statuses post-hoc, approximate support, target-incoherent, intention, not intention. Goal: provenance,
+top-down orientation, a carried target quotient, and evaluation of every listed route among at least
+two distinct carried routes; statuses reward proxy only, route unstable, goal, not goal.
+
+\subsection{Stack, individuation and transport}
+
+\paragraph{E11.} Two carried intervention records and a matched-control record; a top-down channel
+of \FoundIII{} referring to that comparison, accepted and passing its effect gate; a support witness
+$(z, z')$ with different support indicators, or different closures. The stack obstruction is inhabited
+by an independently carried parameter-only comparison (parameters differ, support and closure
+unchanged) with the same outcome. Statuses in priority order: constitutive (structural effect, empty
+stack obstruction, a carried compiled-rewrite record with a certified bridge), stack-active,
+conditioning (parameter-only comparison and no structural effect), inert (washout, blocked channel,
+or no evidence).
+
+\paragraph{E12.} Repair closure: some repair is attributed to $I$ and every attributed repair has its
+target in $I$. Record closure: some genuine activity is attributed to $I$ and every entry it generates
+closes on $I$. Budget closure: a feasible exposure budget attributed through the carried trajectory,
+every such entry closing on $I$. Boundary: a quotient certified sufficient for the declared viability
+probes that is a function of every admitted sufficient quotient (so it is the coarsest), and
+self-maintained by a boundary apparatus reinstated in the sense of E3 with source state in $I$.
+Maximality ranges over the declared candidate list. Statuses: integrated; federated (a
+non-individuating candidate properly inside a maximal one, or two overlapping maximal candidates);
+subsidiary (repair and records close, budget does not); platform-dependent (all closures and a
+sufficient coarsest boundary, not self-maintained); shadow (repair and budget close, records do not);
+non-individuated.
+
+\paragraph{E13.} A paid, carried bridge between the systems; a carried lawful receiver move; a strict,
+installed reduction of the receiver's obstruction in the shared class; interface mediation; repair-role
+preservation. Teaching adds a later probe with the source absent, the bridge closed and the repair
+carried by the receiver from committed state. Coercion null: a comparator-certified fully forced
+interaction, a carried, complete and empty free-response census, no receiver-committed transported repair, and
+equal before and after obstructions. Symbolic repair: a paid carried bridge; a declared context family
+with at least two entries; reactivation in every listed context; stability of the repair role;
+same-family strictness. Statuses in priority order: coercion null, symbolic, taught, communicated,
+scaffolded or primed, influence only, transport rejected.
+
+\subsection{Memory and adaptive capacity}
+
+\paragraph{E14.} A nonempty duplicate-free retrieval-context family; a complete transport inventory,
+single-valued per context; context dependence (two contexts whose transports differ); the conflict, a
+split pair after the transported record is joined to the current quotient; formed carried source
+records. Repair: a lawful repair step, a carried next-version record, exact retrieval and context
+linkage, honest provenance, installation of the record join. Coarsening: the before quotient refines the
+after quotient, a strictness pair, and a carried audit that the lost
+distinction is unsupported. Retained debt: unchanged record and a positive carried residual charged to
+an existing ledger entry. Statuses in priority order: provenance defect, silent rewrite, ordinary read,
+outcome collision, unrealized disposition, record repaired, record coarsened, statused unresolved,
+unstatused conflict.
+
+\paragraph{E15.} Closure debt from canonically linked E14 statused residuals, certified route residues
+and adequacy residuals. The allocation record: carried, linked to the scope, declared before the
+horizon, a binding budget with carried entries, a positive online external share, a nonnegative online
+internal share, online exhaustion, offline exchange zero, the offline internal share equal to the
+online internal plus external shares, offline exhaustion. Alternation required: strict online deficit,
+recurrent lawful offline phases on the declared flow inventory with linked debt discharge, a
+duty-cycle prediction, a tolerance declared before the horizon and the observed duty cycle within it.
+Statuses in priority order: deficit-online counterexample, decorative offline, duty-cycle mismatch,
+skipped-offline cascade, alternation required, online sufficient, offline optional, rejected.
+
+\paragraph{E16.} A carried route-transport package with the comparison base, the transport core of the
+holonomy development, two routes and their endpoints; current equivalence of the endpoints and a
+predictive witness separating them; complete endpoint-conditioned trial inventories with eligibility,
+success, protocol, measurement time and binding budget common to both arms and positive denominators;
+a held-out challenge with $p_\gamma(C) \ne p_\eta(C)$ for the claim-linked pair; an accepted
+reconciliation with any E15 route residue on the same package and pair; and four freedom certificates:
+no eligible honest counterpart changes the comparison base; no admissible completion equalizes the
+residue; no same-base refinement makes it current; no own continuation erases it and every declared
+in-bound perturbation preserves it. Statuses in priority order: support confound, artifact, flat,
+flattenable, currentizable slack, dissipative, coherent adaptability, adaptability rejected.

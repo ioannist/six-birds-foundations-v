@@ -1,0 +1,152 @@
+\section{Scope}\label{sec:scope}
+
+\subsection{What the results do not give}\label{sec:scope-nonimpl}
+
+Each entry is easy to read more strongly than it is stated. \Cref{tab:scope} lists the most tempting
+inferences and what blocks each one. Further ones are listed in \Cref{supp:more-inferences}, and the
+full register of non-implications, with a separating example for each, is in \Cref{supp:nonimpl}.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{5.6cm}>{\raggedright\arraybackslash}p{8.6cm}@{}}
+\caption{Tempting inferences and what blocks them.}\label{tab:scope}\\
+\toprule
+\textbf{Tempting inference} & \textbf{Why it fails} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Tempting inference} & \textbf{Why it fails} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+A repair join is a repair. & The join supplies a common refinement; whether a repair occurs, who
+produced it and whether it reduces an obstruction are separate (\Cref{prop:d1}). \\
+A carried record is a true record. & Carriedness concerns the source and trajectory of a record,
+not its truth or completeness (\Cref{def:d3}). \\
+A closed-loop history shows self-repair. & A history with no repair entries is closed-loop
+(\Cref{lem:d5}). \\
+One lawful repair step shows maintenance. & The device takes one lawful step; recurrence, reduction
+of an obstruction and maintenance are further certificates (\Cref{lem:d4}). \\
+The audited tower shows that audit towers are small. & Its record universe is declared to be exactly
+the three counted records, so the bound is attained by construction (\Cref{thm:e2-tower}). \\
+A multiplier witness identifies an optimal allocation. & Only under the hypotheses of
+\Cref{prop:e6-sufficient} or \Cref{thm:e6-caps}; \Cref{ex:e6-nonconcave,rem:e6-unlinked} satisfy the multiplier conditions and are
+not optimal. \\
+A binding budget gives a positive price. & A flat objective spends the whole budget at price zero;
+a selected probe with positive discharge is needed (\Cref{thm:e6-kkt}). \\
+The clocked device shows that an open-ended challenge forces self-extension. & Its novelty is a fresh
+clock value and its strictness a chosen fresh output (\Cref{thm:e1-clocked}). \\
+A paid, role-preserving map transports repair. & Not unless it strictly lowers the receiver's
+obstruction (\Cref{prop:e13-flat}). \\
+\end{longtable}
+}
+
+\subsection{Domain readings}\label{sec:scope-domains}
+
+A domain name does not instantiate an entry. \Cref{tab:domains} lists, for each entry, candidate
+readings in living, cognitive and social systems, and the data an application must supply before a
+reading becomes an instance. The readings are candidates for testing; none is claimed as an
+instance here. Every application must in addition answer the common questions: which finite
+states or histories are compared and at what scale; which quotients are current, predictive or
+target-side, with a literal split pair for each failure of descent; which instrument, ledger,
+repair, boundary and probe records are coordinates of the carrier and updated by its kernel; which
+resource is charged and in what units; which source produced each credited record and which
+external, fallback, off-kernel or wrong-lineage records are excluded; and which controls were
+run. Three guards apply throughout. Alarm is preemption, curiosity is strict acquisition and goal
+is persistent target selection; the words attribute no feeling or purpose. A ledger may be
+energetic, material, computational, financial or legal, and calling it a budget does not make these
+convertible. Individual, lineage, population, organization and ecosystem are different carrier
+choices, and evidence at one does not establish carriedness at another.
+
+{\footnotesize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.0cm}>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{4.1cm}@{}}
+\caption{Domain readings and the data each requires.}\label{tab:domains}\\
+\toprule
+\textbf{Entry} & \textbf{Living systems} & \textbf{Cognitive systems} & \textbf{Social systems} &
+\textbf{An instance must supply} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Entry} & \textbf{Living systems} & \textbf{Cognitive systems} & \textbf{Social systems} &
+\textbf{An instance must supply} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+E1 & wound closure, immune response, regeneration & policy and abstraction repair & amendment,
+crisis playbooks & a repair record produced by the carrier, not the experimenter; the complete
+audited history \\
+E2 & molecular checkpoints, tissue surveillance & metacognitive monitors & audit committees,
+regulators & explicit audit scopes and a declared record inventory with capacity \\
+E3 & membrane turnover, gradient and catalyst restoration & calibration, memory integrity & renewal
+of staff, capital and procedures & a carried maintenance operator and a history-linked reinstatement;
+an ablation of the operator \\
+E4 & immune memory, canalization & skill and policy compilation & precedent, standard contracts &
+matched interventions showing a lower-support rewrite; a memory-only control \\
+E5 & stress, dormancy, life support, irreversible loss & a severed learning channel & illiquidity,
+receivership, bankruptcy & viability probes and the complete rescue inventory \\
+E6 & receptor expression, immune surveillance & selective attention, active sensing & inspection
+and monitoring allocation & costs and residual discharge in common units; a concave objective or a
+direct optimality argument \\
+E7 & DNA-damage checkpoints, danger signals & interrupt-driven replanning & margin calls, circuit
+breakers & viability coupling of the witness and a changed constraint set \\
+E8 & homeostatic and allostatic signals & compute and error control & transfer prices, capital
+adequacy & a binding constraint, its multiplier, lineage audit and slack control \\
+E9 & receptor repertoire change & active learning, queries & research, audit sampling & a
+complete candidate list, positive costs, strictness against reweighting \\
+E10 & regulatory packages that gate action & plan-gated action versus decodable state & decision
+procedures versus minutes & repair descent, a certified gate and carried provenance for the same
+package \\
+E11 & developmental support rewrite & plan-to-execution rewrite & constitutional or platform
+rewrite & matched upper interventions with a support or closure difference \\
+E12 & cell, organism, colony, symbiosis & modular agent & firm, subsidiary, federation & all five
+closure and boundary tests and the candidate list \\
+E13 & signalling that transfers repair capacity & instruction & teaching, standards, law & carried
+transport records, paid interface, receiver-side reduction \\
+E14 & epigenetic and immune record revision & reconsolidation after retrieval & restatement,
+versioned archives & the retrieval conflict and complete outcome inventories \\
+E15 & quiescence, repair phases & replay and consolidation & settlement and maintenance windows &
+debt measure, shared budget allocation, duty-cycle prediction \\
+E16 & priming, trained immunity & curriculum-order transfer & crisis experience & two routes with
+matched endpoints and the full control battery \\
+\end{longtable}
+}
+
+The atlas shows two things. Carried repair, audit capacity, priced sensing and apparatus
+maintenance are biological from the first entries on; life does not first appear at E12 or E16.
+And the cognitive column is not a promotion of the living one: a living system may or may not meet
+the E10 criterion, and every other entry is meaningful either way.
+
+\subsection{What the catalog leaves out}\label{sec:scope-deferred}
+
+Several candidates have a recognizable shape but no distinct obstruction or theorem yet: global or
+conscious access, which may combine E6, E7, E12 and E13; play, which currently reads as E9 under a
+gated risk budget; the search for boundaries, which E12 classifies but does not produce; transport of
+gates and norms rather than repairs; distributed price discovery across carriers; reproduction,
+heredity and population selection; and the origin of a first E-system from non-living chemistry. The
+catalog defines neither life nor death, pathology or welfare.
+
+\subsection{Open problems}\label{sec:scope-open}
+
+The sorting of \Cref{tab:catalog} suggests the following problems, each of which would move an entry
+to a stronger status.
+\begin{enumerate}
+  \item \emph{Stratification from a construction rule.} Derive the order of the level tags and the
+    next level's audit relation of E2 from a rule for adding a level, rather than supplying them, and
+    restate the regress stop of E3 and the meta-audit bound of E8.1 over the declared measure.
+  \item \emph{Richer instances.} Replace the single-valued record sorts and the declared completeness
+    propositions of the repair device by a model in which defects, inventories and formedness have
+    content, so that the history link of \Cref{thm:e3-episode} and the audit of \Cref{thm:e2-tower}
+    carry information.
+  \item \emph{Optimality beyond capped linear objectives.} Extend \Cref{thm:e6-caps} to $n$ probes,
+    general costs and a wider class of concave discharge objectives, and derive the spend of the
+    ledger from the objective.
+  \item \emph{Open-ended novelty.} Give an instance of \Cref{prop:e1-forcing} in which novelty and
+    strictness are measured on the obstruction the challenge causes, rather than on a clock.
+  \item \emph{Individuals and transport.} Add budget and record closure and a boundary derived as the
+    coarsest viability-sufficient quotient to \Cref{def:e12-setting}; prove that a maximal candidate
+    exists above every candidate; and add carried sending and receiving records to
+    \Cref{def:e13-transport}, with an instance of teaching.
+  \item \emph{Route effects.} Supply an intervention bridge under which the unequal repair probabilities
+    of E16 are an effect of the route.
+\end{enumerate}

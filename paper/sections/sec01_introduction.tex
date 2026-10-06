@@ -1,0 +1,213 @@
+\section{Introduction}\label{sec:intro}
+
+A cell restores a membrane gradient after a perturbation. A learning agent revises a state
+abstraction after a failed prediction. A court amends a procedure after a class of disputes has
+defeated the old one. In each case one may ask a structural question that does not depend on the
+material: can the repair be credited to the system, or was it supplied from outside? It can be
+credited to the system if the defect is recorded in the system's own state, the repair is chosen from
+the system's own repertoire and charged to its own budget, the repair step is one of the system's own
+transitions, and the result is checked by the system's own instrument. If any of these records or
+steps belongs to an experimenter, an engineer or an external administrator, the repair has been
+supplied.
+
+The earlier papers of this series give exact tools for supplied repair. \FoundIV{} collects
+fifty-two structural laws about fixed data: when a readout descends through a quotient, how a
+failed descent is repaired by refining the source or coarsening the target, when a residual must be
+priced \citep{Tsiokos2026FoundIV}. In all of them the repair is supplied by the theorist: a map
+fails to descend and the theorist refines its source. This paper asks what the same operations look
+like when they are coordinates of the system's own state. The basic move is
+\[
+  O \ \longmapsto\ \Carried_{\mathbb S}(O),
+\]
+where a record is \emph{carried} by a system $\mathbb S$ if it is a coordinate of the state of
+$\mathbb S$, is updated only by transitions of $\mathbb S$, and was produced by a trajectory of
+$\mathbb S$ rather than by a fallback or an external edit (\Cref{def:d3}). Carriedness is a
+condition on the source of a record. It attributes no purpose to the system.
+
+\subsection{A worked example: a repair the system performs}\label{sec:intro-example}
+
+The smallest system that repairs itself has two states (\Cref{fig:device}). State $0$ is damaged and state $1$ is
+repaired; the transition kernel allows a move from either state to $1$, and the system's trajectory
+is $0, 1, 1, \dots$. The system carries three things in its state. An \emph{instrument} reports a
+defect exactly when the state is $0$, permits a repair of the first structural sort (P1, a
+lower-operator rewrite) exactly at $0$, and accepts a state on re-audit exactly when it is $1$. A
+\emph{ledger} has one budget line. A \emph{repair generator} sends each defect record to a P1 move
+charged to that line. Every record has the source tag ``committed state'' and is produced by the
+system's own trajectory.
+
+The first step of the trajectory, $0 \to 1$, is a lawful repair step in the sense of
+\Cref{def:d4-step}: the defect is detected, the gate permits the move, the move is charged to the
+carried ledger and is admissible at $0$, the kernel allows $0 \to 1$, and the re-audit at $1$ passes.
+The system's history records one challenge episode at time $0$ with three entries --- the defect,
+the move and the audit --- read at time $1$. The record that the system's apparatus was reinstated
+at time $0$ is linked to that episode, uses its defect and audit, and names $\tau(0)$ and $\tau(1)$
+as its source and target (\Cref{thm:e3-episode}). A history with no episode supports no such link.
+
+Give the device two instrument levels. The lower level carries its own instrument record. The upper
+level checks the lower one --- is the lower level's record among the records its instrument makes
+visible? --- and stores the answer, which is ``yes'', as a carried audit record. The records counted
+at the two levels, $\{i_0\}$ and $\{i_1, a\}$, are disjoint and lie in a record universe of size
+$3$, so the tower's footprint is at most its capacity, $1 + 2 \le 3$ (\Cref{thm:e2-tower}).
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[>=Stealth,
+  st/.style={circle, draw, minimum size=9mm},
+  rec/.style={rectangle, draw, rounded corners=2pt, font=\small, inner sep=3pt},
+  lab/.style={font=\footnotesize}]
+  \node[st] (z0) at (0,0) {$0$};
+  \node[st] (z1) at (3.6,0) {$1$};
+  \draw[->, thick] (z0) -- node[above=2pt, lab] {repair (P1 move)} node[below=2pt, lab] {$\tau(0)\to\tau(1)$} (z1);
+  \draw[->] (z1) edge[loop right] node[lab, right] {stay} (z1);
+  \node[lab, below=0.35cm of z0, align=center] {defect detected\\gate open};
+  \node[lab, below=0.35cm of z1, align=center] {re-audit passes};
+  \node[rec] (l1) at (8.6,0.7) {level $1$: $\{i_1, a\}$};
+  \node[rec] (l0) at (8.6,-0.7) {level $0$: $\{i_0\}$};
+  \draw[->] (l1) -- (l0);
+  \node[draw, dashed, rounded corners, fit=(l0)(l1), inner sep=6pt] (box) {};
+  \node[lab, above=1pt of box] {record universe of size $3$};
+  \node[lab, below=2pt of box, align=center] {level $1$ audits level $0$:\\is $i_0$ visible? $a = $ yes};
+\end{tikzpicture}
+\caption{The repair device of \Cref{def:device}. Left: its trajectory $0, 1, 1, \dots$ takes the
+lawful repair step $0 \to 1$ (\Cref{thm:e3-episode}). Right: the two-level audit tower, whose counted
+records fill a universe of size $3$ (\Cref{thm:e2-tower}).}\label{fig:device}
+\end{figure}
+
+The example is small on purpose: the defect, move, audit and ledger records of the device each have
+one value, the tower adds two instrument and two audit values, and formedness and completeness of
+the inventories are declared. We call such instances \emph{weak} (\Cref{sec:setting-status}).
+What it shows is that the conditions of a self-credited repair --- carried defect, generated move,
+own budget, own transition, own audit, linked history --- can be met together by an explicit system
+and checked.
+
+\subsection{How the catalog is sorted}\label{sec:intro-sorting}
+
+The paper states sixteen entries, E1--E16, over six definitions, D1--D6, and sorts them by what is
+proved (\Cref{tab:catalog}). A \emph{law} is a general statement together with an instance in which
+its hard hypothesis is proved about a concrete system. Five entries qualify: E1 (perpetual
+self-extension), E2 (bounded reflexivity), E3 (self-maintaining reclosure), E12 (individuation) and
+E13 (repair transport). A \emph{general theorem} has ordinary hypotheses and nothing open; E6 (priced
+exposure allocation) and E9 (probe acquisition) are general theorems, and E6 has a numerical
+instance. The remaining entries are \emph{certificate specifications}: the Lean
+statement shows that a complete certificate yields a classification, and supplying the certificate
+for a real system is the open obligation. Two entries, E5 and E8, are best read as definitions with
+consistency lemmas.
+
+\subsection{Main results}\label{sec:intro-results}
+
+Each result below is proved in the text and checked in Lean.
+
+\begin{headline}[E1: perpetual self-extension]
+A repair family that recurs beyond every bound, and installs a strict refinement whenever the
+challenge is new, makes infinitely many strict self-extensions under a challenge that is always new
+(\Cref{prop:e1-forcing}). A clocked device performs a lawful repair at every odd time and installs
+pairwise distinct refinements that meet both conditions (\Cref{thm:e1-clocked}).
+\end{headline}
+
+\begin{headline}[E2: audit capacity]
+For a declared finite inventory of instrument levels whose counted record sets are pairwise disjoint
+subsets of a record universe of size $\capc(z)$, the total footprint is at most $\capc(z)$
+(\Cref{thm:e2-declared}). The two-level audited tower of the device attains $3 \le 3$
+(\Cref{thm:e2-tower}).
+\end{headline}
+
+\begin{headline}[E3: an executed, history-linked reinstatement]
+Along the device's trajectory the step $0 \to 1$ is a lawful repair, and the reinstatement of its
+apparatus is linked to a history episode dated at that step whose defect, move and audit entries are
+carried (\Cref{thm:e3-episode}).
+\end{headline}
+
+\begin{headline}[E6: priced allocation]
+Given budget and cap multipliers that satisfy stationarity and complementary slackness for a capped
+linear objective, the allocation is a global optimum, including when it sits at a cap
+(\Cref{thm:e6-caps}); with weights $(2, 1)$, caps $(1, 5)$ and budget $3$ the optimum $(1, 2)$ has a
+positive cap multiplier (\Cref{thm:e6-atcap}). For any supplied multipliers, a selected probe with
+positive marginal discharge forces a positive price (\Cref{thm:e6-kkt}).
+\end{headline}
+
+\begin{headline}[E12 and E13: individuals and transport]
+Parts that are closed under repair form an intersection-closed family, and integrated individuals
+are equal or disjoint (\Cref{prop:e12-structure}). In a three-state system the part made of a
+damaged state and its repair is an integrated individual, while the healthy state alone passes every
+test except repair closure (\Cref{thm:e12-repair}). Repair transports compose with added payments,
+and a chain of $k$ transported repairs lowers the receiver's obstruction by at least $k$
+(\Cref{thm:e13-chain}).
+\end{headline}
+
+\begin{headline}[E9 and E15: acquisition and reallocation]
+Over a finite nonempty list of admissible acquisition candidates that is complete for admissibility,
+some listed candidate maximizes discharge per cost among all admissible candidates
+(\Cref{thm:e9}). If an offline phase gates external exchange to zero and the shared budget is
+exhausted in both phases, the offline internal capacity equals the online internal capacity plus
+the freed exchange share (\Cref{prop:e15-identity}).
+\end{headline}
+
+\begin{headline}[D1 and D2: repair joins and residual traces]
+The repair join $q \vee r$ is the greatest lower bound of $q$ and $r$ in the refinement order and is
+idempotent, commutative and associative up to fibre equivalence (\Cref{prop:d1}). If the adequacy
+residual satisfies the chain rule under a new probe and the conditional term is positive
+semidefinite, the residual trace does not increase (\Cref{prop:d2}).
+\end{headline}
+
+\subsection{Map of results}\label{sec:intro-map}
+
+\Cref{tab:map} lists the numbered results. Each is proved after its statement, except \Cref{prop:e2-self}, whose source is given in \Cref{tab:provenance}.
+
+\begingroup\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{12.4cm}@{}}
+\caption{Map of results.}\label{tab:map}\\
+\toprule
+Result & What it establishes \\
+\midrule
+\endfirsthead
+\toprule
+Result & What it establishes \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\cref{prop:d1} & The repair join is, up to equality of fibres, the greatest lower bound in the refinement order, and it is idempotent, commutative and associative. \\
+\cref{prop:d2} & The conditional surplus is nonnegative exactly when the probe score is at most the quotient score; a positive semidefinite residual has nonnegative trace; under the chain rule with a positive semidefinite subtracted term, adjoining a probe does not increase the residual trace, and a probe $M=BL$ with $K_{DM\mid L}=0$ leaves it unchanged. \\
+\cref{prop:device-step} & In the repair device, $0\to1$ is a lawful repair step. \\
+\cref{thm:e3-episode} & In the repair device with its declared trajectory, $0\to1$ is a lawful repair step, the reinstatement record is history-linked with all three entries attached and carried, and the episode is dated at the reinstatement; in a history with no episodes no reinstatement record is history-linked. \\
+\cref{prop:e2-self} & A carried self-audit claim whose subject and accepting instrument are the same level, with no bridge to a different level, is not accepted. \\
+\cref{thm:e2-declared} & For every declared capacity measure the footprints of the declared levels sum to at most the capacity, and a level with the own record of a declared level at a different index is not declared. \\
+\cref{thm:e2-tower} & The two-level audited tower on the repair device checks its lower level, forms a declared capacity measure with footprint $3\le3$, and keeps the lawful repair step $0\to1$. \\
+\cref{thm:e6-kkt} & For a multiplier witness with positive marginal costs, a selected probe of positive discharge forces a positive price equal to the ratio of every selected probe, unselected probes have no larger ratio, and a slack budget forces price zero. \\
+\cref{prop:e6-sufficient} & A multiplier witness at a feasible allocation, for a concave differentiable objective whose partial derivatives are the supplied discharges and with the recorded spend, gives an optimal allocation. \\
+\cref{thm:e6-caps} & For a capped linear objective on two coordinates, a feasible allocation below its caps with multipliers satisfying the stated conditions is optimal. \\
+\cref{thm:e6-atcap} & With weights $(2,1)$, caps $(1,5)$ and budget $3$, the allocation $(1,2)$ is optimal, with one coordinate at its cap; with unit weights it is also optimal. \\
+\cref{prop:e1-forcing} & A repair family with an actual-family forcing certificate, facing a challenge that is new at every time, makes infinitely many strict self-extensions. \\
+\cref{thm:e1-clocked} & The clocked device has a lawful repair step at every odd time and entries beyond every bound; it has an actual-family forcing certificate with a challenge new at every time, so it makes infinitely many strict self-extensions, with distinct refinements at distinct times. \\
+\cref{prop:e12-structure} & In every individuation setting, intersections of repair-closed parts are repair-closed, and two integrated individuals are equal or disjoint. \\
+\cref{thm:e12-repair} & On three states, $\{h,d\}$ is an integrated individual containing the damaged state and its repair, while $\{h\}$ is closed under steps and self-maintaining but not a candidate. \\
+\cref{prop:e12-overlap} & Two overlapping maximal boundary regions on three states leave no integrated individual. \\
+\cref{thm:e13-chain} & Repair transports compose, with payments adding, and along a repair transport a chain of $k$ source repairs lowers the receiver's obstruction by at least $k$. \\
+\cref{thm:e13-cross} & An explicit repair transport exchanging two contexts lowers the receiver's obstruction along a two-step chain, and composing two transports gives one whose payment is the sum. \\
+\cref{prop:e13-flat} & A paid, role-preserving map that carries every source repair to a receiver repair need not reduce any obstruction. \\
+\cref{thm:e9} & Over a complete finite nonempty list of admissible acquisitions some listed acquisition maximizes discharge per cost among all admissible ones, also for lists mixing allocation increments and acquisitions, and a policy selecting a listed maximizer dominates every admissible alternative. \\
+\cref{prop:e9-saturation} & Under the chain rule, a probe $M=BL$ with $K_{DM\mid L}=0$ discharges nothing. \\
+\cref{prop:e15-identity} & When a shared budget binds and is exhausted in both phases, the offline internal share equals the online internal share plus the external share. \\
+\cref{prop:e4-brittle} & A split pair for the update of a new challenge class through the minimal quotient of a compiled repair blocks descent of its readout. \\
+\end{longtable}
+\endgroup
+
+\subsection{What is imported, and what is not claimed}\label{sec:intro-claims}
+
+The Karush--Kuhn--Tucker conditions are standard \citep{BoydVandenberghe2004}; the chain rule and
+same-family saturation of the adequacy residual, the split-pair descent criterion, the same-level
+self-audit obstruction and the source-of-truth tags are taken from earlier papers of the series and
+are not re-proved here \citep{Tsiokos2026Adequacy,Tsiokos2026FoundIV,Tsiokos2026FoundIII}. The
+paper does not define life, cognition or institutions, and no biological, psychological or social
+system is shown here to satisfy any law. The instances are small finite systems chosen to make each
+hard hypothesis provable; the domain readings of \Cref{sec:scope} say which data an application
+would have to supply, and they are not results.
+
+\paragraph{Roadmap.} \Cref{sec:related} places the paper in the literature, and \Cref{sec:setting}
+fixes the vocabulary, the six definitions and the catalog. \Cref{sec:concrete} states the five laws
+with their instances, together with E6 and its numerical instance. \Cref{sec:theorems} gives the general theorems and \Cref{sec:templates}
+the certificate specifications and definitions. \Cref{sec:scope} lists inferences the results do not
+support and the domain readings, and \Cref{sec:lean} records what is formalized.
+The supplement holds the source
+concordance, the field lists of every certificate, the full register of non-implications, the finite
+computations, the synthetic life-facing data, the axiom record and the replay commands.

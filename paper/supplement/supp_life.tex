@@ -1,0 +1,715 @@
+\section{Life-facing synthetic data and a biological protocol}
+\label{supp:life}
+
+The carrier-side form of E1--E16 makes living organization a primary domain
+of application, but substrate independence does not by itself turn a
+biological analogy into a theorem instance.  This section therefore keeps
+three evidential levels separate.  First, two computational
+substrates supply finite evidence, with matched controls, for life-like maintenance,
+drive separation, route dependence, and controlled higher-level readout
+\citep{Tsiokos2026Life}.  Second, those measurements are compared with the
+recognition conditions of the E-laws, with every missing bridge stated
+explicitly.  Third, a concrete planarian regeneration study is specified as
+an auditable biological protocol.  That protocol has not yet been run and is
+not reported as evidence for any theorem.
+The numbers below are those reported in the life-focused development
+\citep{Tsiokos2026Life}; no result of the main paper depends on them.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}lXX@{}}
+\toprule
+Material & Evidence status & Admissible use here \\
+\midrule
+Particle and neural substrates &
+Synthetic experiments with specified criteria and matched controls &
+Finite evidence for the reported operational signals; not evidence that the
+substrates are alive and not, without a bridge record, instances of an E-law
+\\
+E-law correspondence below &
+Interpretive recognition map &
+Identifies which measured fields could populate an E-law bridge and which
+typed hypotheses remain unverified \\
+HoloLife-1 planarian protocol &
+Proposed and unrun &
+Preregistered biological target, positive criteria, and falsifiers; no
+positive biological result is claimed \\
+\bottomrule
+\end{tabularx}
+\caption{Evidence-status discipline for the life-facing material.}
+\label{tab:life-evidence-status}
+\end{table}
+
+% -----------------------------------------------------------------------------
+\subsection{Two finite synthetic substrates}
+
+The life-focused study instantiates two finite computational
+substrates rather than treating ``life'' as a decorative interpretation
+\citep{Tsiokos2026Life}.  The particle substrate has positions on a
+two-dimensional torus, writable bonds $w_{ij}$, bounded counters $a_i$ and
+$n_i$, a finite packaging field $S$, and optional operator-token and
+meta-layer fields.  Its principal lenses expose the packaging field,
+operator/interface mismatch, and windowed currents, affinities, motifs, and
+protocol observables.  The neural/meta-layer substrate is a layered finite
+lattice with bounded site variables, auxiliary fields, within-layer tokens
+$W$ under a global budget, and inter-layer tokens $K$ under a per-site
+budget.  Its lenses expose stroboscopic currents, cross-layer mismatch,
+motif inventories, dictionaries, and intervention-conditioned decoding.
+
+In both substrates, packaging is organized by the already specified
+dynamics-induced completion template
+\[
+E_{\tau,f}(\nu)=Q_f\!\left((U_f\nu)P^\tau\right).
+\]
+The experiments do not compute the associated idempotence defect.  Their
+stability claims are therefore operational maintenance and retention claims,
+not measurements of exact closure.  Some neural ``snapshot'' observables
+also depend on an entropy-production ledger; these are properly lenses on an
+extended diagnostic state rather than unqualified observables of the
+physical lattice state.
+
+For the particle substrate, accepted $+1$ and $-1$ updates of each writable
+coordinate type $y\in\{w,a,n,S\}$ give
+\[
+J_y=\frac{N_y^+-N_y^-}{T_w},
+\qquad
+A_y=\log\frac{N_y^++1}{N_y^-+1},
+\qquad
+\Sigma_{\mathrm{mem}}=\sum_y J_yA_y.
+\]
+The reported entropy-production quantities in both substrates are likewise
+accepted-move proxies.  They omit rejected moves and, under the documented
+conventions, proposal-ratio terms.  They are not exact path-space
+Kullback--Leibler audits, need not be nonnegative in finite windows, and are
+used only through null calibration and matched-regime separation.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}lXX@{}}
+\toprule
+Primitive & Particle realization & Neural/meta-layer realization \\
+\midrule
+P1 & writable bonds $w_{ij}$ & local $W$- and $K$-token exchange kernels \\
+P2 & bounded apparatus counters $a_i$ & conserved token budgets and economy
+diffusion \\
+P3 & explicit protocol phase/clock & deterministic kernel cycle keyed to
+step index \\
+P4 & quantized counters $n_i$ & template-flip kernel in the later/meta
+presets \\
+P5 & writable packaging field $S$ & barrier/closure field and structured
+token-mediated packaging \\
+P6 & drive toggle and $\mu$-contexts & nonconservative work term with a
+separate drive toggle \\
+\bottomrule
+\end{tabularx}
+\caption{Realizations of the primitive roles in the two synthetic substrates.  A
+primitive being implemented does not establish an E-law whose setup uses
+that primitive.}
+\label{tab:life-primitive-map}
+\end{table}
+
+\subsubsection{Null calibration and drive separation}
+
+The audit-first sequence begins with P3 and P6 disabled.  The relevant proxy
+audits are near zero while the dynamics remain nondegenerate
+(\cref{tab:life-null}).  Only after this calibration is P6 enabled under a
+matched regime.  The resulting separation is reported in
+\cref{tab:life-drive}.  These are measurements of a controlled drive channel;
+they do not establish biochemical metabolism, thermodynamic autonomy, or an
+exact arrow-of-time functional.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}llX@{}}
+\toprule
+Substrate & Null regime & Exact reported proxy summary \\
+\midrule
+Particles & P3 off, P6 off &
+$\Sigma_{\mathrm{mem}}=\texttt{sigmaMem}\approx3\times10^{-4}$;
+M6 motif affinities $=0$; accepted-move EP proxy
+$\approx3.5\times10^{-6}$ with confidence-interval half-width
+$\approx4.7\times10^{-5}$, containing zero \\
+Neural & P3 off, P6 off &
+Specified bound
+$|\texttt{epMicroRateWindowLast}|\le2\times10^{-4}$ for the specified seeds;
+at $24\times24$ over three seeds, mean EP
+$\approx-3.9\times10^{-6}$, maximum confidence-interval half-width
+$\approx2.8\times10^{-4}$, and acceptance $\approx0.54$ \\
+\bottomrule
+\end{tabularx}
+\caption{Executed null-regime calibration.  The sign of the finite-window
+neural proxy is not assigned thermodynamic meaning.}
+\label{tab:life-null}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}llX@{}}
+\toprule
+Substrate & Regime & Exact reported separation \\
+\midrule
+Particles & Null, P6 off &
+$\texttt{sigmaMem}\approx3\times10^{-4}$; M6 affinities $=0$; EP proxy
+$\approx3.5\times10^{-6}$ with a confidence interval containing zero \\
+Particles & Drive, P6 on &
+$\texttt{sigmaMem}\approx2.1\times10^{-3}$;
+$\texttt{M6W}\approx0.814$,
+$\texttt{M6N}\approx0.374$,
+$\texttt{M6A}\approx0.392$; EP proxy $\approx4.26\times10^{-3}$ \\
+Neural & Null, P6 off &
+$|\texttt{null\_mean}|\le5\times10^{-4}$ with nondegenerate acceptance \\
+Neural & Drive, P6 on &
+$\texttt{drive\_mean}\ge10^{-3}$ and
+$\texttt{drive\_mean}-\texttt{null\_mean}\ge5\times10^{-4}$ at
+$B_k=2$ and $\eta_{\mathrm{drive}}=2$ \\
+\bottomrule
+\end{tabularx}
+\caption{Executed P6 null--drive separation with P3 held off.}
+\label{tab:life-drive}
+\end{table}
+
+\subsubsection{Protocol effect without a directionality overread}
+
+The neural P3 experiment compares a deterministic kernel schedule with a
+matched control at one observation lens.  The schedule changes the
+stroboscopic-current statistic in every reported row
+(\cref{tab:life-protocol}), but the protocol is keyed to the step index.
+Unless protocol phase is included in the state, the observed process is
+time-inhomogeneous.  Accordingly, the measurement is evidence of a
+route/protocol effect and is not used as a directionality certificate.
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Setting & Control L2 & Protocol L2 & Relative change & Accept (control) &
+Accept (protocol) \\
+\midrule
+seed 1, $\eta=0.5$ (additional) & 0.0349 & 0.0262 & 0.250 & -- & -- \\
+seed 1, $\eta=1.0$ (additional) & 0.0379 & 0.0271 & 0.284 & -- & -- \\
+seed 1, $\eta=2.0$ (specified) & 0.0311 & 0.0255 & 0.179 & -- & -- \\
+\addlinespace
+seed 1, $\eta=1.0$ (replication) & 0.0379 & 0.0271 & 0.284 & 0.0103 & 0.0107 \\
+seed 2, $\eta=1.0$ (replication) & 0.0326 & 0.0280 & 0.141 & 0.0116 & 0.0107 \\
+seed 3, $\eta=1.0$ (replication) & 0.0313 & 0.0280 & 0.105 & 0.0107 & 0.0108 \\
+\bottomrule
+\end{tabular}
+\caption{Executed neural protocol diagnostic.  L2 is the reported
+\texttt{strobe\_current\_l2\_window}.  The $\eta=2$ row is the specified
+case; the other rows are additional settings.}
+\label{tab:life-protocol}
+\end{table}
+
+\subsubsection{Maintenance and viability probes}
+
+The maintenance experiments ask whether a finite system preserves or
+recovers a structured target under noise, traversal, hazard, or deadline.
+The targets, hazards, and deadlines are imposed by the experimental design.  Thus
+the results establish controlled maintenance competencies, not a free
+metabolism and not an autonomous origin of the repair objective.
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}llX@{}}
+\toprule
+Substrate & Task & Reported outcome \\
+\midrule
+Particles & Code maintenance &
+Null: $\texttt{err}=0.43\pm0.09$,
+$\texttt{Sdiff}=6.86\pm0.25$, $\texttt{epRate}=0$.
+Drive: $\texttt{err}=0$,
+$\texttt{Sdiff}=0.83\pm0.06$, $\texttt{epRate}=0.016$ \\
+Particles & Gated traversal &
+Ungated: $\texttt{err}=0.23$, $\texttt{Sdiff}=0.49$.
+Gated moving: $\texttt{err}=0$, $\texttt{Sdiff}=0$.
+Gated static: $\texttt{Sdiff}=2.58$ and no recovery \\
+Particles & Deadline selection &
+$\Delta\texttt{uptimeTail}=0.285$ with confidence interval
+$[0.14,0.43]$; clock cost
+$\Delta\texttt{EPClockRate}=0.083$ \\
+Neural & Paired hazard response &
+$\texttt{spike\_paired}=0.063$,
+$\texttt{realloc\_paired}=0.015$,
+$\texttt{recovery\_paired}=0.060$; declared reallocation threshold
+$0.002$ \\
+\bottomrule
+\end{tabularx}
+\caption{Executed maintenance and viability probes.  The neural hazard
+response is measured with paired runs.}
+\label{tab:life-maintenance}
+\end{table}
+
+\subsubsection{Refined-lens motifs and controlled readout}
+
+The neural substrate also exposes motif histograms and motif-transition
+statistics at a refined diagnostic lens.  The inventory experiment requires coverage at
+least $0.60$, Jensen--Shannon divergence at least $0.01$, and propagation
+score at least $0.02$; all three seeds exceed those thresholds.  The transition experiment reports
+the transition divergence in the same finite regime.
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Experiment & Seed & Coverage (pre) & Coverage (hazard) & JSD (pre/hazard) &
+JSD (transition) & Propagation \\
+\midrule
+inventory & 1 & 1.0 & 1.0 & 0.0312 & -- & 0.644 \\
+inventory & 2 & 1.0 & 1.0 & 0.0324 & -- & 0.587 \\
+inventory & 3 & 1.0 & 1.0 & 0.0316 & -- & 0.609 \\
+\addlinespace
+transition & 1 & 1.0 & -- & 0.0312 & 0.0383 & 0.644 \\
+transition & 2 & 1.0 & -- & 0.0324 & 0.0418 & 0.587 \\
+transition & 3 & 1.0 & -- & 0.0316 & 0.0424 & 0.609 \\
+\bottomrule
+\end{tabular}
+\caption{Executed motif-inventory and motif-transition results.}
+\label{tab:life-motifs}
+\end{table}
+
+Four further experiments inject controlled labels and evaluate the resulting
+motif-level statistics against a within-run shifted-label null.  Here
+``semantics'' means intervention-conditioned discriminability and recovery
+of injected labels, not linguistic meaning, awareness, or subjective
+content.  The $p$-values in \cref{tab:life-intervention} are experiment-local
+shift-null controls; no global family-wise error claim is made.
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\begin{tabular}{@{}lclccl@{}}
+\toprule
+Experiment & Seed & Metric & Value & $p$-value & Reported separation \\
+\midrule
+directional focus & 1 & focus delta & 1.478 & 0.005 & spike control 0.269 \\
+directional focus & 2 & focus delta & 1.453 & 0.000 & spike control 0.225 \\
+directional focus & 3 & focus delta & 1.521 & 0.000 & spike control 0.384 \\
+\addlinespace
+dictionary polarity & 1 & dictionary delta & 0.064 & 0.005 & JSD in/out 0.032 \\
+dictionary polarity & 2 & dictionary delta & 0.108 & 0.005 & JSD in/out 0.060 \\
+dictionary polarity & 3 & dictionary delta & 0.075 & 0.005 & JSD in/out 0.039 \\
+\addlinespace
+phrase alignment & 1 & alignment & 0.999 & 0.005 & JSD out/in 0.665 \\
+phrase alignment & 2 & alignment & 1.000 & 0.005 & JSD out/in 0.671 \\
+phrase alignment & 3 & alignment & 1.000 & 0.005 & JSD out/in 0.667 \\
+\addlinespace
+phrase decoding & 1 & token accuracy & 1.000 & 0.005 & JSD out/in 0.665 \\
+phrase decoding & 2 & token accuracy & 1.000 & 0.005 & JSD out/in 0.671 \\
+phrase decoding & 3 & token accuracy & 1.000 & 0.005 & JSD out/in 0.667 \\
+\bottomrule
+\end{tabular}
+\caption{Executed intervention-conditioned readout and shifted-label-null
+results.}
+\label{tab:life-intervention}
+\end{table}
+
+Three other readout experiments failed their shifted-null criteria.  They count
+against the readout claims, not for them.  In particular, the successful
+intervention-conditioned decoding does not follow merely from the presence
+of motifs.
+
+% -----------------------------------------------------------------------------
+\subsection{What the synthetic evidence does and does not instantiate}
+
+The measurements above give life-facing substance to the abstract catalog,
+but they are not silently promoted to E-law instances.  The recognition map
+in \cref{tab:life-e-law-map} states the strongest source-faithful relation.
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}lXX@{}}
+\toprule
+E-law surface & Existing life-facing signal & Missing bridge or control \\
+\midrule
+E1 Internalization and E3 Self-Maintaining Reclosure &
+Driven code maintenance, gated traversal, perturbation recovery, and explicit
+costs are finite repair/maintenance candidates &
+The target and hazard are externally installed.  A full instance still
+requires a carried defect record, carrier-produced source repair, the E1
+closed-loop record, and the E3 apparatus reclosure and audit
+chain \\
+E5 Reclosure Collapse &
+Null, ungated, and gated-static failures provide genuine separating controls
+for maintenance claims &
+Failure of an experimental task is not yet the typed exhaustion of moves,
+budget, and reclosure machinery required by E5 \\
+E6 Priced Exposure and E9 Strict Probe Acquisition &
+The neural carrier has explicit $W/K$ budgets; the particle carrier exposes
+finite diagnostic families &
+No complete native/probe catalogue, strict-family test, $\Xi$ residual,
+positive-cost ledger, or KKT allocation certificate links these runs to E6
+or E9 \\
+E7 Alarm and E8 Control-Price &
+The paired neural hazard produces a spike, resource reallocation, and
+recovery; the particle deadline run reports a benefit and an explicit proxy
+cost &
+The E7 disposition inventory and carried alarm record are not built, and the
+E8 signal is not linked to a declared binding constraint, dual variable,
+lineage audit, and capture controls \\
+E10 Cognitive Demarcation &
+Motifs, dictionaries, and intervention-conditioned decoding furnish
+decodable correlates under controls &
+Decodability is not cognition.  A positive E10 instance additionally needs
+the same carrier's repair-and-gate evidence, carried decision link,
+counterfactual ablations, and status partition \\
+E14 Reconsolidation and E15 Offline Reclosure &
+The controlled representations provide candidate
+records to examine &
+No retrieval-contingent record revision, canonical E14 status, online/offline
+debt flow, exchange census, or duty-cycle theorem is measured here \\
+E16 Adaptability &
+The P3 study establishes a repeatable protocol-dependent change in one
+stroboscopic statistic &
+A protocol effect alone is not coherent adaptability.  E16 still requires
+fixed support, matched current endpoints, exact endpoint-conditioned repair
+distributions, E15 reconciliation, complete counterpart inventories, and
+bounded-perturbation survival \\
+\bottomrule
+\end{tabularx}
+\caption{Cautious recognition map from executed synthetic evidence to the
+E-law surfaces.  Every row records both positive material and the missing
+bridge.}
+\label{tab:life-e-law-map}
+\end{table}
+
+No result above directly instantiates E4 compilation, E11 support rewrite,
+E12 individuation, or E13 repair transport.  The two substrates do,
+however, show why living organization belongs beside cognition and society
+rather than underneath them: maintenance, resource allocation, route
+dependence, and controlled readout are already nontrivial carrier-side
+phenomena before any cognitive interpretation is attempted.
+
+% -----------------------------------------------------------------------------
+\subsection{HoloLife-1: a proposed biological instantiation}
+\label{sec:hololife-protocol}
+
+The synthetic evidence does not substitute for a biological test.  The
+HoloLife-1 proposal stated here targets planarian regeneration, motivated by
+work on bioelectric control and regenerative pattern memory
+\citep{PezzuloLevin2015}.  Its central object is not a black-box predictor and
+not a claim that the organism ``believes'' a target morphology.  It is a
+finite, audit-led descent/repair claim: two histories that agree at a
+declared current quotient may separate under a future recut challenge, and
+the proposed study asks whether a carried bioelectric predicate and route
+record lawfully repair that failure.
+
+\paragraph{Finite carrier and audit ledger.}
+Let $H=\{h_i\}$ be a frozen finite set of regeneration-history records.  Each
+record contains
+\[
+\begin{aligned}
+h=(&\text{source/study},\ \text{species},\ \text{fragment type},\\
+&\text{amputation geometry},\ \text{treatment route},
+\ \text{washout state},\\
+&\text{time/stage},\ \text{current anatomy},
+\ \text{current molecular markers},\ \text{bioelectric readout},\\
+&\text{recut challenge},\ \text{future outcome},\ \text{reset
+intervention},\ \text{audit ledger}).
+\end{aligned}
+\]
+The audit ledger is carrier data.  It records instruments, declared
+thresholds, visible and suppressed fields, empirical bridges, species and
+protocol compatibility, remaining residuals, and any target coarsening.  In
+particular, public molecular atlases may populate a declared bridge for the
+current molecular quotient only when species, time, and protocol
+compatibility are recorded; they may not be silently merged with the
+perturbation histories.
+
+\paragraph{Four quotients and one held-out challenge.}
+The proposed quotients are
+\[
+Q_0=Q_A\vee Q_G,
+\qquad
+Q_B=Q_0\vee h_B,
+\qquad
+Q_R=Q_B\vee\rho,
+\qquad
+M=Q_\Theta.
+\]
+Here $Q_A$ records current visible anatomy, $Q_G$ the declared current
+molecular/marker state, $h_B$ a finite bioelectric predicate, $\rho$ a
+route-memory residue, and $Q_\Theta$ the future target-morphology quotient.
+The held-out map $F_{\mathrm{recut}}:H_t\to H_{t+\Delta}$ is read into
+\[
+r_\Theta F_{\mathrm{recut}}(h)\in\{W,C,D,R,A\},
+\]
+where $W$ is a wild-type single-headed target, $C$ a cryptic altered target,
+$D$ a double-headed target, $R$ a reset/repaired target, and $A$ an abnormal
+or failed package.  These labels are proposed finite outcome classes; they
+do not earn P5 objecthood merely by being assigned.
+
+\paragraph{Test 1: split-pair obstruction.}
+The primary target is the already specified descent obstruction
+\[
+\Omega(Q_0;F,r_\Theta)
+=\{(h,h'):\ Q_0(h)=Q_0(h')\ \wedge\
+r_\Theta F(h)\ne r_\Theta F(h')\}.
+\]
+The positive first-stage criterion is
+$\Omega(Q_0;F,r_\Theta)\ne\varnothing$.  This says that the declared present
+anatomy/marker quotient is inadequate for the future recut readout.  It is
+stronger and more falsifiable than reporting predictive accuracy alone.
+
+\paragraph{Test 2: strict bioelectric source repair.}
+The candidate $h_B$ must first split at least one old fiber:
+\[
+h_B\notin\Sigma_{Q_0},
+\qquad
+I(h_B\mid Q_0)
+=\frac1N\sum_{C\in H/Q_0}\min(n_{C,0},n_{C,1})>0.
+\]
+It must then reduce the preregistered obstruction,
+\[
+\widehat\omega(Q_B)\ll\widehat\omega(Q_0),
+\qquad Q_B=Q_0\vee h_B,
+\]
+rather than merely improve a fitted score.  Entropy-matched random
+predicates are explicit comparators.  Target coarsening is recorded as a
+different repair: collapsing head/tail outcomes to ``viable'' cannot be
+credited as an explanation of the original distinction.
+
+\paragraph{Test 3: hiddenness under exposure.}
+The HoloLife-1 proposal uses the empirical witness-pair frequency
+below.  To avoid identifying it with D2's closure-deficit surplus without a
+bridge, write it here as
+\[
+S_{\rm pair}(Q,M)=\Pr[h\sim_Q h'\ \wedge\ h\not\sim_M h'],
+\]
+with positive pattern
+\[
+S_{\rm pair}(Q_0,M)>0,
+\qquad
+S_{\rm pair}(Q_B,M)\ll S_{\rm pair}(Q_0,M).
+\]
+Threshold and treatment-strength sweeps test whether the reduction is tied
+to exposure of the determining predicate rather than to an arbitrary large
+effect.  A residual that remains after exposure stays statused rather than
+being declared solved.  Reading it as an instance of D2 would require the
+registered closure-deficit score or an explicit bridge from this finite pair
+frequency to that score.
+
+\paragraph{Test 4: route memory without the protocol trap.}
+The comparison fixes two routes:
+\[
+\begin{aligned}
+\gamma &: \text{untreated regeneration}
+\to\text{current single-headed state}\to\text{recut},\\
+\eta &: \text{transient bioelectric perturbation}
+\to\text{washout}\to\text{current single-headed state}\to\text{recut}.
+\end{aligned}
+\]
+The proposed holonomy-memory signature is
+\[
+Q_0(\gamma h)=Q_0(\eta h),
+\qquad
+M(\gamma h)\ne M(\eta h),
+\]
+with the route residue $\rho_{\gamma,\eta}$ added on the source side through
+$Q_R=Q_B\vee\rho_{\gamma,\eta}$.  This would be a physiological formed
+record, not a cognitive state.  It would not by itself establish P6 or
+thermodynamic directionality.  Any P6 claim must separately lift treatment,
+phase, and protocol into state and survive the corresponding audit.
+
+\paragraph{Test 5: package formation.}
+The proposed target states earn P5 status only through the existing finite
+completion test
+\[
+E_{\tau,q}(\mu)=U_q\!\left(Q_q(\mu K^\tau)\right),
+\qquad
+\delta_{\tau,q}
+=\frac12\max_z\sum_{z'}
+\left|(E_{\tau,q}^2-E_{\tau,q})(z,z')\right|.
+\]
+The preregistered positive condition is
+$\delta_{\tau,Q_\Theta}\ll1$ together with at least two nontrivial stable
+packages.  A constant map, unstable classifier, or post hoc outcome bin does
+not pass.
+
+\paragraph{Test 6: lower-layer gating or rewrite.}
+For target package $\theta$, the proposed lower-layer kernel is
+\[
+K_B^\theta(b,b')=
+\Pr(B_{t+\Delta}=b'\mid B_t=b,\Theta_t=\theta,\phi_t),
+\]
+where $\phi_t$ includes phase, treatment, washout, recut protocol, and
+instrument state.  The registered comparisons are kernel divergence,
+support symmetric difference, cycle-rank change, and spectral-gap change.
+A support or feasibility change is a P2 candidate; a change in reachable
+classes, absorbing states, cycle rank, spectral behavior, or the induced
+packaging map is a P1 candidate.  Small parameter drift alone is below the
+registered threshold.  The distinctive positive target is a difference
+among $K_B^W,K_B^C,K_B^D$ under the same lifted external protocol.
+
+\paragraph{Test 7: residual and currency discharge.}
+Let $L=\{Q_A,Q_G\}$ be the native current probes and let
+$D=\{h_B,\rho_{\gamma,\eta},Q_\Theta\}$ be the proposed dissolving family.
+The existing adequacy residual is
+\[
+\Xi_C(D\mid L)
+=K_{DD}-K_{DL}K_{LL}^{\dagger}K_{LD}.
+\]
+The protocol requires the residual after adding the bioelectric and route
+records to fall below a declared budget:
+\[
+\Xi_C(D_{\mathrm{remaining}}\mid L\vee h_B\vee\rho)
+<\text{declared budget}.
+\]
+If it does not, the biological needle remains undisolved.  A later shadow
+price may be interpreted only when the constrained budget problem, binding
+lineage, and dual certificate are all actually supplied; a fitted
+coefficient is not an E8 control price.
+
+\paragraph{Role-status ledger.}
+The proposal ends in the finite status table of
+\cref{tab:hololife-role-ledger}, not in an untyped claim that all six
+primitives are present.
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}lXX@{}}
+\toprule
+Role & Positive witness sought & Demotion or failure \\
+\midrule
+P1 rewrite &
+$K_B^\theta$ changes reachable classes, absorbing states, cycle rank,
+spectral gap, or package map by target state &
+Differences vanish after phase, protocol, treatment, and instrument lifting
+\\
+P2 gating &
+Target package changes the support or feasibility of bioelectric/regenerative
+transitions &
+Only weak parameter drift; no support or feasibility change \\
+P3 holonomy &
+Routes agree at $Q_0$ but differ at $M$ &
+Difference is explained by an unrecorded treatment, time, or protocol field
+\\
+P4 staging/forking &
+$W,C,D,R,A$ form a typed branch tree with transition records and stage
+indices &
+Labels are post hoc outcome bins \\
+P5 packaging &
+$Q_\Theta$ has low idempotence defect and multiple stable packages &
+Constant map or unstable classifier \\
+P6 audit &
+Thresholds, instruments, bridges, residuals, repairs, coarsenings, and
+nonclaims are carried and statused &
+Any silent bridge, silent translation, or unstatused residual \\
+\bottomrule
+\end{tabularx}
+\caption{Proposed HoloLife-1 role-status ledger.  Every row is a test to be
+run, not an observed biological result.}
+\label{tab:hololife-role-ledger}
+\end{table}
+
+\subsubsection{Preregistered positive package}
+
+A strong positive result requires the conjunction in
+\cref{tab:hololife-positive}.  Passing only one or two rows would support a
+narrower biological statement, not the proposed full-stack conclusion.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+Preregistered criterion & Licensed conclusion \\
+\midrule
+$\Omega(Q_0;F,r_\Theta)\ne\varnothing$ &
+The declared present anatomy/marker quotient fails descent to future form \\
+$h_B\notin\Sigma_{Q_0}$ and
+$\widehat\omega(Q_B)\ll\widehat\omega(Q_0)$ &
+The bioelectric predicate is a strict source extension that repairs, rather
+than merely redescribes, the obstruction \\
+$S_{\rm pair}(Q_B,M)\ll S_{\rm pair}(Q_0,M)$ &
+Predictive hiddenness is reduced under the declared exposure \\
+$Q_0(\gamma h)=Q_0(\eta h)$ but
+$M(\gamma h)\ne M(\eta h)$ &
+The declared routes require a source-side memory residue \\
+$\delta_{\tau,Q_\Theta}\ll1$ with at least two nontrivial stable packages &
+Target morphology passes the proposed P5 package test \\
+Target-conditioned $K_B^\theta$ differ under the same lifted protocol &
+The formed package is associated with lower-layer gating or rewrite, as
+classified by the registered support and kernel tests \\
+$\Xi_C(D_{\mathrm{remaining}}\mid L\vee h_B\vee\rho)$ is below the declared
+budget &
+The residual is discharged in the registered currency rather than hidden by
+prose \\
+All role channels are statused &
+No primitive is credited through an unrecorded bridge or residual \\
+\bottomrule
+\end{tabularx}
+\caption{Conjunctive positive criteria for the proposed biological
+protocol.}
+\label{tab:hololife-positive}
+\end{table}
+
+\subsubsection{Preregistered falsifiers}
+
+The protocol is designed to make failure informative and easy to report.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+Observed failure & Consequence \\
+\midrule
+$Q_0$ already descends to future target morphology &
+There is no split-pair obstruction and no hidden target package relative to
+the declared current quotient \\
+$h_B$ is definable from $Q_0$ &
+There is no strict bioelectric source extension \\
+An entropy-matched random predicate repairs descent as well as $h_B$ &
+The proposed source repair lacks the registered biological specificity \\
+Only target coarsening repairs the obstruction &
+The distinction has been erased rather than explained \\
+Route memory disappears after treatment, time, phase, and protocol are
+lifted &
+The apparent holonomy was a protocol or omitted-variable artifact \\
+$\delta_{\tau,Q_\Theta}$ remains high or only a constant package survives &
+Target morphology has not earned P5 objecthood \\
+The adequacy residual remains above budget after $h_B$ and $\rho$ are added &
+The proposed needle remains unresolved \\
+$K_B^\theta$ does not vary with target package under the fixed lifted
+protocol &
+This evidence pack does not support the lower-layer rewrite hypothesis \\
+Any bridge or residual cannot be statused &
+The full Six-Birds biological package is rejected even if individual
+correlations remain \\
+\bottomrule
+\end{tabularx}
+\caption{Falsifiers for the proposed HoloLife-1 study.}
+\label{tab:hololife-falsifiers}
+\end{table}
+
+\paragraph{Implementation boundary.}
+The proposal calls for a frozen evidence pack containing perturbation route,
+current morphology, future recut outcome, reset behavior, and declared
+bioelectric readouts; digitized voltage-map features; and molecular atlases
+used only through explicit compatibility bridges.  The core analysis is a
+finite obstruction/repair/audit certificate using finite-state estimation,
+uncertainty intervals, bootstrap or permutation controls, and
+entropy-matched random predicates.  A simulator may be attached only as a
+model-realization map.  It cannot replace the primary biological carrier or
+convert this unrun protocol into present evidence.
+
+\paragraph{Scope of a future positive result.}
+Even the full conjunction would not define biological life, prove that all
+living systems realize E1--E16, establish consciousness, or derive a
+thermodynamic arrow from protocol holonomy.  It would provide a finite
+biological realization of a narrower normal form: current-quotient failure,
+strict physiological source repair, exposure-sensitive predictive surplus,
+route-carried memory, package formation, lower-layer transition change, and
+audited residual discharge.  Until the protocol is executed, that sentence
+states the target of the experiment and nothing more.
+
+% =============================================================================

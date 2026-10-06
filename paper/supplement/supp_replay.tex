@@ -1,0 +1,36 @@
+\section{Replay}
+\label{supp:replay}
+
+All commands run from the repository root.
+
+\paragraph{Lean library.}
+\begin{verbatim}
+cd lean
+lake build
+\end{verbatim}
+The default targets build the library, the vendored interfaces and the instance modules. The axiom
+transcript of the instance theorems in the concordance is reproduced by
+\begin{verbatim}
+cd lean
+lake env lean ../paper/supplement/instance_axioms.lean
+\end{verbatim}
+
+\paragraph{Finite computations.}
+\begin{verbatim}
+cd lab
+pip install -e '.[dev]'
+pytest -q
+PYTHONPATH=. python -m sixbirds_foundations_v.sweeps.e16_adaptability_sweep
+\end{verbatim}
+The test suite runs the computations of E1--E15; the E16 computation runs separately.
+
+\paragraph{Supplement tables and papers.}
+\begin{verbatim}
+python3 paper/supplement/build_supp.py
+cd paper
+latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build main.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build supplement.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build main.tex
+\end{verbatim}
+The main paper and the supplement cite each other's numbered items, so the main paper is built a
+second time after the supplement.

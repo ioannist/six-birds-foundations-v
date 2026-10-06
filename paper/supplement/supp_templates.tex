@@ -1,0 +1,294 @@
+\section{Certificate specifications}
+\label{supp:templates}
+
+This section prints the certificate specifications and definitions of the catalog that the main
+paper summarizes in \Cref{tab:templates}; E3 and E13 are printed in the main paper
+(\Cref{tmpl:e3,tmpl:e13}). Each Template gives its data, the certificate that carries the difficult
+content, and the conclusion that Lean derives from a complete certificate. For a conditional
+classification the certificate is a complete status record: one carried, branch-valid status record
+for the claim, and the same status on every genuine record for that claim. After each Template, a
+\emph{Meaning} sentence says what the conclusion amounts to, and an \emph{Example} gives one status
+realized in the finite computations of \Cref{supp:evidence}; the examples are finite checks of the
+classifiers, not instances of the entries.
+
+\subsection{Endogeny}\label{sec:tmpl-endogeny}
+
+\begin{schema}[E1: internalization]\label{tmpl:e1}
+\emph{Data.} An E-system $\mathbb S$, a challenge history $H$, a recurring challenge class
+$\mathcal C$ with horizon, and a viability readout $v$ with $\Delta(Q_t, F_{\mathcal C}, v) \ne
+\varnothing$ at challenged times.
+\emph{Certificate.} A complete internalization status record with five statuses: slack, externally
+subsidized, endogenously repairing, stressed and collapsing. The challenge binds. The set
+$\Delta_{\mathrm{endo}}$ is empty; it collects the discharging entries that have a forbidden source,
+lack generation, scope or carriedness, use an off-kernel move, or omit their audit. The certified
+inputs listed below are supplied.
+\emph{Conclusion.} The five statuses are mutually exclusive, and the status is endogenously
+repairing. The repair family contained in that branch has, at each challenged episode:
+\begin{itemize}
+  \item a carried defect and a generated move;
+  \item the installed join $Q_{t+1} = Q_t \vee R_t$;
+  \item a strict reduction
+    $\Delta(Q_{t+1}, F_{\mathcal C}, v) \subsetneq \Delta(Q_t, F_{\mathcal C}, v)$ on the challenged
+    fibres;
+  \item a committed-state source, a kernel transition, gate passage and re-audit.
+\end{itemize}
+\end{schema}
+
+\emph{Meaning.} If the record says the system repairs endogenously and its competitors are ruled out,
+then every credited repair is a carried join that strictly shrinks the obstruction; the repair family
+itself is a field of the certificate, not constructed from recurrence. The certified inputs are
+no-free-distinction \citep{Tsiokos2026FoundIV}, promotion-gate soundness \citep{Tsiokos2026FoundIII},
+a bridge from measured discharge to the absence of residual accrual, and family-level budget
+feasibility. Perpetual self-extension under a challenge that is always new is the law of
+\Cref{sec:e1-forcing}. A further statement has the same conditional form: if no repair generator is reachable, a supplied bridge excludes an
+endogenous family and $\Delta_{\mathrm{endo}} = \varnothing$, then the status is slack, stressed or
+collapsing, and a binding challenge excludes slack.
+\emph{Example.} With its repair generator removed, a finite carrier under a split challenge is
+classified stressed, stressed, collapsing at three successive times, with residuals $1, 2, 3$.
+
+\begin{schema}[E4: repair compilation]\label{tmpl:e4}
+\emph{Data.} A repair $R$ invoked at least twice for a challenge class $\mathcal C$, and a candidate
+lower operator or support gate (sort P1 or P2) that would replace the invocation.
+\emph{Certificate.} A compilation case: the candidate is carried; a certified top-down channel links
+it to at least two admissible interventions with matched controls; the promotion record is accepted;
+a memory-only comparator fails to reproduce the descent; the repair is not same-family saturated; an
+annotation record permits decompilation; in-class descent is verified,
+$\Delta(Q^{\mathrm{compiled}}, F_{\mathcal C}, r) = \varnothing$; the higher invocation is silent;
+and the higher-priority statuses are excluded.
+\emph{Conclusion.} The status is compiled; the five statuses exposed, compiling, compiled,
+mis-compiled and decompiled are mutually exclusive.
+\end{schema}
+
+\emph{Meaning.} A repeated repair counts as moved into lower support only when every gate passes;
+the classification then separates a successful compilation from one that fails outside its class
+(mis-compiled) or has been undone (decompiled).
+\emph{Example.} A candidate whose top-down channel is blocked is classified compiling; the same
+candidate with all gates passing is compiled.
+
+\begin{definition}[E5: reclosure collapse]\label{def:e5}
+Fix a challenge class, a horizon and a complete inventory of typed rescue candidates --- carried
+repairs, boundary updates, apparatus reclosures and probe acquisitions --- each with its own move
+record, budget witness, kernel transition and viability-descent certificate. The system is
+\emph{collapsed} if no candidate is both admissible within budget and viability-descending. It is
+\emph{irreversibly collapsed} if moreover the repair generator is unreachable and the apparatus-level
+viability kernel is empty, both certified for the same system, challenge, horizon and scope.
+\end{definition}
+
+\begin{lemma}[collapse consistency]\label{lem:e5}
+An admissible in-budget descending candidate refutes collapse. Under a complete status record, the
+seven statuses viable, stressed, subsidized, suspended, collapsed-recoverable,
+collapsed-irreversible and revived are mutually exclusive. After a subsidy is withdrawn, a certified
+absence of active subsidy and the complete record classify the system without presupposing collapse.
+\end{lemma}
+
+\emph{Meaning.} Collapse is the absence, in the declared inventory, of any admissible in-budget rescue
+that restores viability descent;
+suspension (intact apparatus, operations gated off) and revival (a later rescue with a new apparatus
+lineage) are separate statuses. The first claim of the lemma holds by definition.
+\emph{Example.} A carrier with an active kernel but no rescue move is collapsed-recoverable.
+
+\subsection{Priced access and control}\label{sec:tmpl-access}
+
+\begin{schema}[E7: alarm]\label{tmpl:e7}
+\emph{Data.} A blind-spot witness $z$ with $z^*(\Xi_C(D \mid L) - \Omega)z > 0$, coupled within the
+horizon to a failure of a declared viability probe.
+\emph{Certificate.} A unique total disposition package: one carried, branch-valid disposition record,
+and the same kind on every genuine record at this witness and horizon.
+\emph{Conclusion.} Exactly one disposition holds:
+\begin{itemize}
+  \item \emph{currentization}: a carried rewrite of the allocator's constraint set that admits the
+    witness and is charged to a forced-exposure ledger entry;
+  \item \emph{boundary nonclosure}: a failed viability descent with a carried status;
+  \item \emph{lawful discount}: for protocol artifact, currentizable residue, out-of-horizon scope or
+    dissolved coupling.
+\end{itemize}
+A currentization changes the constraint set.
+\end{schema}
+
+\emph{Meaning.} To \emph{currentize} a blind-spot direction is to make it part of what the system
+currently attends to, by changing the constraints of its allocation. A dangerous blind spot is then
+either currentized in this way, declared an unclosed boundary, or discounted for a stated reason. A
+move that wins the allocation of \Cref{sec:allocation} inside the old constraint set is attention,
+not alarm. A related statement, \emph{alarm fatigue} (E7.1), is argued on paper only: if
+viability-coupled excess persists and demand exceeds a finite carried preemption capacity, then the
+channel saturates, a carried threshold repair is charged with the original lineage kept, or the
+excess stays statused.
+\emph{Example.} Protocol-artifact witnesses at thresholds $0$ and $1$ are lawfully discounted.
+
+\begin{definition}[E8: control price]\label{def:e8}
+A carried signal is a \emph{control-price component} for constraint $j$ of a maximization problem
+with optimal value $\Phi^*(b)$ under constraints of level $b = (b_j)$ when its readout is certified, it is linked to the ledger line of $j$, its held-out
+predictions and its stability under budget perturbation pass, and its value matches the multiplier
+$\lambda_j$ of a linked multiplier witness when $j$ binds and vanishes when $j$ is slack. A
+\emph{field} is a complete inventory of components; a compressed summary
+$a = \mathcal C(\lambda_1, \ldots, \lambda_k)$ is \emph{lawful} when it predicts admissibility or
+policy changes beyond the external quotient and collapses when all its components are slack.
+\end{definition}
+
+\begin{lemma}[control-price consistency]\label{lem:e8}
+A component-lawful case yields its shadow-price component and slack collapse. Summary lawfulness is
+equivalent to predictive legitimacy together with slack collapse, by definition. Under a complete
+status record the seven statuses slack-obstructed, proxy-obstructed, summary-redescription,
+component-lawful, field-lawful, summary-lawful and incomplete-or-unpriced are mutually exclusive.
+\end{lemma}
+
+\emph{Meaning.} A control signal counts as a price only when it is linked to the ledger line of its
+own constraint, matches that constraint's multiplier, passes its held-out and stability checks, and
+vanishes when the constraint is slack. When $\Phi^*$ is differentiable and the envelope theorem
+applies, $\lambda_j = \partial\Phi^*/\partial b_j$
+\citep[\S 5.6.3]{BoydVandenberghe2004}; this reading is on paper. \emph{Audit capture} (E8.1) is the
+record in which a budget-setting move raises the carrier's own residual budget, the blind spot
+against the original lineage stays positive, and the ledger reports health.
+\emph{Example.} A signal of $1/4$ on a slack constraint is slack-obstructed. A budget move from $10$
+to $15$ with the original-lineage blind spot still positive and a healthy report is capture evidence.
+
+\begin{schema}[E10: cognitive demarcation]\label{tmpl:e10}
+\emph{Data.} A carried package $\Theta$ and a challenge class $\mathcal C$.
+\emph{Certificate.} A complete cognitive status record over eight statuses: schedule trap,
+scaffolding, structural path only, decodable correlate, repair without gate, gate without repair,
+cognitive, non-cognitive.
+\emph{Conclusion.} The statuses are mutually exclusive. A cognitive status yields
+\begin{equation}\label{eq:e10}
+  \mathsf{RepairDescent}(\Theta, \mathcal C) \wedge \mathsf{Gate}(\Theta, \mathcal C) \wedge
+  \mathsf{Prov}(\Theta, \mathcal C),
+\end{equation}
+and conversely \eqref{eq:e10} together with the absence of the six higher-priority kinds of
+evidence yields the cognitive status.
+\end{schema}
+
+\emph{Meaning.} A package with cognitive status repairs, gates action and is the system's own, and
+no higher-priority evidence is present: $\mathsf{RepairDescent}$ is a strict reduction of an access or action
+obstruction by a quotient the package installs; $\mathsf{Gate}$ is a certified top-down kernel gate
+for two distinct carried interventions with matched controls and different induced kernel supports;
+and $\mathsf{Prov}$ is carried formation and invocation of the package, linked to $\mathcal C$. The
+same form gives \emph{intention} (E10.1: a carried restriction of action support toward a target,
+strictly before the outcome, certified and coherent under every listed future probe) with five
+statuses, and \emph{goal} (E10.2: a carried target quotient that persists as the criterion for at
+least two distinct carried routes) with four.
+\emph{Example.} A package that an observer can decode but that has no certified difference-making
+gate is a decodable correlate.
+
+\subsection{Stack, individuation and transport}\label{sec:tmpl-stack}
+
+\begin{schema}[E11: institutional rewrite]\label{tmpl:e11}
+\emph{Data.} A formed upper package $\Theta$ over a lower kernel $K_\ell$ with closure $E_\ell$, and two
+distinct admissible upper interventions $\Theta_i \ne \Theta_j$ with matched lower controls.
+\emph{Certificate.} A complete status record over inert, conditioning, stack-active and constitutive,
+with structural evidence consisting of a certified top-down channel linking the interventions to
+\[
+  \supp K_\ell^{\Theta_i} \ne \supp K_\ell^{\Theta_j}
+  \quad\text{or}\quad
+  E_\ell^{\Theta_i} \ne E_\ell^{\Theta_j}.
+\]
+\emph{Conclusion.} The four statuses are mutually exclusive. Stack-active requires structural
+evidence, an empty stack obstruction and no constitutive evidence; constitutive requires, in
+addition, a separate compilation certificate. A change of probabilities on unchanged support is
+conditioning, and a label whose effect washes out is inert.
+\end{schema}
+
+\emph{Meaning.} An upper layer rewrites a lower one only if it changes which lower transitions are
+possible or how the lower layer completes, not merely how likely they are.
+\emph{Example.} A weight change from $10^{-3}$ to $10^{-2}$ on an allowed transition is conditioning.
+
+\begin{schema}[E12: individuation]\label{tmpl:e12}
+\emph{Data.} An E-system and a declared list of candidate subcarriers.
+\emph{Certificate.} For a candidate $I$: repair, budget and record closure on $I$,
+\[
+  \Repair(I) \subseteq I, \qquad \Budget(I) \subseteq I, \qquad \Record(I) \subseteq I,
+\]
+an interface quotient $B(I)$ certified as the coarsest one through which every declared viability
+probe descends, and self-maintenance of $B(I)$ by $I$; together with maximality among candidates
+and the absence of a distinct overlapping maximal candidate. A complete status record ranges over
+integrated, federated, subsidiary, platform-dependent, shadow and non-individuated.
+\emph{Conclusion.} The status is integrated; the six statuses are mutually exclusive.
+\end{schema}
+
+\emph{Meaning.} An individual is a maximal declared candidate, with no overlapping maximal competitor,
+whose repairs, budget and records stay inside it and whose coarsest viability-sufficient boundary it
+maintains itself.
+\emph{Example.} A candidate whose repairs and records close but whose budget is paid from outside is
+subsidiary.
+
+\begin{proposition}[a singleton candidate]\label{prop:e12-singleton}
+If the candidate list is $[I]$ and $I$ passes the repair, budget, record, viability-boundary and
+self-maintenance tests, then $I$ is integrated: it is maximal, and no distinct candidate overlaps it.
+\end{proposition}
+
+\begin{proof}
+The only candidate is $I$, so maximality and the absence of a competitor are immediate.
+\end{proof}
+
+The semantic form of E12 --- repair closure, boundary maintenance, maximality and the exclusion of
+overlapping rivals, for a finite system --- is the law of \Cref{sec:e12-semantic}; the Template adds
+budget and record closure and a boundary certified as the coarsest viability-sufficient one.
+\emph{Operational selfhood} (E12.1) is argued on paper only: at the cognitive scale, a \emph{self}
+is a carried common repair ledger through which the system's role, memory, action and viability
+probes all descend.
+
+\subsection{Memory and adaptive capacity}\label{sec:tmpl-memory}
+
+\begin{schema}[E14: reconsolidation]\label{tmpl:e14}
+\emph{Data.} A carried record $m_t$, a retrieval transport $T_c(m_t)$ in context $c$, and a retrieval
+conflict: a split pair against the record's own declared claim after the transported record is
+adjoined.
+\emph{Certificate.} Complete inventories of lawful repair, strict coarsening and statused outcomes,
+with provenance records for every mutation, and a complete status record over nine statuses:
+provenance defect, silent rewrite, ordinary read, outcome collision, unrealized disposition, record
+repaired, record coarsened, statused unresolved, unstatused conflict.
+\emph{Conclusion.} Once the first five statuses and unstatused conflict are excluded, exactly one
+lawful disposition holds:
+\[
+\begin{aligned}
+  &\text{repair:} && m_{t+1} \text{ installs the record join of } m_t \text{ and } R_c;\\
+  &\text{coarsening:} && q^- \preceq q^+ \text{ and } q^+(x) = q^+(x'),\ q^-(x) \ne q^-(x')
+     \text{ for some } x, x';\\
+  &\text{retained debt:} && m_{t+1} = m_t \text{ with a statused residual charged to } \Lambda_S.
+\end{aligned}
+\]
+\end{schema}
+
+\emph{Meaning.} When recalling a record exposes a conflict and the five defect statuses and unstatused
+conflict are excluded,
+the record is lawfully repaired, made strictly coarser, or kept with the conflict charged as debt; the
+other statuses record defects in the retrieval or in its bookkeeping.
+\emph{Example.} The same source record is repaired for one retrieval claim and kept as statused
+unresolved debt for another.
+
+\begin{schema}[E15: offline reclosure]\label{tmpl:e15}
+\emph{Data.} Carried closure debt $D_t$ built only from linked statused E14 residuals, route residues
+and adequacy residuals; online capacity $\kappa_{\mathrm{on}}$; debt accrual $a$; and an allocation
+record as in \Cref{prop:e15-identity}.
+\emph{Certificate.} A complete status record over eight statuses: deficit-online counterexample,
+decorative offline, duty-cycle mismatch, skipped-offline cascade, alternation required, online
+sufficient, offline optional, offline reclosure rejected.
+\emph{Conclusion.} The statuses are mutually exclusive. The alternation-required case yields a strict
+online deficit $a > \kappa_{\mathrm{on}}$, recurrent offline phases that gate exchange to zero and
+assign the freed allocation to internal discharge with linked debt discharge in each phase, and an
+observed duty cycle within a tolerance declared before the horizon.
+\end{schema}
+
+\emph{Meaning.} A system that accrues debt faster than it can discharge online is certified to need
+alternating offline phases only when the phases, the freed budget and the duty cycle are all on
+record; \Cref{prop:e15-identity} gives the capacity of such a phase.
+\emph{Example.} At debt accrual $5$ the claim is alternation required; at accruals $7/2$ and $4$ it is
+online sufficient.
+
+\begin{schema}[E16: adaptability]\label{tmpl:e16}
+\emph{Data.} Two admissible routes $\gamma, \eta$ on one comparison support that end at the same
+current practice quotient; a held-out challenge family; complete endpoint-conditioned trial
+populations and their repair-capacity distributions.
+\emph{Certificate.} A complete status record over eight statuses: support confound, artifact, flat,
+flattenable, currentizable slack, dissipative, coherent adaptability, adaptability rejected; with the
+controls for artifact, flattening, currentization, continuation, support confounding and bounded
+perturbation.
+\emph{Conclusion.} The statuses are mutually exclusive. Coherent-adaptability evidence yields that the
+two endpoints are equivalent for every current event, and two claim-linked probability records for
+the same challenge class with different probabilities.
+\end{schema}
+
+\emph{Meaning.} Two histories that look the same now are recorded as leaving different future
+repair capacity, after every declared control has failed to explain the difference away; the
+difference is read from the record, not identified as an effect of the route.
+\emph{Example.} Two routes to current-event-equivalent endpoints give repair probabilities $3/4$ and
+$1/4$ for the same challenge; six control regimes realize one status each, among them coherent
+adaptability.

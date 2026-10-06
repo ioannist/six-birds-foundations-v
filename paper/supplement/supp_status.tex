@@ -1,0 +1,111 @@
+\section{Formal status}
+\label{supp:status}
+
+\subsection{The library}
+
+The Lean~4 library has six modules for the definitions D1--D6, fifteen for the entries E1--E16 (E6
+and E9 share one) and twenty for the instances. It uses the vendored Lean interfaces of \FoundIII{},
+of the adequacy-residual development and of the holonomy development, imports no other external
+library, contains no \texttt{sorry}, and declares no axioms of its own. The first-version capacity
+measure of E2 and the statements that use it are part of the library; the main paper states which
+of them are vacuous.
+
+\subsection{Axioms}
+
+\Cref{tab:axioms} gives, for every theorem named in \Cref{tab:concordance}, the axioms reported by
+\texttt{\#print axioms}. The record for the definition and entry modules is dated 2 September 2026
+and covers 187 theorems of those modules; 98 of them use no axiom. The record for the instance
+modules is the transcript of 26 September 2026. Only the three standard axioms of Lean's kernel
+occur.
+
+{\scriptsize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{8.8cm}>{\raggedright\arraybackslash}p{3.6cm}l@{}}
+\caption{Axioms of the theorems in the concordance.}\label{tab:axioms}\\
+\toprule
+\textbf{Declaration} & \textbf{Axioms} & \textbf{Record} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Declaration} & \textbf{Axioms} & \textbf{Record} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\input{supplement/axiom_rows}
+\end{longtable}
+}
+
+\subsection{Hypotheses carried but not used}
+
+Several Lean statements of the Templates carry a
+hypothesis that their proof does not use; each Lean statement is then a special case of what its
+proof establishes. The cases are: in E1, closed-loop scope and finite forcing in the internalization
+classification; in E2, the audited-repair trigger of forced stratification and the ordered tower
+listing in the declared bound; in E6, the binding budget of \Cref{thm:e6-kkt}; in E9 and the
+arbitration statements, positive costs; in E4, the window's obstruction reduction and idempotence
+stability, and $C' \ne C$ in \Cref{prop:e4-brittle}; in E5, the prior status and the withdrawal event;
+and in E7, the blind-spot, coupling, policy and active-family hypotheses. The printed statements omit
+these hypotheses.
+
+\subsection{What each Lean statement covers}
+
+\Cref{tab:clauses} records, for each entry, which parts of the printed statement the Lean
+declarations establish and which are argued on paper, imported or supplied as certificates.
+
+{\small
+\begin{longtable}{@{}l>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{6.8cm}@{}}
+\caption{Printed statements and their Lean coverage.}\label{tab:clauses}\\
+\toprule
+\textbf{Entry} & \textbf{In Lean} & \textbf{On paper, imported or supplied} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Entry} & \textbf{In Lean} & \textbf{On paper, imported or supplied} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+D1 & all semilattice clauses & admissibility of joint access (not claimed) \\
+D2 & the rational clauses; trace nonnegativity and monotonicity & the chain rule and positive
+semidefiniteness (hypotheses, imported) \\
+D3--D6 & the consistency lemmas & completeness declarations (supplied) \\
+E1 & forced self-extension from an actual-family certificate; the clocked device; exclusivity of five
+statuses; the endogenous branch's fields; the no-generator case; the version-1 certificate is
+uninhabited & the complete status record; the certified inputs \\
+E2 & the declared capacity bound and anti-reindexing; the audited two-level tower on the executed
+device; the priority status partition; the vacuity of the version-1 measure; the self-soundness
+obstruction in weak form & forced stratification (tag order and audit relation supplied) \\
+E3 & executed repair and history-linked reinstatement for the device, and failure without episodes; exclusivity of
+four statuses; packaging of the ablation curves & the maintained-status record; measured curves;
+regress stop (first-version measure) \\
+E4 & compiled status from a full case; exclusivity of five statuses; brittleness from a split pair &
+the compilation case; attribution of the compiled operator to the window \\
+E5 & falsifier refutes collapse; exclusivity of seven statuses; reclassification after withdrawal &
+the rescue inventory; viability kernel and reachability records \\
+E6 & multiplier algebra; slack collapse; sufficiency for capped linear objectives; the numerical
+optimum at a cap & sufficiency under concavity (argued on paper); \Cref{ex:e6-nonconcave,rem:e6-unlinked};
+an instance on a carried probe economy (open) \\
+E7 & exclusivity of three dispositions; preemption signature & the disposition package; alarm fatigue
+(on paper) \\
+E8 & component and summary consequences; exclusivity of seven statuses; capture and its falsifier &
+the envelope derivative (on paper); the meta-audit bound (first-version measure) \\
+E9 & finite argmax; arbitration; selected-move bound; operator saturation & identification of the
+discharge with the operator contraction \\
+E10 & exclusivity of eight, five and four statuses; positive evidence forms; exclusion statements &
+the status records and comparators \\
+E11 & exclusivity of four statuses; conditioning and washout; the blocked-channel witness & the rewrite
+comparison; a bridge from E4 (open) \\
+E12 & intersection of repair-closed parts; disjointness of integrated individuals; the three-state
+individual and the overlapping-maxima example; integrated status from a case; exclusivity of six
+statuses; the singleton candidate & budget and record closure and the coarsest viability boundary
+(certificate); operational selfhood (on paper) \\
+E13 & composition of repair transports; the chain bound; the cross-context instance and the flat
+counterexample; the four judgments from full cases; coercion-null priority & the full communication,
+teaching, coercion and symbolic certificates \\
+E14 & lawful trichotomy; nine statuses; exclusion statements & the outcome inventories \\
+E15 & exclusivity of eight statuses; the reallocation identity derived from exhaustion; off-inventory
+flows & the alternation case \\
+E16 & exclusivity of eight statuses; current-event equivalence and unequal probabilities from the
+record; regression statements & the status record; any causal reading (not claimed) \\
+\end{longtable}
+}

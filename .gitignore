@@ -1,0 +1,88 @@
+# Lean build artifacts
+.lake/
+**/.lake/
+*.olean
+*.ilean
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Local agent and project-management workspaces. These are intentionally kept
+# on developer machines but are not part of the public research surface.
+/.agents/
+/.claude/
+/LANDING_PLAN.md
+/review_requests/
+/kb/
+/docs/PRESHIP_*.md
+
+# Retired paper-planning and submission working files. Keep local copies, but
+# do not add them to public commits.
+/paper/external_citation_bibliography.md
+/paper/notes/
+/paper/figures/*_template.tex
+/paper/tables/*_template.tex
+/paper/submission/*-template.*
+/paper/submission/zenodo-metadata.json
+/paper/submission/zenodo-release.json
+/scripts/make_review_zip.sh
+
+# Retired external-review archives.
+six-birds-foundations-v_v*.zip
+# Legacy name, kept so pre-rename artifacts stay ignored.
+six-birds-cognition_v*.zip
+
+# OS/editor cruft
+.DS_Store
+
+# Sibling papers checkout (separate repo: ioannist/six-birds-papers).
+# Present locally as a symlink or a nested clone; never tracked here.
+/six-birds-papers
+
+# Agent drafting guides and rewrite plans (kept on disk)
+/paper/notation_and_terminology.md
+/docs/READABILITY_*.md
+
+# Editor noise
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Local secrets and credentials (keep only an explicit example file)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.netrc
+.pypirc
+credentials*.json
+*secret*
+*token*.txt
+
+# Local agent, prompt, transcript and session state (any depth)
+**/.agents/
+**/.codex/
+**/.claude/
+**/.cursor/
+**/.aider*
+**/.continue/
+**/.specstory/
+**/.windsurf/
+**/.codex_thread_id*
+/memory/
+/prompts/
+/skills/
+**/transcripts/
+**/rollout-*.jsonl
+**/*.transcript*
+**/CLAUDE.local.md
+**/.claude.json

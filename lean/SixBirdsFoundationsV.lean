@@ -1,0 +1,58 @@
+import SixBirdsFoundationsV.Definitional.CarriedRecord
+import SixBirdsFoundationsV.Definitional.ClosedLoopScope
+import SixBirdsFoundationsV.Definitional.ESystem
+import SixBirdsFoundationsV.Definitional.ProbeEconomy
+import SixBirdsFoundationsV.Definitional.RepairJoin
+import SixBirdsFoundationsV.Definitional.PredictiveSurplus
+import SixBirdsFoundationsV.Laws.E6E9PricedAccess
+import SixBirdsFoundationsV.Laws.E7Alarm
+import SixBirdsFoundationsV.Laws.E1Internalization
+import SixBirdsFoundationsV.Laws.E2BoundedReflexivity
+import SixBirdsFoundationsV.Laws.E3SelfMaintainingReclosure
+import SixBirdsFoundationsV.Laws.E4RepairCompilation
+import SixBirdsFoundationsV.Laws.E5ReclosureCollapse
+import SixBirdsFoundationsV.Laws.E8ControlPrice
+import SixBirdsFoundationsV.Laws.E10CognitiveDemarcation
+import SixBirdsFoundationsV.Laws.E13RepairTransport
+import SixBirdsFoundationsV.Laws.E11InstitutionalRewrite
+import SixBirdsFoundationsV.Laws.E12Individuation
+import SixBirdsFoundationsV.Laws.E14Reconsolidation
+import SixBirdsFoundationsV.Laws.E15OfflineReclosure
+import SixBirdsFoundationsV.Laws.E16Adaptability
+import SixBirdsFoundationsV.Instances.E6Affine
+import SixBirdsFoundationsV.Instances.E12Singleton
+import SixBirdsFoundationsV.Instances.E12Semantic
+import SixBirdsFoundationsV.Instances.E2TaggedIds
+import SixBirdsFoundationsV.Instances.E13Contexts
+import SixBirdsFoundationsV.Instances.E13Semantic
+import SixBirdsFoundationsV.Instances.SpikeModel
+import SixBirdsFoundationsV.Instances.E2Declared
+import SixBirdsFoundationsV.Instances.E2TwoLevel
+import SixBirdsFoundationsV.Instances.E2ConcreteAudit
+import SixBirdsFoundationsV.Instances.E2EventTower
+import SixBirdsFoundationsV.Instances.E3Episode
+import SixBirdsFoundationsV.Instances.E3Executed
+import SixBirdsFoundationsV.Instances.E2Downstream
+import SixBirdsFoundationsV.Instances.E15BudgetIdentity
+import SixBirdsFoundationsV.Instances.E1ExecutedFamily
+import SixBirdsFoundationsV.Instances.E6Capped
+import SixBirdsFoundationsV.Instances.E6AtCaps
+import SixBirdsFoundationsV.Instances.E1ForcingVacuity
+import SixBirdsFoundationsV.Instances.E1Periodic
+import SixBirdsIII
+import Xi.AdequacyResidual
+import Xi.Currency
+import Xi.DataProcessing
+import Xi.Obstruction
+import Xi.OptimalResidual
+import Xi.Projection
+import Xi.Promotion
+import Xi.StandingHypotheses
+import Xi.StrictExtension
+
+/-!
+Foundations V Lean root.
+
+The root imports the Foundations V authored declarations plus the vendored
+Foundations III and Xi support surface.
+-/

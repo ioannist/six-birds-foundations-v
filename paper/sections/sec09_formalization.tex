@@ -1,0 +1,40 @@
+\section{Formalization}\label{sec:lean}
+
+The definitions D1--D6, the general statements of E1--E16 and the laws and instances of
+\Cref{sec:concrete} are checked in Lean~4 \citep{DeMouraUllrich2021}, in a library with no external
+dependencies beyond the vendored interfaces of the earlier papers of the series. The library builds
+without \texttt{sorry} and declares no axioms. Following \citet{Pollack1998}, what a reader must
+trust is the kernel and the statements; \Cref{supp:concordance} maps every numbered result of this
+paper to its Lean declarations, file and line, so that each statement can be compared with the
+printed one.
+
+\paragraph{Axioms.} Every declaration uses at most the three standard axioms \texttt{propext},
+\texttt{Quot.sound} and \texttt{Classical.choice}; the record for each theorem is in
+\Cref{supp:status}.
+
+\paragraph{What each checked statement covers.}
+\begin{itemize}
+  \item Definitions: \Cref{prop:d1,prop:d2} and \Cref{lem:d3,lem:d4,lem:d5,lem:d6}. In
+    \Cref{prop:d2} the chain rule and positive semidefiniteness are hypotheses.
+  \item Laws and instances: \Cref{prop:device-step,thm:e3-episode,prop:e2-self,thm:e2-declared,thm:e2-tower,prop:e1-forcing,thm:e1-clocked,prop:e12-structure,thm:e12-repair,prop:e12-overlap,thm:e13-chain,thm:e13-cross,prop:e13-flat}.
+    The converse of \Cref{thm:e3-episode} is checked for the form of the definition that requires
+    only the move entry. \Cref{prop:e2-self} is checked in the weaker form that the classifier does
+    not accept the claim. In \Cref{thm:e13-chain} the payment of the composite is the sum by
+    definition.
+  \item General theorems: \Cref{thm:e6-kkt,thm:e6-caps,thm:e9,prop:e9-saturation,prop:e15-identity,prop:e4-brittle},
+    with the numerical instance \Cref{thm:e6-atcap} of \Cref{thm:e6-caps}. The
+    identity of \Cref{prop:e15-identity} is derived from the two exhaustion equations and the gate.
+  \item Certificate specifications and definitions: the Templates of \Cref{sec:templates} and
+    \Cref{supp:templates},
+    \Cref{prop:e12-singleton}, and \Cref{lem:e5,lem:e8}, each exactly as printed: the certificate is
+    a hypothesis, and the conclusion is derived from it.
+\end{itemize}
+
+\paragraph{Argued on paper only.} \Cref{prop:e6-sufficient,ex:e6-nonconcave,rem:e6-unlinked}; the
+envelope reading of E8; alarm fatigue (E7.1); and operational selfhood (E12.1).
+
+\paragraph{Declared propositions.} Formedness of a package and completeness of record, ledger and
+history inventories are propositions supplied with the data. Lean checks what follows from them,
+not that they hold of a real system. In the repair device and the clocked device they are declared
+true, which is why their instances are weak. The instance of E6 is numerical and carries no ledger
+records.

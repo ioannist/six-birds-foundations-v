@@ -1,0 +1,213 @@
+\section{Non-implications}
+\label{supp:nonimpl}
+
+\Cref{tab:nonimpl} lists, for each entry, statements that the results do not support, with the
+separating example or the missing hypothesis. A \emph{separating example} is a record that satisfies
+the stated hypotheses and fails the tempting conclusion; the examples marked \emph{finite} are
+realized in the finite computations of \Cref{supp:evidence}, and the others are stated here.
+\Cref{tab:exclusions} lists the exclusion statements checked in Lean: each says that, for one
+claim, raw evidence of a higher-priority kind excludes a set of lower judgments.
+
+{\small
+\begin{longtable}{@{}l>{\raggedright\arraybackslash}p{5.2cm}>{\raggedright\arraybackslash}p{8.0cm}@{}}
+\caption{Non-implications and separating examples.}\label{tab:nonimpl}\\
+\toprule
+\textbf{Entry} & \textbf{Does not follow} & \textbf{Separating example or reason} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Entry} & \textbf{Does not follow} & \textbf{Separating example or reason} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+D1 & The join is admissible as an access object. & The product construction is unrestricted;
+admissibility of joint access is a separate condition of \FoundIV{}. \\
+D1 & The join reduces an obstruction. & $q \vee q$ has the fibres of $q$; nothing new is separated. \\
+D2 & A finer quotient has smaller closure deficit. & Refinement can worsen the score; the comparison is
+a hypothesis. \\
+D2 & Scores at different horizons are comparable. & They refer to different futures; a bridge is
+needed. \\
+D3 & A committed-state record with a false generation flag is carried. & The flag is a conjunct. \\
+D3 & A fallback copy of a carried record is carried. & Provenance attaches to the entry, not the
+payload value. \\
+D3 & Every listed record carried makes the instrument carried. & Without the completeness declaration it
+is not. \\
+D4 & A lawful step shows recurrence or maintenance. & The step is one lawful transition. \\
+D4 & A successful readout after the fact replaces a missing detection, gate, transition or audit. &
+Each is a separate conjunct (\Cref{lem:d4}). \\
+D5 & A closed-loop history contains a repair. & The empty history is closed-loop. \\
+D6 & Turning a dormant catalog probe from weight zero to positive weight is allocation. & It changes the
+support and is an acquisition with its own obligations. \\
+E1 & Every persistent system has a carried repair source. & Persistence without discharge can be slack or stressed;
+the status record decides. \\
+E1 & External discharge is self-repair. & An externally supplied repair that reduces the obstruction
+makes $\Delta_{\mathrm{endo}}$ nonempty (finite). \\
+E1 & Every discharge is strict novelty. & Strictness needs the genericity certificate; a
+same-family relabel discharges nothing (finite). \\
+E2 & Every finite E-system has a capacity-bounded self-model. & The first-version measure exists for
+no system with an instrument level (\Cref{prop:e2-v1-vacuous}); the bound needs a declared measure. \\
+E2 & An audited repair forces a new level. & The next level is a certified input. \\
+E2 & The bound gives an optimal tower depth. & Only with a cost and error model; in the finite example
+the optimum depth $2$ is a property of the declared loss. \\
+E3 & Object persistence shows maintained closure. & A crystal-grade control persists with no
+maintenance operator (finite). \\
+E3 & A reinstatement shows a repair episode. & The first-version condition holds with an empty history. \\
+E3 & The ablation separation predicts the curves. & The curves are measured inputs. \\
+E4 & Repetition is compilation. & A window that reduces the obstruction but drifts, and one that is
+stable but does no work, both fail (finite). \\
+E4 & Compilation is always brittle. & Brittleness needs an exhibited out-of-class split pair. \\
+E5 & Activity is viability. & A carrier with an active kernel and no rescue move is
+collapsed-recoverable (finite). \\
+E5 & Over-budget descent refutes collapse. & The falsifier must be admissible within budget (finite). \\
+E5 & Subsidy withdrawal causes collapse. & The post-withdrawal status is classified afresh; viability
+is possible (finite). \\
+E6 & The multiplier witness identifies an optimum. & \Cref{ex:e6-nonconcave}; and, for a linear
+objective, \Cref{rem:e6-unlinked}, where the supplied marginals are not the objective's derivatives. \\
+E6 & A binding budget gives a positive price. & A flat objective spends the budget at price zero. \\
+E6 & Budget spend equals the objective. & The two are separate data; the numerical optimum at a cap
+supplies no carried spend record and no link between spend and objective. \\
+E7 & A large residual triggers an alarm. & Viability coupling is a separate predicate; uncoupled
+protocol artifacts are discounted (finite). \\
+E7 & Winning the attention allocation is an alarm. & An alarm changes the constraint set. \\
+E7 & A carrier must alarm. & The package supplies the disposition. \\
+E8 & Every control signal equals a multiplier. & Only a component is claimed. \\
+E8 & A budget rise is capture. & A rise with a falling residual is discharge (finite). \\
+E8 & A report flag about one move shows capture by another. & Lineage must match the classified move. \\
+E9 & The maximizer is the system's choice. & The policy needs its own argmax certificate. \\
+E9 & Acquisition installs a repair. & Only a later record linking it to an obstruction does. \\
+E10 & A decodable state is cognitive. & Decodable correlate status. \\
+E10 & Repair and gate evidence together give cognitive status. & Structural-path evidence may coexist
+with an accepted gate; the higher-priority negations are needed. \\
+E10 & A restriction recorded after the outcome is an intention. & Post-hoc status. \\
+E10 & Reward correlation is a goal. & Reward-proxy status. \\
+E11 & A probability change is a rewrite. & Conditioning status on unchanged support. \\
+E11 & A structural downward path is an accepted channel. & The imported blocked-channel witness. \\
+E11 & A compiled repair is constitutive. & No bridge from E4 to the constitutive status is proved. \\
+E12 & A membrane is a boundary. & A candidate may close all three flows while a declared viability probe
+fails to descend through the membrane quotient. \\
+E12 & A shared database is a self. & The probes of all four domains must descend through one carried ledger. \\
+E12 & Budget closure can be dropped. & A subsidiary closes repair and records but not budget (finite). \\
+E13 & Force and an empty census give coercion null. & Absence of committed receiver repair and an
+unchanged obstruction are separate. \\
+E13 & A context family of length two has two contexts. & The family type allows a repeated entry. \\
+E13 & Behaviour change is teaching. & Teaching needs source-absent receiver-carried repair. \\
+E14 & Mutation under retrieval is an error. & Repair and coarsening are lawful outcomes. \\
+E14 & A changed record is a silent rewrite. & Only with no lawful outcome, no disposition and empty
+mutation provenance. \\
+E14 & A disposition tag realizes an outcome. & Unrealized-disposition status. \\
+E15 & Growing debt makes offline phases necessary. & Necessity is a field of the certificate. \\
+E15 & $a \le \kappa_{\mathrm{on}}$ gives online sufficiency. & The full online-sufficient case is
+required. \\
+E15 & A cascade shows a skipped phase. & The cascade records an all-online deficit only. \\
+E16 & Unequal probabilities show that a route creates capacity. & No intervention bridge is proved. \\
+E16 & Equality for another pair shows flatness. & Only the claim-linked pair counts. \\
+E16 & A protocol effect is adaptability. & The control battery must be passed. \\
+\end{longtable}
+}
+
+{\small
+\begin{longtable}{@{}l>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{8.8cm}@{}}
+\caption{Exclusion statements checked in Lean.}\label{tab:exclusions}\\
+\toprule
+\textbf{Entry} & \textbf{Higher-priority evidence} & \textbf{Excluded for the same claim} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Entry} & \textbf{Higher-priority evidence} & \textbf{Excluded for the same claim} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+E5 & revived & subsidized, suspended, viable, stressed, both collapsed statuses \\
+E10 & schedule trap & scaffolding, structural path only, decodable correlate, repair without gate,
+gate without repair, cognitive, non-cognitive \\
+E10 & decodable correlate; schedule trap & cognitive \\
+E10.1 & post-hoc restriction & approximate support, target-incoherent, intention, not intention \\
+E10.2 & reward proxy only & route unstable, goal, not goal \\
+E13 & coercion null & symbolic, taught, communicated, scaffolded or primed, influence only, transport
+rejected \\
+E14 & outcome collision & record repaired, record coarsened, statused unresolved \\
+E14 & silent rewrite; ordinary read & the three lawful outcomes \\
+E15 & deficit-online counterexample & decorative offline, duty-cycle mismatch, skipped cascade,
+alternation required, online sufficient, offline optional, rejected \\
+E15 & decorative offline; duty-cycle mismatch & alternation required \\
+E15 & a flow record outside the inventory & genuine and decorative offline phases with that record \\
+E16 & support confound & artifact, flat, flattenable, currentizable slack, dissipative, coherent
+adaptability, rejected \\
+E16 & artifact; flat; flattenable; currentizable slack; dissipative & coherent adaptability \\
+\end{longtable}
+}
+
+Each exclusion is proved from explicit negations of higher-priority evidence in the lower branches
+together with uniqueness of the status for one claim. None of them derives the completeness of an
+inventory, the honesty of a comparator, a source classification or a causal identification.
+
+\subsection{Further tempting inferences}
+\label{supp:more-inferences}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{5.6cm}>{\raggedright\arraybackslash}p{8.6cm}@{}}
+\caption{Further tempting inferences and what blocks them.}\label{tab:more-inferences}\\
+\toprule
+\textbf{Tempting inference} & \textbf{Why it fails} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Tempting inference} & \textbf{Why it fails} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Refining the quotient raises the predictive surplus. & Refinement can worsen a closure score; the
+surplus inequalities need their comparison and chain-rule hypotheses (\Cref{prop:d2}). \\
+The device produced its own history. & The history and its associations are declared with the
+device; \Cref{thm:e3-episode} checks that they agree with the executed step. \\
+The link in \Cref{thm:e3-episode} carries information about which defect was repaired. & The defect
+sort of the device has one element; a richer defect model is needed (\Cref{sec:scope-open}). \\
+Every finite E-system has a bounded, non-final self-model. & The capacity bound needs a declared
+measure (\Cref{thm:e2-declared}). \\
+An audited repair forces a new audit level. & The order of the level tags and the next level's audit
+relation are a certified input (\Cref{sec:capacity}). \\
+E2 gives an optimal audit depth. & Only with a cost and error model. \\
+The budget spend equals the value of the allocation. & They are separate data; the multiplier
+witness of \Cref{thm:e6-kkt} names neither an objective nor a feasible set. \\
+The individual of \Cref{thm:e12-repair} is found from the dynamics alone. & Maximality is relative to
+the declared boundary regions (\Cref{def:e12-setting}). \\
+The argmax of \Cref{thm:e9} is what the system chooses. & The theorem constructs a maximizer; a
+policy's choice is shown optimal by its own argmax certificate. \\
+A strict acquisition installs a repair. & Only a later record linking it to an obstruction does. \\
+Offline phases are necessary whenever debt grows faster than online capacity. & Necessity is part of
+the E15 certificate; the scalar deficit alone does not give it, and $a \le \kappa_{\mathrm{on}}$
+alone does not give online sufficiency (\Cref{tmpl:e15}). \\
+A skipped-offline cascade shows that a scheduled phase was skipped. & It records an all-online
+deficit with growing debt, a timed alarm and later stress (\Cref{tmpl:e15}). \\
+Unequal repair probabilities after two routes show that a route creates capacity. & The E16 record
+reports the difference; a causal reading needs an intervention bridge (\Cref{tmpl:e16}). \\
+The internalization record constructs the repair family. & The family is a field of the endogenous
+branch (\Cref{tmpl:e1}). \\
+A compiled repair is brittle on every other class. & \Cref{prop:e4-brittle} certifies only an
+exhibited split pair. \\
+The alarm Template shows that a carrier must alarm. & The disposition is supplied by the package
+(\Cref{tmpl:e7}). \\
+A decodable internal state is cognitive. & A readable state without certified difference-making is
+a decodable correlate (\Cref{tmpl:e10}). \\
+Repair, gate and provenance evidence together give the cognitive status. & The six higher-priority
+kinds of evidence must also be absent (\Cref{tmpl:e10}). \\
+A signal that tracks a constraint is its shadow price. & Linkage, held-out prediction, stability and
+slack collapse are required (\Cref{def:e8}). \\
+A long run without collapse shows viability. & Collapse is relative to the declared rescue inventory
+and viability probes (\Cref{def:e5}). \\
+A structural downward path is an accepted channel. & The blocked-channel witness imported from
+\FoundIII{} separates them (\Cref{tmpl:e11}). \\
+A compiled repair is constitutive. & No theorem maps an E4 compilation to the constitutive status of
+E11. \\
+Transport across two contexts gives symbolic repair. & Symbolic repair asks that a token reactivate
+a carried repair in every context of a declared family; \Cref{thm:e13-cross} transports a repair
+relation, not a token (\Cref{tmpl:e13}). \\
+Force and an empty census give a coercion null. & The absence of committed receiver repair and an
+unchanged obstruction are separate conditions (\Cref{tmpl:e13}). \\
+A changed record after retrieval is a silent rewrite. & Only with no lawful outcome, no typed
+disposition and no mutation provenance (\Cref{tmpl:e14}). \\
+\end{longtable}
+}

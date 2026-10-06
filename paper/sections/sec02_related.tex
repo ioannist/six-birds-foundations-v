@@ -1,0 +1,67 @@
+\section{Related work}\label{sec:related}
+
+\paragraph{The Six Birds series.} \FoundI{} defines finite theory packages and the six structural
+roles P1--P6 \citep{Tsiokos2026FoundI}, and \FoundII{} supplies admissibility and quotient discipline
+\citep{Tsiokos2026FoundII}. \FoundIII{} gives a finite audited interaction calculus: source-of-truth
+tags, promotion gates, top-down channels, and the theorem that an instrument cannot certify its own
+soundness at its own level \citep{Tsiokos2026FoundIII}. \FoundIV{} is the static catalog of
+fifty-two laws whose split-pair descent criterion and source-refinement repair are the starting
+point here \citep{Tsiokos2026FoundIV}. \FoundVI{} returns to an external analyst and studies laws
+about whole runs \citep{Tsiokos2026FoundVI}; nothing in this paper depends on it. The adequacy
+residual and its chain rule \citep{Tsiokos2026Adequacy}, currencies as constraints and shadow
+prices \citep{Tsiokos2026Currency}, hiddenness and exposure \citep{Tsiokos2026Hiddenness}, the
+probe-enlargement problem \citep{Tsiokos2026NeedleKiller}, predictive quotients and route
+transport \citep{Tsiokos2026Holonomy}, agents and viability kernels \citep{Tsiokos2026Agents},
+institutions as strict extensions \citep{Tsiokos2026Institutions} and the reflexive audit loop
+\citep{Tsiokos2026Reflexive} are used where the laws need them.
+
+Five questions left open in those papers motivate the catalog. \FoundII{} deferred the case of an
+instrument whose soundness and completeness are at issue and which is itself part of the system.
+The reflexive development kept its audit loop on the analyst's side. The probe-enlargement problem
+asked which probe to add under which budget. The currency development named attention as a price
+and the self-regulating accounting cell but did not develop them. The institutions development
+asked for a carrier that acquires, compiles and reactivates its own repairs. These questions are
+taken up, in order, by E2; by E1 and E3; by E9; by E6 and E8; and by E4 and E13. None of them is
+answered in full here.
+
+\paragraph{Biological autonomy.} Theories of autopoiesis, closure to efficient causation and
+organizational closure describe living systems as maintaining the constraints that maintain them
+\citep{MaturanaVarela1980,Rosen1991,MorenoMossio2015,MonteilMossio2015}. This paper does not
+identify those theories with its definitions. It takes from them one distinction: the persistence
+of an object is a different condition from the reinstatement of the apparatus that keeps it viable.
+E3 states the two as separate certificates. Biological individuality \citep{Clarke2010,GodfreySmith2009},
+trained immunity \citep{NeteaEtAl2016}, allostasis \citep{SterlingEyer1988} and bioelectric pattern
+memory \citep{PezzuloLevin2015} appear only as readings that an application would have to support
+with the data of \Cref{sec:scope}.
+
+\paragraph{Regulation, optimization and memory.} Ashby's law of requisite variety and the good
+regulator theorem are conceptual neighbours of E2 \citep{Ashby1956,ConantAshby1970}. E6 recovers
+the Karush--Kuhn--Tucker conditions and the shadow-price reading of a multiplier
+\citep{BoydVandenberghe2004}; rational inattention is a special case when discharge is measured by
+mutual information \citep{Sims2003}. The firm as a boundary chosen to economize on transactions and
+the Lucas critique are neighbours of E12 and E11 \citep{Coase1937,Lucas1976}. Reconsolidation after
+retrieval and offline consolidation are the neuroscience reference points for E14 and E15
+\citep{NaderSchafeLeDoux2000,Dudai2004,WalkerStickgold2006}. None of these results is re-proved.
+
+\paragraph{Provenance of the results.} \Cref{tab:provenance} gives the origin of the results that draw on
+earlier work, with the source and what is added here; the imported tools are listed in
+\Cref{sec:intro-claims}.
+
+\begingroup\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{8.6cm}@{}}
+\caption{Provenance of the results.}\label{tab:provenance}\\
+\toprule
+Result & Category & Source and what is new \\
+\midrule
+\endfirsthead
+\toprule
+Result & Category & Source and what is new \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\cref{prop:e2-self} & new; same-level self-soundness theorem imported & The same-level self-audit theorem of \FoundIII{} restricted to a carried level, with the weaker conclusion that the verdict is not \emph{accepted} \citep{Tsiokos2026FoundIII}. \\
+\cref{thm:e6-kkt}, \cref{prop:e6-sufficient}, \cref{thm:e6-caps} & new; KKT conditions and concave sufficiency imported & \Cref{thm:e6-kkt} is the complementary-slackness reading of the Karush--Kuhn--Tucker conditions; the observation that a positive price needs a selected probe of positive discharge, and not only a binding budget, is the one point added here. \Cref{prop:e6-sufficient} is their standard sufficiency for concave problems \citep[\S 5.5.3]{BoydVandenberghe2004}; it is argued on paper and not formalized. \Cref{thm:e6-caps} is a separate sufficiency result, proved with cap multipliers, for capped linear objectives, which can fail to be differentiable at a cap, as in \Cref{thm:e6-atcap}. \\
+\cref{thm:e9}, \cref{prop:e9-saturation} & new; saturation specialized & Existence of a maximum over a finite list is elementary; the saturation proposition is the same-family corollary of the adequacy-residual development specialized to the trace, with the chain rule as a hypothesis \citep{Tsiokos2026Adequacy}. The question it answers, which probe to add and at what price, is the probe-enlargement problem \citep{Tsiokos2026NeedleKiller}. \\
+\end{longtable}
+\endgroup

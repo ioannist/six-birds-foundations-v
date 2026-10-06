@@ -1,0 +1,33 @@
+\section{Consistency lemmas of the definitions}
+\label{supp:lemmas}
+
+The following lemmas are proved by projecting the fields of the definitions D3--D6 of the main paper
+or by contradiction with one of them. Their use is that later certificates cannot silently omit a
+detector, a gate, a transition, an audit or a source check.
+
+\begin{lemma}[source exclusion]\label{lem:d3}
+A record whose source tag is fallback, independent-pair witness, simulation trace, ablation record,
+unknown or contradictory is not carried, whatever its flags. A record reached through a step outside
+the declared scope is not carried. An instrument whose record list is not declared complete is not a
+carried instrument, even if every listed record is carried.
+\end{lemma}
+
+\begin{proof}
+Each clause contradicts one conjunct of \Cref{def:d3}.
+\end{proof}
+
+\begin{lemma}[repair-step consistency]\label{lem:d4}
+A lawful repair step entails detection, gate permission, a kernel transition and re-audit; a
+candidate step lacking any one of the four is not lawful. No repair move has sort P6.
+\end{lemma}
+
+\begin{lemma}[closed-loop consistency]\label{lem:d5}
+In a closed-loop history every listed repair entry is carried. One listed entry with source tag
+fallback, unknown or contradictory, or with a false generation or scope flag, defeats closed-loop
+scope. A fallback entry is not carried even when a different entry with the same payload is.
+\end{lemma}
+
+\begin{lemma}[probe-move consistency]\label{lem:d6}
+A lawful allocation does not change the support; a lawful acquisition is strict; a lawful retirement
+removes a probe that was active; and an operator-saturated probe is not a strict acquisition.
+\end{lemma}

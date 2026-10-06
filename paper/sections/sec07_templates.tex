@@ -1,0 +1,121 @@
+\section{Certificate specifications}\label{sec:templates}
+
+The remaining entries are certificate specifications (\Cref{sec:setting-status}), except E5 and E8,
+which are definitions with consistency lemmas. Each certificate specification has a Lean statement of
+the form ``a complete certificate yields the classification'': the certificate is a
+carried status record asserting that one branch of the classification holds for a claim, and Lean
+proves that the branches are mutually exclusive and derives the fields the branch requires.
+Supplying the certificate for a real system is the open obligation. In every case the certificate
+is a complete, branch-valid status record; \Cref{tab:templates} names, for each entry, the evidence
+its principal branch requires. This section
+prints two in full, E3 and E13, which complement the laws of \Cref{sec:concrete}. The
+others are printed, with meanings and examples, in \Cref{supp:templates}, and their full field lists
+are in \Cref{supp:fields}.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{4.9cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\caption{Certificate specifications and definitions.}\label{tab:templates}\\
+\toprule
+\textbf{Entry} & \textbf{Classification} & \textbf{Evidence for the principal branch} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Entry} & \textbf{Classification} & \textbf{Evidence for the principal branch} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+E1 internalization & slack, externally subsidized, endogenously repairing, stressed, collapsing &
+endogenously repairing: a binding challenge, the repair family, and no discharging entry of the claim
+with a forbidden source, missing generation, scope or carriedness, an off-kernel move or an omitted
+audit (\Cref{tmpl:e1}) \\
+E4 repair compilation & exposed, compiling, compiled, mis-compiled, decompiled & compiled: a compilation case in
+which the repeated repair enters lower support (\Cref{tmpl:e4}) \\
+E5 reclosure collapse & seven statuses, among them collapsed-recoverable, collapsed-irreversible and revived & collapsed: a complete
+inventory of rescue candidates, none admissible within budget and viability-descending
+(\Cref{def:e5}) \\
+E7 alarm & currentization, boundary nonclosure, lawful discount & a unique total disposition for the
+specified viability-coupled blind spot and horizon (\Cref{tmpl:e7}) \\
+E8 control price & seven statuses of a control signal & component-lawful: the shadow-price
+components of a carried control signal (\Cref{def:e8}) \\
+E10 cognitive demarcation, intention, goal & eight, five and four statuses & cognitive, intention, goal:
+status records and comparators that exclude schedule traps, post-hoc intentions and reward proxies
+(\Cref{tmpl:e10}) \\
+E11 institutional rewrite & inert, conditioning, stack-active, constitutive & constitutive: structural
+evidence of a changed lower layer and a separate compilation certificate (\Cref{tmpl:e11}) \\
+E12 individuation, full classification & integrated, federated, subsidiary, platform-dependent,
+shadow, non-individuated & integrated: repair, budget and record
+closure, a coarsest viability boundary, maximality and no overlapping rival (\Cref{tmpl:e12}) \\
+E14 reconsolidation & nine statuses; the lawful ones are record repaired, record coarsened and statused unresolved & a lawful disposition:
+complete inventories of repair, coarsening and statused outcomes, provenance for every mutation, and
+the exclusion of the defect statuses (\Cref{tmpl:e14}) \\
+E15 offline reclosure & eight statuses, among them alternation required and online sufficient & alternation
+required: a strict online deficit, recurrent offline phases with exchange gated to zero and linked debt
+discharge, and a duty cycle within a declared tolerance (\Cref{tmpl:e15}) \\
+E16 adaptability & eight statuses, among them coherent adaptability and flat & coherent adaptability:
+a record that two routes agree now and differ in future repair capacity, with its controls
+(\Cref{tmpl:e16}) \\
+\end{longtable}
+}
+
+\subsection{E3: maintained closure}\label{sec:tmpl-e3}
+
+\begin{schema}[E3: maintained closure]\label{tmpl:e3}
+\emph{Data.} A running package with apparatus $\App_t$, a maintenance operator $\mathfrak m$ and a
+reinstatement record.
+\emph{Certificate.} A complete maintenance status record with four statuses: crystal-grade,
+maintained, subsidized and decaying closure. The maintained branch contains an object fixed point and
+record coherence, a carried maintenance operator, the reinstatement condition of
+\Cref{sec:episode}, a maintained step (apparatus distance at most $\varepsilon$ without challenge, a
+linked lawful repair step under challenge), an empty maintenance obstruction and no external
+reinstatement witness.
+\emph{Conclusion.} The four statuses are mutually exclusive, and the maintained branch yields both
+object closure and apparatus reinstatement.
+\end{schema}
+
+\emph{Meaning.} A persisting object is classified by who keeps its apparatus in place.
+\emph{Crystal-grade} closure is persistence with a stable apparatus and no maintenance operator or
+reinstatement at all, as in a crystal; maintained closure has the system's own reinstatement;
+subsidized closure has an external or fallback reinstatement; decaying closure has apparatus drift
+above tolerance and no valid reinstatement. The maintenance obstruction is nonempty if a required
+apparatus component is absent, has a forbidden source, fails generation or scope, is off-kernel, or
+is omitted from the declared audit. The history-linked form of reinstatement
+(\Cref{def:episode-linked}) is the one with a proved instance. A further Lean statement packages
+measured apparatus and object distance curves after the maintenance channel is cut.
+\emph{Example.} After the maintenance channel is cut, the apparatus distance runs
+$0, 1/8, 3/8, 1/2, 5/8, 3/4$ and the object distance $0, 1/16, 1/16, 1/8, 3/16, 5/16$; they separate
+first at time $2$. A crystal-grade control never separates.
+
+\subsection{E13: repair transport}\label{sec:tmpl-e13}
+
+\begin{schema}[E13: repair transport]\label{tmpl:e13}
+\emph{Data.} E-systems $A$ and $B$ joined by an audited, paid bridge; a token $s$; a challenge class
+$\mathcal C$ shared by source and receiver records.
+\emph{Certificate.} One of four full cases, with a complete status record over coercion null,
+symbolic, taught, communicated, scaffolded-or-primed, influence-only and transport-rejected:
+\begin{enumerate}
+  \item \emph{communication} (E13.1): $s$ induces a paid, interface-mediated, role-preserving
+    carried receiver repair with a strict reduction of $B$'s obstruction in class $\mathcal C$;
+  \item \emph{teaching} (E13.2): communication, and at a later probe with $A$ absent and the bridge
+    closed, the repair is carried by $B$ from its own committed state;
+  \item \emph{coercion null} (E13.3): a force comparator classifies the interaction as fully forced,
+    a carried free-response census is empty, no $B$-committed transported repair of the token exists
+    and the obstruction is unchanged;
+  \item \emph{symbolic repair} (E13.4): $s$ reactivates a carried, role-preserving, strict repair in
+    every context of a declared family of at least two contexts.
+\end{enumerate}
+\emph{Conclusion.} The corresponding judgment holds, and its case records the absence of raw evidence
+for every higher-priority judgment of the same claim; coercion-null evidence excludes all six lower
+judgments.
+\end{schema}
+
+\emph{Meaning.} A communicated token leaves the receiver with a carried repair that strictly reduces
+its obstruction in the shared class, through a paid, interface-mediated, role-preserving bridge;
+teaching adds that the repair is carried by the receiver from its own committed state when the
+teacher is absent and the bridge is closed. Paid, role-preserving repair transport, the core of the
+communication case, is the law of \Cref{sec:e13-semantic}; its instance transports repair across two
+distinct contexts of one challenge class. The full communication certificate and the teaching,
+coercion-null and symbolic cases remain certificate specifications.
+\emph{Example.} An interaction that a force comparator classifies as fully forced, with a carried
+free-response census that is empty, no receiver-committed transported repair of the token, and an
+unchanged obstruction, is a coercion null.
