@@ -10,17 +10,22 @@ Foundations dependencies used by the paper.
 
 - **Six Birds Foundations V: Endogenous Closure — A Catalog of Structural
   Laws for Living, Cognitive, and Social Systems**, Preprint v2.0,
-  27 September 2026: `paper/main.pdf` with its supplement `paper/supplement.pdf`.
+  6 October 2026: `paper/main.pdf` with its supplement `paper/supplement.pdf`.
+  DOI (v2.0): [10.5281/zenodo.23186908](https://doi.org/10.5281/zenodo.23186908);
   DOI (all versions): [10.5281/zenodo.22248766](https://doi.org/10.5281/zenodo.22248766);
   v1.0 (2 September 2026): [10.5281/zenodo.22248767](https://doi.org/10.5281/zenodo.22248767)
 
 The paper develops an emergence calculus that moves the Six Birds closure
 apparatus onto the carrier itself. An endogenous closure system carries its own instruments, ledgers, repair
 generator, boundary records, and re-audit loop. Six definitions (D1–D6) and
-sixteen laws (E1–E16) organize endogenous repair, bounded self-audit,
-self-maintenance, priced exposure, alarm, probe acquisition, stack rewrite,
-individuation, repair transport, reconsolidation, offline reclosure, and
-adaptability.
+sixteen structural entries (E1–E16) organize endogenous repair, bounded
+self-audit, self-maintenance, priced exposure, alarm, probe acquisition, stack
+rewrite, individuation, repair transport, reconsolidation, offline reclosure,
+and adaptability. The entries are sorted by what is proved: five laws with a
+Lean-checked instance (E1, E2, E3, E12, E13), general theorems, and
+certificate specifications whose open obligation is stated. Version 2 corrects
+version 1 in a revision appendix; in particular, the version-1 E2 capacity
+measure and E1 forcing certificate admit no instance and are replaced.
 
 Living, cognitive, and social systems are candidate realizations of the same
 typed hypotheses, not metaphors for one another. The paper does not establish
@@ -39,16 +44,19 @@ death, welfare, or autonomous evolution.
 - The target-state theorem catalog in `THEOREMS.md`.
 - Public verification and provenance notes under `docs/`.
 
-Appendix A of the paper records which parts of each printed statement are
-covered by Lean and which are justified in prose or by imported results.
+Section 8 of the paper and the supplement's source concordance and formal
+status record which parts of each printed statement are covered by Lean and
+which are argued on paper or imported.
 
 ## Build and Verify
 
-Build the manuscript (also producing `paper/build/main_flat.tex`):
+Build the manuscript and its supplement (also producing
+`paper/build/main_flat.tex` and `paper/build/supplement_flat.tex`); the main
+paper is built again so that its references into the supplement resolve:
 
 ```bash
 cd paper
-latexmk -pdf main.tex
+latexmk -pdf main.tex && latexmk -pdf supplement.tex && latexmk -g -pdf main.tex
 ```
 
 Build the Lean project:

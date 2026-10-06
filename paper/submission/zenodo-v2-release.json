@@ -1,0 +1,17 @@
+{
+  "action": "created new-version draft",
+  "concept_record_id": "22248766",
+  "dashboard_url": "https://zenodo.org/uploads/23186908",
+  "doi": "10.5281/zenodo.23186908",
+  "doi_reservation": {
+    "client": "datacite",
+    "identifier": "10.5281/zenodo.23186908",
+    "provider": "datacite",
+    "verified_via": "rdm_pid_table"
+  },
+  "draft_id": 23186908,
+  "recorded_at": "2026-10-06T11:27:20+00:00",
+  "source_doi": "10.5281/zenodo.22248767",
+  "source_record_id": 22248767,
+  "source_title": "Six Birds Foundations V: Endogenous Closure — A Catalog of Structural Laws for Living, Cognitive, and Social Systems"
+}

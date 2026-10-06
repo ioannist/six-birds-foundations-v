@@ -8,17 +8,16 @@
     "metadata": {
       "keywords": [
         "endogenous closure",
-        "self-maintenance",
-        "biological organization",
-        "cognition",
-        "institutions",
+        "emergence calculus",
         "carried record",
-        "repair",
-        "viability",
-        "attention",
-        "individuation",
-        "adaptive capacity",
-        "Six Birds theory"
+        "self-repair",
+        "self-maintenance",
+        "audit capacity",
+        "Karush-Kuhn-Tucker conditions",
+        "probe acquisition",
+        "certificate specification",
+        "Lean 4",
+        "Six Birds Theory"
       ],
       "custom": {
         "code:codeRepository": "https://github.com/ioannist/six-birds-foundations-v",
@@ -33,7 +32,6 @@
   "citation_policy": {
     "allowed_entries_without_identifiers": [
       "Tsiokos2026FoundIII",
-      "Tsiokos2026FoundVI",
       "Tsiokos2026Holonomy",
       "Tsiokos2026Reflexive",
       "Rosen1991",
